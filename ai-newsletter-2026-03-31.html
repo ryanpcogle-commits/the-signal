@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · March 31, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+    .tag-research { background: #fafafa; color: #444; border: 1px solid #ddd; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your weekly briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 13</span>
+    <span>March 31, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Dario Amodei Called Sam Altman's Statements "Straight Up Lies" — and the Industry Chose Sides</h2>
+    <p class="deck">
+      The DOD vs. Anthropic conflict escalated dramatically this week, with Claude hitting No. 1 on
+      the U.S. App Store, ChatGPT uninstalls surging 295%, and Anthropic's CEO going on the record
+      accusing OpenAI of deception.
+    </p>
+    <p>
+      The feud that started when the Pentagon labeled Anthropic a "supply-chain risk" for refusing
+      to enable mass surveillance and autonomous lethal weapon systems has now cracked the AI industry
+      along a visible fault line. Anthropic CEO <strong>Dario Amodei</strong> publicly called OpenAI's
+      response "safety theater" and described <strong>Sam Altman</strong>'s public statements as
+      "straight up lies" — language unusual even by Silicon Valley standards.
+    </p>
+    <p>
+      The public backlash against OpenAI was swift and measurable. The "#QuitGPT" movement attracted
+      over 2.5 million supporters. ChatGPT uninstalls surged 295% overnight. Claude reached the
+      number-one spot on the U.S. App Store for the first time in the company's history — and
+      Anthropic's annualized revenue is now approaching $19 billion.
+    </p>
+    <p>
+      Caitlin Kalinowski, who led hardware and robotics at OpenAI, resigned over the DoD deal,
+      citing opposition to "domestic surveillance without judicial oversight and lethal autonomy
+      without human authorization." Meanwhile, more than 30 employees from OpenAI and Google
+      DeepMind — including Google chief scientist <strong>Jeff Dean</strong> — filed amicus briefs
+      supporting Anthropic's lawsuit, writing that the government's designation was "an improper and
+      arbitrary use of power that has serious ramifications for our industry."
+    </p>
+    <p>
+      Google is quietly moving into the vacuum. Alphabet is set to provide AI agents to the DoD's
+      3-million-person workforce for unclassified work — a deal the company describes as "immaterial"
+      relative to its $400B+ annual revenue base.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">295%</span>
+      <div class="num-label">ChatGPT uninstall surge overnight after DoD deal</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$19B</span>
+      <div class="num-label">Anthropic annualized revenue — now approaching OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">274+</span>
+      <div class="num-label">AI model releases tracked in March 2026 alone</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-research">Research</span>
+    <h3>Donald Knuth Published a Paper About Claude — and Called It "A Dramatic Advance"</h3>
+    <p>
+      Donald Knuth — the legendary computer scientist behind <em>The Art of Computer Programming</em>
+      and LaTeX — published a paper titled "Claude's Cycles" this month reacting to Claude Opus 4.6
+      solving a complex open problem in graph theory that Knuth himself had been working on. Knuth
+      wrote that the result was "a dramatic advance in automatic deduction and creative problem solving,"
+      marking what may be the most prestigious endorsement any AI system has ever received from a
+      foundational figure in computer science.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google's Gemini 3 Deep Think Lands for Ultra Subscribers — With 77% on ARC-AGI-2</h3>
+    <p>
+      Google activated Gemini 3 Deep Think for Gemini Ultra subscribers this week, with early API
+      access for researchers and enterprise customers. The model is positioned specifically for
+      scientific and engineering workloads — early demos showed it detecting logical flaws in
+      published math papers and optimizing crystal-growth fabrication protocols. Separately, Gemini
+      3.1 Pro scored 77.1% on ARC-AGI-2 with a 1-million-token context window, while Gemini
+      3.1 Flash-Lite delivers 2.5x faster responses at $0.25 per million input tokens. Google also
+      released Lyria 3 and Lyria 3 Pro, its specialized music generation models, alongside the update.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Alibaba's Qwen 3.5 Outscored GPT-OSS-120B on Harvard-MIT Math — With a 9B Model</h3>
+    <p>
+      Alibaba's Qwen team released four dense models (0.8B, 2B, 4B, and 9B parameters) under
+      Apache 2.0 — all natively multimodal with no separate vision adapter and capable of analyzing
+      videos up to two hours long. The benchmark results were striking: the 9B model scored 83.2
+      on the Harvard-MIT math competition benchmark vs. GPT-OSS-120B's 76.7, and 81.7 on GPQA
+      Diamond vs. GPT-OSS-120B's 71.5. A 9-billion-parameter model outperforming a 120-billion-
+      parameter model on graduate-level reasoning is the kind of efficiency gain that reshapes
+      deployment economics.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-research">Research</span>
+    <h3>AlphaEvolve Has Been Quietly Recovering Google's Computing Resources for Over a Year</h3>
+    <p>
+      Google DeepMind revealed that AlphaEvolve — a Gemini-powered coding agent that pairs large
+      language models with evolutionary algorithms — has been deployed silently inside Google's
+      own infrastructure for over 12 months. The results: AlphaEvolve has been continuously
+      recovering 0.7% of Google's <em>worldwide</em> computing capacity through optimization
+      discoveries, and accelerated a critical kernel inside Gemini's training architecture by 23%.
+      The disclosure reframes what "AI at Google" means — it isn't just products, it's the company's
+      internal operating system.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Morgan Stanley: A Transformative AI Leap Is Coming in the First Half of 2026</h3>
+    <p>
+      A new Morgan Stanley research report warns that unprecedented compute accumulation is setting
+      the stage for a transformative capability jump before mid-2026. The bank predicts "Transformative
+      AI" will become a powerful deflationary force across the broader economy. More provocatively,
+      the report cites xAI co-founder <strong>Jimmy Ba</strong> suggesting that recursive
+      self-improvement loops — where AI systems meaningfully improve their own capabilities — could
+      emerge as early as the first half of 2027. That timeline would make the current model release
+      cadence look slow.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Commerce</span>
+    <h3>Shopify Merchants Can Now Sell Inside ChatGPT, Gemini, and Copilot Simultaneously</h3>
+    <p>
+      Shopify announced that its merchants can now sell directly inside ChatGPT, Google's AI Mode,
+      Microsoft Copilot, and the Gemini app through a new "Agentic Storefronts" integration.
+      A user asking an AI assistant to "find me running shoes under $120" can now complete the
+      purchase without leaving the conversation. The move blurs the line between AI assistant and
+      commerce platform — and positions conversational AI as the new storefront for hundreds of
+      thousands of retailers.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Mobile AI</span>
+    <h3>Apple Is Replacing Siri With Google's Gemini — Running on Private Cloud Compute</h3>
+    <p>
+      Apple confirmed a partnership with Google to power a completely reimagined Siri using Gemini's
+      1.2-trillion-parameter model, debuting in 2026. The arrangement runs through Apple's Private
+      Cloud Compute infrastructure, preserving Apple's privacy architecture while offloading frontier
+      model capability to Google. The partnership is significant for multiple reasons: it signals
+      Apple has abandoned the idea of building its own frontier model, and it gives Google a direct
+      channel to over a billion active iPhone users — a distribution advantage no other AI lab can match.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>The 10th Anniversary of AlphaGo: How One Go Game Rewired the Entire Field</h3>
+    <p>
+      March 31 marks ten years since AlphaGo defeated Lee Sedol 4–1 in what many consider the
+      opening shot of the modern AI era. DeepMind's self-play and reinforcement learning approach —
+      novel and controversial in 2016 — is now the architectural DNA behind reasoning models at
+      OpenAI, Google, and Anthropic. The anniversary prompted reflection across the field about
+      how quickly assumptions about "what AI cannot do" have collapsed, and how many more such
+      collapses are likely before the decade ends.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "A dramatic advance in automatic deduction and creative problem solving."
+    </blockquote>
+    <cite>— Donald Knuth, on Claude Opus 4.6 solving an open graph theory problem, March 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The AI industry's ethical divide is now public and permanent.</strong>
+        Amodei calling Altman's statements lies. OpenAI engineers resigning. Rivals filing amicus
+        briefs. The question of military AI use has fractured the industry in a way that won't
+        quietly heal.
+      </li>
+      <li>
+        <strong>Efficiency is beating scale on benchmarks.</strong>
+        Alibaba's 9B Qwen model outperforming a 120B model on graduate math is not a fluke — it's
+        a structural shift. Inference economics will increasingly favor smaller, smarter models over
+        larger, costlier ones.
+      </li>
+      <li>
+        <strong>AI is becoming invisible infrastructure inside big tech.</strong>
+        AlphaEvolve running silently inside Google for a year — recovering compute, optimizing
+        kernels — is a preview of how AI will operate: not as a chatbot, but as a continuous
+        optimization process running underneath everything.
+      </li>
+      <li>
+        <strong>Conversational commerce is arriving faster than expected.</strong>
+        Shopify's Agentic Storefronts and the Apple-Google Siri deal both point to the same
+        future: AI assistants as the primary interface between consumers and the commercial web.
+      </li>
+      <li>
+        <strong>The recursive self-improvement clock is ticking.</strong>
+        Morgan Stanley citing 2027 as a possible date for recursive self-improvement loops is not
+        fringe analysis — it's a major bank's published research. Whether the timeline is right
+        or not, the question is no longer hypothetical.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      March 31, 2026<br />
+      Issue No. 13
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: TechCrunch &middot; Fortune &middot; Axios &middot; MIT Technology Review &middot;
+    Digital Applied &middot; Radical Data Science &middot; Build Fast With AI &middot; LLM Stats &middot;
+    devFlokers &middot; LABLA &middot; Crescendo AI &middot; Morgan Stanley Research &middot; Council on Foreign Relations
+  </div>
+
+</div>
+</body>
+</html>
