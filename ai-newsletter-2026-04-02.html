@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 2, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 15</span>
+    <span>April 2, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Accidentally Ships Its Own Source Code — Then Scrambles to Erase It</h2>
+    <p class="deck">
+      An accidental release of 512,000 lines of Claude Code internals exposed codenamed references
+      to Anthropic's next frontier model — and sparked the most chaotic 24 hours in the company's history.
+    </p>
+    <p>
+      On April 1, 2026, a routine Claude Code release included approximately 1,900 internal files
+      and 512,000 lines of source code that were never meant to be public. Anthropic's statement was
+      terse: "Earlier today, a Claude Code release included some internal source code. No sensitive
+      customer data or credentials were involved or exposed." Within hours, thousands of GitHub forks
+      had appeared and engineers across the industry were combing through the repository.
+    </p>
+    <p>
+      What they found went beyond plumbing. Internal documents embedded in the release included
+      references to a next-generation model codenamed <strong>Capybara</strong> — also referenced
+      in a separate earlier leak as <strong>Claude Mythos</strong>. Internal descriptions called it
+      "by far the most powerful AI model we have ever developed," sitting in a new tier above Opus.
+      According to leaked text, training is complete and early access testing with cybersecurity
+      partners is already underway.
+    </p>
+    <p>
+      Anthropic issued copyright takedown requests to remove the copies — later acknowledging the
+      takedowns were broader than intended, catching unrelated repositories in the sweep. Prediction
+      markets now give roughly a 25% chance of a public Mythos announcement before April 30. The
+      incident underscores how thin the margin has become between internal development and public
+      exposure at the speed today's AI labs operate.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$852B</span>
+      <div class="num-label">OpenAI's valuation after $122B funding round</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">77.1%</span>
+      <div class="num-label">Gemini 3.1 Pro on ARC-AGI-2 — double its predecessor</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$297B</span>
+      <div class="num-label">Global VC funding in Q1 2026, up 150% year-over-year</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.1 Pro Tops 13 of 16 Benchmarks — Including a Record 77.1% on ARC-AGI-2</h3>
+    <p>
+      Google DeepMind's Gemini 3.1 Pro is now the benchmark leader across most major evaluations,
+      scoring 77.1% on ARC-AGI-2 — more than double the score of Gemini 3 Pro — and 94.3% on
+      GPQA Diamond. It matches GPT-5.4 Pro on the Artificial Analysis Intelligence Index at roughly
+      one-third of the API cost. A companion model, Gemini 3.1 Flash-Lite, delivers 2.5x faster
+      response times and 45% faster output generation at just $0.25 per million input tokens,
+      making frontier-caliber speed genuinely affordable for the first time.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.5 "Spud" Completes Pretraining — Safety Evaluations Underway</h3>
+    <p>
+      OpenAI's next major release, internally codenamed "Spud" and expected to launch as GPT-5.5
+      or GPT-6, has completed pretraining and is now in safety evaluations. A Q2 2026 announcement
+      is considered most likely. The news follows GPT-5.4's debut as OpenAI's first general-purpose
+      model with native computer-use capabilities — enabling agents to operate full desktop workflows
+      across applications. GPT-5.4 "Thinking" scored 83.0% on the GDPVal benchmark, placing it at
+      or above human expert level on economically valuable tasks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Closes $122B Round at $852B Valuation — IPO Steps Begin</h3>
+    <p>
+      OpenAI closed the largest startup funding round in history, raising $122 billion with Amazon
+      contributing $50 billion, NVIDIA $30 billion, and SoftBank $30 billion (notably, $35 billion
+      of Amazon's commitment is contingent on OpenAI reaching an IPO or AGI milestone). The company
+      has surpassed $25 billion in annualized revenue, with ChatGPT now serving over 900 million
+      weekly active users and 50 million+ paying subscribers. Enterprise accounts for more than 40%
+      of revenue. Early steps toward a public listing as soon as late 2026 are confirmed.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Integrates Gemini Robotics Into Atlas — No Cloud Required</h3>
+    <p>
+      Boston Dynamics and Google DeepMind announced a formal partnership to integrate Gemini
+      Robotics — a vision-language-action model suite — directly into Boston Dynamics' Atlas
+      humanoid robot. The models run on-device without cloud connectivity and can generalize to
+      new situations from limited examples. The collaboration marks a significant maturation of
+      physical AI: instead of scripted motions, Atlas can now reason about novel environments
+      and adapt in real time using the same underlying model family powering consumer AI products.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Q1 2026 Shatters Every VC Record — AI Captures 81% of $297 Billion</h3>
+    <p>
+      Global venture capital investment hit $297 billion in Q1 2026 — a 150% year-over-year increase
+      and the most concentrated quarter in the history of startup funding. AI startups captured 81%
+      of the total. Just four companies raised 64% of all funding. xAI alone closed a $20 billion
+      Series E, bringing its total reported funding to $42.7 billion. Replit tripled its valuation
+      from $3 billion to $9 billion in six months. AMI Labs — founded by Yann LeCun — launched with
+      a $1.03 billion seed round, the largest seed in European history.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Grok 4.20 Introduces Four-Agent Architecture That Debates Before Answering</h3>
+    <p>
+      xAI's Grok 4.20 takes a genuinely novel approach: instead of a single larger model, every
+      complex query is handled by four specialized agents running in parallel — Grok (coordination),
+      Harper (fact-checking with live X data), Benjamin (logic and coding), and Lucas (creative
+      reasoning) — which debate in real time before producing a single unified output. API access
+      remains pending as of early April. Meanwhile, Grok 5, reportedly built on a 6-trillion-parameter
+      Mixture-of-Experts architecture, is in training and expected in Q2 — which would make it
+      the largest model ever publicly announced.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>AI Is Now Predicting Research Trends Two Years Out — And Diagnosing Rare Diseases Faster</h3>
+    <p>
+      Two research breakthroughs highlight AI moving from productivity tool to scientific collaborator.
+      A study published in <em>Nature Machine Intelligence</em> by Karlsruhe Institute of Technology
+      shows that AI combining LLMs and machine learning can analyze scientific literature and predict
+      emerging research trends two to three years in advance — tested and validated on materials science
+      publications. Separately, a new algorithm called <strong>EvORanker</strong> compares genetic
+      evolutionary patterns across 1,000+ species to detect hidden gene-disease relationships, dramatically
+      accelerating rare disease diagnoses that previously took years. Researchers are already applying
+      it to Stage 4 cancer regression cases.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "OpenAI looked opportunistic. Anthropic got blacklisted. Google gained the most ground
+      and nobody's talking about it."
+    </blockquote>
+    <cite>— Industry analyst on the Pentagon AI contract fallout, via Axios</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The leak economy is accelerating.</strong>
+        Anthropic's accidental source code release is the latest in a pattern — Claude Mythos
+        details, internal pricing memos, and training data details are all surfacing faster than
+        legal teams can suppress them. Closed AI development is increasingly porous.
+      </li>
+      <li>
+        <strong>ARC-AGI-2 is the new benchmark that matters.</strong>
+        Gemini 3.1 Pro's 77.1% score on ARC-AGI-2 — a test of genuine novel problem-solving that
+        can't be memorized — marks the first time a model has meaningfully closed the gap on a
+        benchmark designed to resist frontier AI. Watch this number closely.
+      </li>
+      <li>
+        <strong>Physical AI is graduating from demos to deployments.</strong>
+        Boston Dynamics + Gemini Robotics isn't a research partnership — it's a production integration.
+        On-device, no-cloud reasoning is now a real capability in commercial hardware. The era of AI
+        leaving the screen is arriving faster than most expected.
+      </li>
+      <li>
+        <strong>VC concentration is reaching dangerous levels.</strong>
+        Four companies capturing 64% of $297 billion in one quarter means the rest of the startup
+        ecosystem is competing for scraps. The winner-take-most dynamic in AI infrastructure is
+        already visible in funding data before products ship.
+      </li>
+      <li>
+        <strong>Open-source is now a viable frontier-tier option.</strong>
+        DeepSeek V3.2 at $0.28 per million tokens versus $2.50 for GPT-5.4. Meta's Llama 4 Maverick
+        at 400B parameters running free on self-hosted hardware. The economics argument for closed
+        APIs is weakening for any team that can manage self-hosting.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 2, 2026<br />
+      Issue No. 15
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Bloomberg &middot; TechCrunch &middot; Axios &middot; Crunchbase News &middot;
+    LLM-Stats &middot; HumAI Blog &middot; RenovateQR &middot; Nature Machine Intelligence &middot;
+    AFHU &middot; Crescendo AI &middot; Google DeepMind Blog &middot; Anthropic API Docs
+  </div>
+
+</div>
+</body>
+</html>
