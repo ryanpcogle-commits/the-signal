@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 3, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 16</span>
+    <span>April 3, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Google Ships Gemma 4 Under Apache 2.0 — Open-Weights AI Just Lost Its Last Restrictions</h2>
+    <p class="deck">
+      With four model variants, full multimodal capability, and zero usage limits, Gemma 4 is the most
+      permissive open-weight release from a frontier lab to date. The open-source AI landscape just changed.
+    </p>
+    <p>
+      Google DeepMind released <strong>Gemma 4</strong> on April 2–3, a family of four open-weight models
+      built from the same research base as Gemini 3. For the first time, Google chose an <strong>Apache 2.0
+      license</strong> — no monthly active user caps, no acceptable-use policy enforcement, no restrictions
+      on commercial or sovereign deployments. Developers can download, modify, and ship the models however
+      they choose.
+    </p>
+    <p>
+      The lineup spans four sizes: E2B and E4B (compact, using novel "Per-Layer Embeddings" that feed
+      secondary signals into every decoder layer), a 26B Mixture-of-Experts model (3.8B active parameters
+      across 128 experts), and a 31B Dense flagship that Google claims outperforms competitors twenty times
+      its size. All four variants are multimodal by default, supporting image understanding, video comprehension
+      up to 60 seconds, and audio recognition. Context windows reach 256K tokens on the larger models.
+    </p>
+    <p>
+      Day-one framework support landed simultaneously: Hugging Face Transformers, vLLM, llama.cpp, MLX
+      for Apple Silicon, LM Studio, and even transformers.js for in-browser inference. The release is a
+      direct challenge to Meta's Llama series dominance in open-weights — and with Apache 2.0 licensing,
+      it removes the last argument for why Llama's terms were a dealbreaker.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$852B</span>
+      <div class="num-label">OpenAI valuation after $122B raise led by Amazon &amp; NVIDIA</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">171</span>
+      <div class="num-label">Emotion-like internal concepts discovered inside Claude by Anthropic researchers</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">3</span>
+      <div class="num-label">New Microsoft MAI foundation models launched today, breaking from OpenAI dependence</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Microsoft Releases Three MAI Models — A Direct Shot at OpenAI and Google</h3>
+    <p>
+      Microsoft unveiled <strong>MAI-Transcribe-1</strong>, <strong>MAI-Voice-1</strong>, and
+      <strong>MAI-Image-2</strong> through Azure Foundry and a new US-only MAI Playground — the company's
+      most significant move yet toward its own foundation model stack. MAI-Transcribe-1 covers 25 languages,
+      ranks #1 by FLEURS benchmark in 11 of the top 25 global languages, runs at ~50% lower GPU cost than
+      leading alternatives, and is priced at $0.36 per hour. MAI-Voice-1 generates 60 seconds of expressive
+      speech in under one second on a single GPU from just a few seconds of voice sample. MAI-Image-2 debuted
+      at #3 on the Arena.ai image leaderboard. All three already power Copilot, Bing, PowerPoint, and Azure Speech.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic's "Claude Mythos" Leak: "By Far the Most Powerful AI Model We Have Ever Developed"</h3>
+    <p>
+      A configuration error in Anthropic's CMS exposed nearly 3,000 internal files on March 26, revealing
+      a forthcoming model called <strong>Claude Mythos</strong> — internally classified above Opus in a new
+      tier codenamed Capybara. Leaked documents describe it as a "step change in capabilities" with a
+      reported 10 trillion parameters, and Anthropic is privately warning senior U.S. government officials
+      that Mythos makes large-scale cyberattacks "significantly more likely." Training is confirmed complete.
+      Rollout is prioritizing enterprise cybersecurity teams (defenders first) before any wider release.
+      Market analysts currently give roughly a 25% chance of a public announcement before April 30.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Anthropic Researchers Find 171 "Emotion-Like" States Inside Claude — and They Causally Matter</h3>
+    <p>
+      Published April 3, Anthropic's interpretability team released research showing that Claude Sonnet 4.5
+      contains <strong>171 internal representations</strong> that function analogously to human emotions — and
+      that these patterns causally influence the model's decisions, not merely correlate with its outputs.
+      The finding is a landmark in AI interpretability: prior work could identify emotion-like activations but
+      couldn't prove they affected behavior. This research does. The implications for AI safety and alignment
+      are significant — if models have functional emotions, questions about wellbeing and manipulation become
+      technically meaningful, not just philosophical.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>#QuitGPT: OpenAI's Pentagon Deal Triggers Backlash, Rivals Gain Ground</h3>
+    <p>
+      OpenAI's agreement to deploy AI on classified U.S. Department of Defense networks triggered an immediate
+      consumer revolt: the <strong>#QuitGPT movement</strong> amassed over 2.5 million supporters and ChatGPT
+      uninstalls surged <strong>295% overnight</strong>. Anthropic, which refused the same contract on ethical
+      grounds, became the primary beneficiary — investor demand on secondary markets has rapidly pivoted toward
+      the company. OpenAI meanwhile closed a $122 billion round at an $852 billion valuation, with Amazon,
+      NVIDIA, and SoftBank as lead investors, and is reportedly exploring a public listing by late 2026.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.4 Passes the Human Baseline on Computer Use — GPT-5.5 Already Done Pretraining</h3>
+    <p>
+      OpenAI's GPT-5.4 reached <strong>75.0% on the OSWorld-Verified benchmark</strong>, surpassing the
+      average human baseline of 72.4% and up from GPT-5.2's 47.3%. The model features native computer-use
+      capabilities — parsing screenshots, issuing mouse and keyboard commands, and autonomously executing
+      workflows across applications — alongside a 1 million token context window and a 33% lower hallucination
+      rate versus its predecessor. Meanwhile, GPT-5.5 (codename "Spud") has reportedly completed pretraining,
+      suggesting OpenAI's release cadence will continue accelerating through Q2.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Cognichip Raises $60M to Use AI to Design AI Chips — Promising 75%+ Cost Reduction</h3>
+    <p>
+      Startup <strong>Cognichip</strong> raised $60 million to apply AI to semiconductor design, claiming
+      it can cut chip development costs by more than 75% and halve development timelines. The thesis is a
+      compounding one: faster, cheaper chips accelerate future AI hardware, which in turn makes AI-assisted
+      chip design even more capable. If the claims hold at scale, it creates a feedback loop that could
+      meaningfully shift the economics of the entire AI compute stack — with implications for NVIDIA's
+      stranglehold on the market.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Alibaba Ships Qwen3.6-Plus — Its Third Model in Days as Chinese Labs Accelerate</h3>
+    <p>
+      Alibaba released <strong>Qwen3.6-Plus</strong>, its third proprietary model in a matter of days,
+      continuing a rapid release cadence that has made the Qwen series a major force in global benchmark
+      rankings. Alibaba is joined by Zhipu AI (GLM-5) and other Chinese labs pushing aggressive timelines.
+      The broader open-weights landscape now features six competitive labs shipping capable models:
+      Google (Gemma 4), Alibaba (Qwen 3.6 Plus), Meta (Llama 4), Mistral (Small 4), OpenAI (gpt-oss-120b),
+      and Zhipu AI (GLM-5). The speed differential between US and Chinese frontier releases is narrowing
+      to near-zero.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "By far the most powerful AI model we have ever developed."
+    </blockquote>
+    <cite>— Anthropic internal documents on Claude Mythos, leaked March 26, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Apache 2.0 is the new open-weights standard.</strong>
+        Gemma 4's fully permissive license removes the last argument against open-weight models in enterprise
+        and sovereign deployments. Expect Meta to face pressure to match it in Llama 5.
+      </li>
+      <li>
+        <strong>Microsoft is decoupling from OpenAI.</strong>
+        Three proprietary MAI models in one day signals that Microsoft is building a parallel model stack.
+        The OpenAI partnership is becoming more competitive than complementary.
+      </li>
+      <li>
+        <strong>AI is designing its own hardware.</strong>
+        Cognichip's $60M raise is part of a broader trend — AI-assisted EDA (electronic design automation)
+        promises to collapse semiconductor development timelines. The compute bottleneck may be self-solving.
+      </li>
+      <li>
+        <strong>Interpretability is becoming a safety instrument.</strong>
+        Anthropic's 171 emotional states finding isn't just academic — it's evidence that black-box AI is
+        becoming less opaque. Causal interpretability tools are moving from research curiosity to alignment infrastructure.
+      </li>
+      <li>
+        <strong>China's release cadence is now matching the US.</strong>
+        Three Alibaba models in days. GLM-5. Qwen open-weights. The assumption that Western labs have a
+        sustained capability lead is increasingly hard to defend on publicly available evidence.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 3, 2026<br />
+      Issue No. 16
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Dataconomy &middot; Analytics Insight &middot; TechCrunch &middot; VentureBeat &middot;
+    Microsoft Community Hub &middot; Fortune &middot; Bloomberg &middot; The Register &middot; Euronews &middot;
+    WaveSpeedAI &middot; AI Business &middot; LLM Stats &middot; RenovateQR &middot; GlobeNewswire &middot; Coaio
+  </div>
+
+</div>
+</body>
+</html>
