@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 7, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 20</span>
+    <span>April 7, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>OpenAI, Anthropic, and Google Just Formed an Anti-China IP Alliance</h2>
+    <p class="deck">
+      The three labs publicly competing for AI dominance quietly united this week to block adversarial
+      distillation by Chinese competitors — a geopolitical shift as significant as any model release.
+    </p>
+    <p>
+      Bloomberg reported on April 6 that OpenAI, Anthropic, and Google have coordinated through the
+      Frontier Model Forum to jointly detect and combat adversarial distillation attacks — cases where
+      Chinese competitors exploit API access to copy proprietary model capabilities in violation of
+      terms of service. The move signals a new phase where intellectual property defense, not just
+      capability competition, shapes lab strategy.
+    </p>
+    <p>
+      The alliance is partly a response to a pattern the labs identified over the past six months:
+      systematically structured API queries designed to extract reasoning and knowledge representations
+      from frontier models. Individually, none of the three companies had the telemetry to detect the
+      full pattern. Together, they do.
+    </p>
+    <p>
+      The coordination is notable given the labs' fierce rivalry on benchmarks and talent. That
+      OpenAI, Anthropic, and Google can act collectively on IP enforcement — while remaining bitter
+      product competitors — suggests the Frontier Model Forum is quietly becoming one of the most
+      consequential industry bodies in tech.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">10T</span>
+      <div class="num-label">Parameters in Claude Mythos 5 — a new scale record</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100x</span>
+      <div class="num-label">Energy reduction from neural + symbolic AI fusion</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$100B</span>
+      <div class="num-label">Alibaba's 5-year AI + cloud revenue target</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic's Claude Mythos 5 Is the First 10-Trillion-Parameter Model</h3>
+    <p>
+      Anthropic released Claude Mythos 5 this week, a 10-trillion-parameter model described
+      internally as "a step change" beyond Opus 4.6. Initially available only to select
+      cybersecurity and advanced coding partners, Mythos 5 targets high-stakes enterprise
+      workloads requiring sustained multi-hour reasoning. Anthropic also released a companion
+      accessible model called "Capabara" aimed at everyday use at lower cost. The Mythos release
+      followed a data store misconfiguration in late March that inadvertently confirmed the model's
+      existence — giving the announcement a rare pre-leak arc unusual for the typically tight-lipped lab.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Cuts Veo 3.1 Prices and Launches Lite Tier — Today</h3>
+    <p>
+      Google dropped the price of Veo 3.1 Fast on April 7 and simultaneously launched Veo 3.1 Lite,
+      a new tier that generates video from text or images at less than 50% the cost of Veo 3.1 Fast
+      with no perceptible drop in speed. The move is a direct response to Lightricks' LTX open-source
+      video model gaining developer mindshare, and signals Google's intent to win the video AI market
+      on price rather than just capability. Gemini 3.1 Pro also continues to impress on benchmarks —
+      leading 13 of 16 major evaluations and tying GPT-5.4 Pro on the Artificial Analysis Intelligence
+      Index at roughly one-third the API cost.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Anthropic Locks In Gigawatts of Google TPU Capacity Through 2027</h3>
+    <p>
+      Anthropic signed a landmark deal with Google and Broadcom for multiple gigawatts of TPU
+      computing capacity set to come online starting in 2027. The agreement is one of the largest
+      AI infrastructure commitments ever made outside of hyperscaler internal deployments — giving
+      Anthropic dedicated silicon at a scale that could meaningfully reduce its dependence on
+      spot compute markets. The deal reinforces the trend of AI labs locking in long-horizon
+      infrastructure now to avoid capacity crunches as model sizes scale toward 10 trillion parameters
+      and beyond.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Researchers Cut AI Energy Use 100x by Fusing Neural and Symbolic Reasoning</h3>
+    <p>
+      A team of researchers published results on April 5 showing that combining neural networks
+      with symbolic reasoning can slash AI energy consumption by up to 100x while simultaneously
+      improving accuracy. The approach — reported by ScienceDaily — enables AI systems, including
+      robotics agents, to "think more logically instead of relying on brute-force trial and error."
+      The energy implications are significant: if even a fraction of inference workloads could adopt
+      hybrid symbolic-neural architectures, data center power demand projections for 2028 and beyond
+      would need to be substantially revised downward.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>A New Memory Chip Operates at 700°C — and Could Reshape AI Hardware</h3>
+    <p>
+      A breakthrough chip design published on April 6 can store data and perform calculations at
+      temperatures up to 700°C (1,300°F) — roughly five times higher than the thermal ceiling of
+      current silicon-based chips. Reported by ScienceDaily, the device uses novel materials that
+      maintain data integrity under extreme heat, pointing toward AI accelerators that run hotter,
+      faster, and with fewer cooling constraints. While commercial deployment is years away, the
+      research signals a potential escape route from the thermal bottleneck that increasingly limits
+      GPU performance density.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Alibaba Pledges $100 Billion in AI and Cloud Revenue Within Five Years</h3>
+    <p>
+      Alibaba announced a commitment to reach $100 billion in combined AI and cloud revenue within
+      five years, positioning itself as the dominant AI infrastructure provider across Asia. The
+      pledge follows aggressive investment in its Qwen model family and cloud AI services and reflects
+      a broader pattern of non-Western tech giants setting explicit AI revenue targets to signal
+      strategic seriousness to investors and partners. For context, Microsoft's cloud revenue
+      crossed $135 billion in fiscal 2025 — Alibaba is targeting direct competition at scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>South Korea Deploys ChatGPT-Enabled Care Robots for Its Elderly Population</h3>
+    <p>
+      South Korea is deploying thousands of ChatGPT-enabled social care robots to assist elderly
+      citizens — the largest national-scale rollout of conversational AI in a physical caregiving
+      context to date. The robots handle companionship, reminders, and basic health monitoring,
+      addressing South Korea's acute demographic challenge: it has one of the world's fastest-aging
+      populations and a severe shortage of human caregivers. The deployment offers a real-world
+      stress test for whether AI companions can operate reliably and safely at population scale —
+      a dataset every major robotics lab is watching closely.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The companies that individually couldn't see the full pattern — together, they can."
+    </blockquote>
+    <cite>— Bloomberg, on the OpenAI/Anthropic/Google IP alliance, April 6, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Geopolitics is now an AI product decision.</strong>
+        The Frontier Model Forum IP alliance isn't just legal defense — it's a signal that US labs
+        are starting to coordinate on China policy the way they've resisted coordinating on
+        anything else. Expect this to expand into export controls and API access restrictions.
+      </li>
+      <li>
+        <strong>10 trillion parameters changes the cost calculus entirely.</strong>
+        Claude Mythos 5 isn't a consumer product — it's a proof that labs will sacrifice
+        accessibility for capability at the frontier. The question now is whether 10T parameters
+        delivers 10x the value, or just 10x the inference bill.
+      </li>
+      <li>
+        <strong>Energy efficiency is becoming a competitive moat.</strong>
+        The 100x neural-symbolic efficiency result, if it holds under real workloads, is as
+        significant as any benchmark. The lab that figures out efficient reasoning first doesn't
+        just save money — it outscales every competitor on a fixed power budget.
+      </li>
+      <li>
+        <strong>Video AI is commoditizing faster than expected.</strong>
+        Google dropping Veo prices on the same day a Lite tier launches suggests margin pressure
+        from open-source (LTX) is already forcing strategic pricing. Premium video AI may have
+        a shelf life measured in quarters, not years.
+      </li>
+      <li>
+        <strong>Asia is writing its own AI story.</strong>
+        Alibaba's $100B pledge and South Korea's care robot deployment aren't footnotes — they're
+        parallel tracks. The dominant AI infrastructure narrative is still Western-lab-centric,
+        but the deployment numbers increasingly aren't.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 7, 2026<br />
+      Issue No. 20
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Bloomberg &middot; ScienceDaily &middot; LLM Stats &middot; devFlokers &middot;
+    Crescendo AI &middot; renovateqr.com &middot; humai.blog &middot; NVIDIA Blog &middot;
+    Artificial Analysis &middot; Frontier Model Forum &middot; TechCrunch &middot; Fortune
+  </div>
+
+</div>
+</body>
+</html>
