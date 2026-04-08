@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 8, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 21</span>
+    <span>April 8, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Hits $30B Revenue Run Rate — and Still Can't Keep Up With Demand</h2>
+    <p class="deck">
+      The company reported a 58% revenue surge in March alone, then immediately announced it
+      lacks the compute capacity to serve everyone who wants in.
+    </p>
+    <p>
+      Anthropic's annualized revenue run rate has reached $30 billion — a figure that would have
+      seemed implausible eighteen months ago and now looks almost conservative given the company's
+      trajectory. The 58% single-month surge in March reflects a combination of Claude Opus 4.6's
+      dominance on coding benchmarks and an explosion of enterprise API usage that the company
+      openly admits it cannot fully satisfy.
+    </p>
+    <p>
+      To address the compute gap, Anthropic finalized an expanded partnership with Google and
+      Broadcom to access data centers running Google's TPU chips. New capacity comes online in
+      2027 — which means the bottleneck is real and the timeline is not short. Google Cloud and
+      Broadcom signed expanded chip agreements as part of the deal, signaling that the big compute
+      constraint is now being treated as a shared infrastructure problem, not just Anthropic's alone.
+    </p>
+    <p>
+      Meanwhile, Anthropic launched <strong>Project Glasswing</strong> — a coalition of major
+      tech and cybersecurity companies given early access to the unreleased Claude Mythos model,
+      focused specifically on securing the world against AI-enabled cyber threats. It is a notable
+      move: deploying an unreleased frontier model as a defensive security tool before it goes
+      to the general public.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$30B</span>
+      <div class="num-label">Anthropic annualized revenue run rate</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$267B</span>
+      <div class="num-label">Q1 2026 VC deal value — 2x the prior quarterly record</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100x</span>
+      <div class="num-label">AI energy reduction from new symbolic-neural hybrid approach</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-6, Codenamed "Spud," Expected April 14</h3>
+    <p>
+      OpenAI's next major model — internally codenamed "Spud" — is expected to ship in six days,
+      on or around April 14. GPT-6 would represent the first full generational leap since GPT-5.4
+      launched in March with human-level desktop performance (75.0% on OSWorld-Verified). The
+      compressed timeline between GPT-5 and GPT-6 would make this the fastest major version
+      cycle in OpenAI's history and adds pressure on Anthropic ahead of its own unreleased
+      Claude Mythos model.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Mythos 5: The First 10-Trillion Parameter Model</h3>
+    <p>
+      Anthropic's unreleased Claude Mythos 5 is the first publicly described model at 10 trillion
+      parameters — a full order of magnitude beyond most current frontier models. Engineered
+      for cybersecurity, academic research, and complex coding, it is currently accessible only
+      to Project Glasswing partners. Prediction markets give roughly a 25% probability of full
+      public launch by April 30, suggesting even insiders expect a careful rollout rather than
+      an immediate general release.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic, and Google Form a United Front Against Chinese Model Copying</h3>
+    <p>
+      The three largest US AI labs are sharing intelligence through the Frontier Model Forum —
+      the industry nonprofit they co-founded with Microsoft — specifically targeting adversarial
+      distillation: Chinese competitors extracting outputs from US frontier models to train their
+      own systems without licensing. The collaboration includes sharing detection methods for
+      terms-of-service violations. It is a rare moment of cross-competitor cooperation on what
+      all three companies consider an existential competitive threat.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>New Research Cuts AI Energy Use by 100x — Without Sacrificing Accuracy</h3>
+    <p>
+      Researchers published results this week combining neural networks with symbolic reasoning —
+      the first such hybrid to achieve up to a 100-fold reduction in energy consumption while
+      simultaneously improving accuracy on reasoning tasks. The approach lets AI systems reason
+      logically rather than relying on brute-force statistical pattern matching. If it scales to
+      frontier models, it could fundamentally change the economics of inference — the single
+      largest operating cost for AI companies at current volumes.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>New Chip Operates at 700°C — Could Redefine AI Compute Limits</h3>
+    <p>
+      A new memory device built from ultra-durable materials can store data and perform calculations
+      at 700°C (1,300°F) — far beyond the operating limits of any current silicon chip. The
+      breakthrough, reported by ScienceDaily on April 6, could dramatically accelerate AI computation
+      in environments where conventional chips fail: space, industrial sensors, and high-power
+      AI accelerators that currently throttle under thermal load. Researchers say the material
+      could eventually replace conventional memory in AI chips running at sustained maximum power.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>AI Accelerated a Quantum Encryption-Breaking Breakthrough</h3>
+    <p>
+      Research from Google and Oratomic, published this week in <em>Time</em>, suggests that
+      quantum computers capable of breaking current internet encryption standards may arrive
+      sooner than previously projected — and that AI was central to the advance. A paper author
+      stated directly: "There is no question that we used AI to accelerate this development."
+      The finding has immediate implications for cryptography standards and the post-quantum
+      security roadmap that NIST has been building toward a 2030 deadline.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI's Vision for the AI Economy: Robot Taxes and a Four-Day Workweek</h3>
+    <p>
+      OpenAI published a policy proposal this week for what it calls the "Intelligence Age"
+      economy — arguing for public wealth funds, a tax on robot-driven labor displacement, and
+      a four-day workweek as the economic floor adjusts to widespread automation. The proposal
+      blends a market-driven growth framework with expanded social safety nets and is likely
+      to be read as an early attempt to shape regulation before Congress acts. It arrives as
+      OpenAI's IPO plans draw scrutiny over whether the company's internal instability is
+      compatible with public-market accountability.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Q1 2026 VC Investment Shatters Every Record — $267.2 Billion in Deals</h3>
+    <p>
+      Venture deal value in Q1 2026 reached $267.2 billion — more than double the previous
+      quarterly record. AI infrastructure, foundation models, and AI-native enterprise software
+      accounted for the dominant share. The figures suggest that despite rising interest rates
+      and ongoing macroeconomic uncertainty, institutional capital is treating AI as a structural
+      technology bet rather than a cyclical growth trade. For context: the entire venture market
+      in 2020 was roughly $300 billion for the full year.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "There is no question that we used AI to accelerate this development."
+    </blockquote>
+    <cite>— Google / Oratomic researcher, on AI-assisted quantum encryption breakthrough · April 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Compute scarcity is the new moat.</strong>
+        Anthropic's $30B revenue and admitted capacity shortage proves that demand for
+        frontier AI has outrun supply. The companies that locked in compute deals early —
+        Google, Microsoft, Amazon — are now gatekeepers to who can scale.
+      </li>
+      <li>
+        <strong>AI labs are building their own defensive coalitions.</strong>
+        Project Glasswing, the Frontier Model Forum's anti-copying effort, and the
+        Broadcom-Google-Anthropic TPU deal all reflect a new pattern: labs aren't just
+        competing with each other, they're forming alliances against external threats.
+      </li>
+      <li>
+        <strong>The model release race is approaching a new inflection point.</strong>
+        GPT-6 arriving six days after this issue goes out. Claude Mythos 5 waiting in the
+        wings. Gemini 3.1 Ultra already shipping. The window between "frontier" and "obsolete"
+        is now measured in weeks.
+      </li>
+      <li>
+        <strong>Energy efficiency could reshape the entire AI economics stack.</strong>
+        A 100x reduction in inference energy — if it scales — changes the cost structure
+        of every AI product. This is the breakthrough that most AI companies quietly admit
+        is necessary for AGI-era compute to be sustainable.
+      </li>
+      <li>
+        <strong>Quantum-AI convergence is ahead of schedule.</strong>
+        If AI is actively accelerating quantum research, the post-quantum cryptography
+        transition needs to happen faster than NIST's current 2030 timeline assumes.
+        Enterprises still running RSA-2048 should be paying attention.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 8, 2026<br />
+      Issue No. 21
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: DNYUZ &middot; TechCrunch &middot; Bloomberg &middot; CNBC &middot;
+    The Decoder &middot; Time &middot; ScienceDaily &middot; LLM Stats &middot; devFlokers &middot;
+    RenovateQR &middot; CometAPI &middot; Crescendo AI &middot; NVIDIA Blog &middot; Japan Times
+  </div>
+
+</div>
+</body>
+</html>
