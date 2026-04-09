@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 9, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 22</span>
+    <span>April 9, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Meta Debuts Muse Spark — Its First Model From the New Superintelligence Labs</h2>
+    <p class="deck">
+      After a $14 billion bet on Alexandr Wang and a full reorganization of its AI division,
+      Meta has something to show for it — and the industry is paying close attention.
+    </p>
+    <p>
+      Meta unveiled <strong>Muse Spark</strong> on April 8, the first model to emerge from
+      Meta Superintelligence Labs, the restructured AI research unit that was built around
+      Scale AI co-founder Alexandr Wang following his $14 billion acquisition deal. The model
+      delivers competitive performance across multimodal perception, complex reasoning, health
+      applications, and agentic tasks — the four domains Meta has prioritized as core to its
+      long-term AI strategy.
+    </p>
+    <p>
+      The launch marks a significant moment for Meta, which has publicly committed to building
+      artificial general intelligence while simultaneously open-sourcing large portions of its
+      model stack. Muse Spark's positioning as a multimodal reasoning model signals that Meta
+      is competing directly with Gemini and GPT-5.4 at the frontier, not just in the open-weight
+      tier.
+    </p>
+    <p>
+      The timing is notable: Meta is entering this competitive release window just as rivals
+      are simultaneously managing security concerns, regulatory scrutiny, and explosive demand.
+      Whether the Superintelligence Labs structure — the most expensive AI talent acquisition in
+      history — can sustain benchmark-competitive releases on a regular cadence remains the central
+      question surrounding Meta's AI ambitions.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$380B</span>
+      <div class="num-label">Anthropic valuation after Series G close</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100×</span>
+      <div class="num-label">Energy reduction from new hybrid AI approach</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">75%</span>
+      <div class="num-label">GPT-5.4 score on OSWorld-V — above human baseline</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Anthropic's Most Powerful Model Won't Be Released — Cybersecurity Risks Cited</h3>
+    <p>
+      Anthropic announced on April 7 that <strong>Claude Mythos</strong>, its most capable
+      model to date, will not receive a public release. The company cited unacceptable
+      cybersecurity risks and confirmed the model will only be accessible to select partners
+      under <strong>Project Glasswing</strong>, a controlled access program. The decision is
+      one of the first public cases of a frontier lab actively choosing not to ship a completed
+      model due to potential for misuse — a precedent that will likely shape how competitors
+      approach capability thresholds going forward.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic, and Google Unite Against Chinese Model Extraction</h3>
+    <p>
+      The three leading US AI companies have begun coordinating through the Frontier Model Forum
+      to combat unauthorized extraction of their models' outputs by Chinese competitors.
+      Anthropic alone documented <strong>16 million unauthorized exchanges</strong> from three
+      named firms — DeepSeek, Moonshot AI, and MiniMax — in which those companies systematically
+      queried US models to distill training data. The coalition marks an unprecedented moment of
+      cross-company cooperation between organizations that compete intensely on every other
+      dimension, and raises questions about how US AI export controls will evolve in response.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Closes Series G at $380B Valuation — Revenue Run Rate Now $30B</h3>
+    <p>
+      Anthropic closed a $30 billion Series G funding round, vaulting its valuation to
+      $380 billion. The company's annualized revenue run rate has reached $30 billion —
+      up from $9 billion at the end of 2025 — driven by enterprise adoption of Claude and
+      expanding API usage. Alongside the funding news, Anthropic signed a new, expanded
+      compute agreement with Google and Broadcom for increased TPU processing capacity,
+      with the majority of infrastructure housed in the United States as part of a broader
+      $50 billion commitment to domestic AI compute.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.4 Crosses the Human Baseline as an Autonomous Agent</h3>
+    <p>
+      OpenAI's <strong>GPT-5.4</strong> scored 75% on the OSWorld-V benchmark — slightly above
+      the human baseline — marking a meaningful threshold in the shift from AI as a conversational
+      tool to AI as an autonomous digital worker. The model features a 1-million-token context
+      window and the ability to execute multi-step workflows across software environments without
+      human guidance. For enterprises evaluating agentic AI deployments, OSWorld-V is increasingly
+      the benchmark that matters: it measures real-world task completion, not academic problem-solving.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Gemma 4 and Meta Llama 4 Maverick Lead the Open-Weight Race</h3>
+    <p>
+      Google released <strong>Gemma 4</strong> under an Apache 2.0 license, delivering
+      frontier-level performance with an emphasis on coding, agentic tasks, and improved
+      reasoning — available for commercial use without restriction. Meta's
+      <strong>Llama 4 Maverick</strong> (400B parameters, 10-million-token context window)
+      is now the leading open-weight option for extended reasoning workloads. Together, the
+      two releases represent the strongest open-source model landscape to date, narrowing the
+      gap with closed frontier models for the first time in a meaningful way.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Researchers Cut AI Energy Use by 100× With Hybrid Symbolic-Neural Approach</h3>
+    <p>
+      A research team published results showing that combining neural networks with symbolic
+      reasoning — where models reason through structured logic rather than statistical
+      pattern-matching alone — can reduce AI energy consumption by up to <strong>100 times</strong>
+      while actually improving accuracy. The technique was demonstrated in robotic systems but
+      carries broad implications for data center energy demand, which has become one of the most
+      significant infrastructure constraints on AI scaling. If the approach generalizes beyond
+      robotics, it could meaningfully shift the economics of frontier model training and inference.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>AI Helped Crack a Quantum Timeline — and the World "Is Not Prepared"</h3>
+    <p>
+      New research from Google and startup Oratomic suggests that quantum computers capable
+      of breaking internet encryption may arrive sooner than previously modeled — and AI played
+      a direct role in accelerating that timeline. "There is no question that we used AI to
+      accelerate this development," Oratomic's researchers stated. <em>Time</em> reported the
+      finding under the headline "The World Is Not Prepared," underscoring the dual-use nature
+      of AI capability advances: the same tools improving model benchmarks are compressing the
+      timeline on cryptographic vulnerabilities that underpin global financial and communications
+      infrastructure.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "There is no question that we used AI to accelerate this development."
+    </blockquote>
+    <cite>— Oratomic researchers, on using AI to advance quantum encryption-breaking algorithms</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Capability withholding is now a real publication criterion.</strong>
+        Anthropic not releasing Claude Mythos sets a precedent: finishing a model no longer
+        means shipping it. Every frontier lab will now face the same question — at what
+        capability level does internal control become mandatory?
+      </li>
+      <li>
+        <strong>US AI rivals are becoming security partners.</strong>
+        OpenAI, Anthropic, and Google coordinating against Chinese model extraction signals
+        that geopolitical pressures are creating cooperation that market competition never would.
+        The Frontier Model Forum is becoming something closer to an industry intelligence agency.
+      </li>
+      <li>
+        <strong>Anthropic's growth trajectory is the most significant in AI history.</strong>
+        $9B ARR to $30B in a matter of months. A $380B valuation. This is not gradual enterprise
+        adoption — it is a step-function shift in how organizations are deploying AI at scale.
+      </li>
+      <li>
+        <strong>The agentic threshold has been crossed.</strong>
+        GPT-5.4 clearing the human baseline on OSWorld-V is not a benchmark footnote. It means
+        AI can now complete real software tasks better than the average human. Autonomous agents
+        are no longer a roadmap item.
+      </li>
+      <li>
+        <strong>Energy efficiency may solve the data center crisis before it peaks.</strong>
+        A 100× reduction in AI energy consumption — if it scales — would fundamentally change
+        the infrastructure math driving hyperscaler spending. Watch whether the hybrid
+        symbolic-neural approach moves from robotics papers to production model training.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 9, 2026<br />
+      Issue No. 22
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: CNBC &middot; TechCrunch &middot; Bloomberg &middot; Fortune &middot;
+    The Decoder &middot; ScienceDaily &middot; Time &middot; LLM Stats &middot; Humai Blog &middot;
+    Renovate QR &middot; Innovation in the News &middot; Crescendo AI &middot; NVIDIA Blog
+  </div>
+
+</div>
+</body>
+</html>
