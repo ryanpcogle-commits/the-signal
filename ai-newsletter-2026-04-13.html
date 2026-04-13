@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 13, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 26</span>
+    <span>April 13, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Stanford's AI Index Lands Today — and the Numbers Are Staggering</h2>
+    <p class="deck">
+      Generative AI hit 53% population adoption in three years. Faster than the internet.
+      Faster than the PC. The Stanford AI Index 2026 is the clearest picture yet of how completely
+      the technology has already reshaped everyday life.
+    </p>
+    <p>
+      Released this morning, the Stanford Human-Centered AI Institute's annual AI Index report
+      for 2026 reveals a technology adoption curve unlike anything measured before. Generative AI
+      reached <strong>53% population adoption within three years</strong> of mass deployment —
+      a pace that outstrips the personal computer, the internet, and the smartphone. The estimated
+      value of those tools to U.S. consumers is now <strong>$172 billion annually</strong>, with
+      the median value per user tripling between 2025 and 2026.
+    </p>
+    <p>
+      Education is the clearest leading indicator of where AI is headed next. Four out of five
+      U.S. high school and college students now use AI for school-related tasks, yet only half
+      of middle and high schools have any AI policy in place — and just 6% of teachers report
+      that existing policies are clear. The gap between student adoption and institutional
+      readiness is one of the report's most urgent findings.
+    </p>
+    <p>
+      The geopolitical picture is equally striking. U.S. and Chinese frontier models have traded
+      places atop performance rankings multiple times since early 2025. As of March 2026,
+      Anthropic's leading model holds a margin of just <strong>2.7%</strong> over its closest
+      Chinese competitor — a gap measured in weeks, not years.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">53%</span>
+      <div class="num-label">Population adoption of generative AI — 3 years, fastest ever</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$172B</span>
+      <div class="num-label">Annual value of generative AI to U.S. consumers</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">16M</span>
+      <div class="num-label">Unauthorized model exchanges documented by Anthropic from Chinese firms</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic's Most Powerful Model Will Never Be Released to the Public</h3>
+    <p>
+      In a move without precedent in frontier AI, Anthropic announced on April 7 that
+      <strong>Claude Mythos</strong> — its most capable model, believed to have 10 trillion
+      parameters — will not receive a public release due to cybersecurity risks that the company
+      concluded could not be adequately mitigated. The decision followed a data leak on March 26
+      that confirmed Mythos's existence. Access is being restricted to select partners under
+      <strong>Project Glasswing</strong>, a coalition of major technology companies and
+      cybersecurity organizations dedicated to securing critical software infrastructure.
+      It is the first time a frontier AI lab has voluntarily withheld its most powerful model
+      from general availability on safety grounds.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.4 Raises the Bar — GPT-5.5 "Spud" Already on Deck for Q2</h3>
+    <p>
+      OpenAI's <strong>GPT-5.4</strong> is now in broad release, featuring a significantly
+      extended token context window and substantial improvements to multi-step reasoning,
+      making it the go-to choice for complex analytical and coding workloads. The release has
+      already been leapfrogged in some benchmarks by Gemini 3.1 Pro, which leads 13 of 16
+      major evaluation suites and ties GPT-5.4 Pro on the Artificial Analysis Intelligence Index
+      — at roughly one-third the API cost. Internally codenamed "Spud," OpenAI's GPT-5.5 is
+      expected before the end of Q2.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic &amp; Google Form United Front Against Chinese Model Distillation</h3>
+    <p>
+      In an extraordinary show of cross-industry cooperation, OpenAI, Anthropic, and Google
+      have begun sharing intelligence through the Frontier Model Forum to detect and block
+      adversarial distillation — the practice of systematically querying frontier models to
+      extract knowledge into cheaper copycat systems. Anthropic alone has documented
+      <strong>16 million unauthorized exchanges</strong> attributed to three named Chinese firms.
+      The coalition published a joint technical framework this week for detecting distillation
+      attempts at the API layer, signaling that model IP protection is now an industry-wide
+      priority, not a competitive differentiator.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Llama 4 Maverick Arrives: 400B Parameters, 10M Context — Open Source</h3>
+    <p>
+      Meta's <strong>Llama 4 Maverick</strong> is now available, delivering 400 billion
+      parameters and a 10-million-token context window under an open-weights license. Combined
+      with Google's <strong>Gemma 4</strong> (released under Apache 2.0 with frontier-level
+      benchmark performance), the open-source tier has effectively caught up to where
+      proprietary models stood 12 months ago. The gap between open and closed is now measured
+      in weeks rather than generations. Separately, Meta's multimodal <strong>Muse Spark</strong>
+      model — the first major release since the $14 billion Alexandr Wang deal — is drawing
+      strong early reviews for perception and agentic tasks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Researchers Cut AI Energy Use by 100x With Symbolic Reasoning Hybrid</h3>
+    <p>
+      A paper published this week describes a system that combines standard neural networks
+      with human-like symbolic reasoning to slash AI energy consumption by up to
+      <strong>100 times</strong> while simultaneously improving accuracy on structured tasks.
+      Instead of relying on brute-force pattern matching, the hybrid architecture enables
+      AI systems to reason logically — reducing the number of computations required per
+      inference by orders of magnitude. If the results hold at scale, it could fundamentally
+      change the economics of deploying AI in resource-constrained environments, from
+      edge devices to data centres trying to hold down power costs.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>AI Cracks a Key Quantum Computing Problem — Trying Thousands of Approaches</h3>
+    <p>
+      Researchers reported this week that an AI system made a meaningful contribution to
+      quantum computing by autonomously exploring thousands of combinations of prior scientific
+      results to discover novel improvements to widely-used quantum algorithms. The AI
+      demonstrated understanding of niche sub-disciplines across physics and computer science
+      simultaneously — something that would take a human expert team months to survey. The
+      work, published in <em>Time</em>, is being cited as an early example of AI accelerating
+      fundamental research in fields where the knowledge base has grown too large for any
+      single human team to hold in their heads.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>NVIDIA's National Robotics Week: Full-Stack Physical AI, Cloud to Edge</h3>
+    <p>
+      NVIDIA used National Robotics Week to showcase a complete cloud-to-robot workflow
+      integrating simulation, reinforcement learning, and edge deployment — making it
+      faster to build, train, and ship intelligent physical machines. The stack builds on
+      the momentum from GTC in March, where NVIDIA introduced its new wave of physical AI
+      technologies. Google DeepMind's <strong>AlphaEvolve</strong> agentic coding assistant
+      was cited as a real-world case study: France-based FM Logistic deployed it to
+      autonomously optimize worker routing across one of its largest warehouse facilities,
+      cutting walk time and improving throughput without any human-authored rule changes.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Generative AI reached 53% population adoption within three years — faster than
+      the personal computer or the internet."
+    </blockquote>
+    <cite>— Stanford AI Index 2026, released April 13, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Adoption has crossed a point of no return.</strong>
+        53% in three years isn't a trend — it's a fait accompli. The policy, education,
+        and institutional infrastructure to match this pace doesn't exist yet. That gap
+        is where the next decade of AI conflict will play out.
+      </li>
+      <li>
+        <strong>Voluntary model withholding is a new safety category.</strong>
+        Anthropic's decision not to release Mythos publicly sets a precedent every lab
+        will now be measured against. Expect "responsible non-release" to become a formal
+        concept in AI governance frameworks within 12 months.
+      </li>
+      <li>
+        <strong>Open-source has reached frontier parity.</strong>
+        Llama 4 Maverick at 400B parameters with a 10M context window makes the
+        open/closed distinction increasingly theoretical for most enterprise use cases.
+        The closed labs' real moat is now safety research and withhold capacity, not capability.
+      </li>
+      <li>
+        <strong>Labs are forming defensive coalitions.</strong>
+        The OpenAI-Anthropic-Google anti-distillation alliance is unprecedented — yesterday's
+        rivals building shared infrastructure to protect shared interests. Expect this to
+        expand to other threat vectors: deepfakes, model theft, and autonomous misuse.
+      </li>
+      <li>
+        <strong>Energy efficiency is the next major competitive axis.</strong>
+        A 100x energy reduction through symbolic reasoning hybrids, combined with Google's
+        6x memory compression algorithm, signals that the field is shifting from raw capability
+        scaling toward efficiency scaling. The first lab to crack efficient reasoning at scale
+        will rewrite the infrastructure cost equation.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 13, 2026<br />
+      Issue No. 26
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Stanford HAI AI Index 2026 &middot; CNBC &middot; Fortune &middot;
+    TechCrunch &middot; Bloomberg &middot; LLM Stats &middot; Crescendo AI &middot;
+    ScienceDaily &middot; Time &middot; NVIDIA Blog &middot; The Japan Times &middot;
+    Next Platform &middot; Radical Data Science &middot; AI Weekly
+  </div>
+
+</div>
+</body>
+</html>
