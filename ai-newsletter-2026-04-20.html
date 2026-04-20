@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 20, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 32</span>
+    <span>April 20, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Ships Claude Opus 4.7 — and Introduces the Most Restricted Model in AI History</h2>
+    <p class="deck">
+      Anthropic launched its most capable public model while quietly deploying a 10-trillion-parameter
+      system so powerful it's available to just 50 organizations worldwide.
+    </p>
+    <p>
+      Claude Opus 4.7, released April 16, 2026, is Anthropic's most powerful <em>publicly available</em>
+      AI model to date — leading every other model on the hardest coding benchmarks. The launch came
+      alongside an unusual disclosure: Anthropic's other April release, <strong>Claude Mythos</strong>,
+      a 10-trillion-parameter system previewed under the codename Project Glasswing, is available to
+      only 50 hand-selected organizations while Anthropic works through its safety implications.
+    </p>
+    <p>
+      The Mythos numbers are striking: 93.9% on SWE-bench Verified and 94.6% on GPQA Diamond —
+      benchmarks where GPT-5.4 Pro and Gemini 3.1 Ultra are tied at 57 points. The restricted rollout
+      marks the first time a major AI lab has publicly acknowledged deploying a system it considers
+      too capable for unrestricted release. Anthropic issued a cautionary note on April 10 calling
+      Mythos "a remarkable step forward" while raising explicit concerns about broad deployment.
+    </p>
+    <p>
+      For the vast majority of developers, Opus 4.7 is the relevant release — and it's formidable
+      in its own right. Anthropic's pricing collapse continues: frontier-level performance is now
+      available at a fraction of 2024 costs, a trend reshaping the economics of every AI-powered product.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$25B</span>
+      <div class="num-label">OpenAI annualized revenue — eyeing late-2026 IPO</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">93.9%</span>
+      <div class="num-label">Claude Mythos on SWE-bench Verified — highest ever recorded</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100×</span>
+      <div class="num-label">Energy reduction from new hybrid AI reasoning architecture</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Gemma 4 Runs Frontier-Class Performance on a Single GPU</h3>
+    <p>
+      Google DeepMind released Gemma 4 on April 2 under the Apache 2.0 license — four open-source
+      models ranging from 1B to 27B parameters, including a 27B multimodal variant that handles text,
+      images, and video inputs. The headline: all four models run on a single 80GB NVIDIA H100 GPU
+      while delivering benchmark performance comparable to models 20 times their size. The release
+      cements the pattern that open-source is no longer a consolation prize — it's a legitimate choice
+      for serious production workloads.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>New Architecture Cuts AI Energy Use by 100× — Without Sacrificing Accuracy</h3>
+    <p>
+      Researchers published a paper this week describing a hybrid approach that slashes AI energy
+      consumption by up to 100 times while <em>improving</em> accuracy by combining neural networks
+      with symbolic reasoning — the kind of rule-based logic humans use instinctively. Current
+      large models burn energy proportional to parameter count; the new architecture decouples
+      capability from compute cost in ways the field hasn't seen before. If it scales, it could
+      fundamentally change the economics of inference and make AI viable in low-power edge devices.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic, and Google Form Anti-Copying Coalition Against Chinese AI</h3>
+    <p>
+      The three frontier AI labs announced in early April that they are sharing intelligence through
+      the Frontier Model Forum to combat Chinese competitors systematically extracting results from
+      US AI models. The practice — sometimes called "model distillation at scale" — allows a
+      well-resourced actor to close capability gaps without funding foundational research.
+      The coalition is an unusual moment of industry cooperation between companies that compete
+      fiercely on every other dimension. Specific countermeasures have not been disclosed publicly.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Google's TurboQuant Solves One of the Biggest Bottlenecks in Running Large Models</h3>
+    <p>
+      Google Research unveiled TurboQuant at ICLR 2026 this month — an algorithm that dramatically
+      reduces the memory overhead caused by the KV cache, the data structure that lets language models
+      remember earlier parts of a conversation. In practice, the KV cache forces a hard tradeoff between
+      context length and GPU memory cost. TurboQuant cuts that memory requirement by a factor of six
+      without meaningful quality loss, which means longer contexts, lower inference bills, and more
+      headroom for longer agentic task runs.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>AI Helps Crack Quantum Encryption Timeline — Sooner Than Anyone Expected</h3>
+    <p>
+      New research from Google and Oratomic suggests that quantum computers capable of breaking
+      standard internet encryption may arrive significantly sooner than previous estimates. The
+      Oratomic team reported that AI was "instrumental" in developing their new algorithm — with
+      one researcher stating "there is no question that we used AI to accelerate this development."
+      The finding has immediate policy implications: organizations relying on RSA and elliptic-curve
+      cryptography may have less runway than previously assumed to migrate to post-quantum standards.
+      NIST finalized its post-quantum cryptography standards last year, but enterprise adoption remains
+      slow.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>NVIDIA's GR00T Models Enable Robots to Follow Natural Language in the Real World</h3>
+    <p>
+      During National Robotics Week, NVIDIA released new open Isaac GR00T foundation models
+      that allow robots to understand natural language instructions and perform complex, multi-step
+      tasks using vision-language-action reasoning. The models are trained in simulation and transfer
+      directly to physical hardware — closing the sim-to-real gap that has historically been the
+      primary barrier to deploying robots outside of tightly controlled environments. Several
+      manufacturing and logistics companies are already piloting the technology.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Surpasses $25B ARR — IPO Signals Intensify</h3>
+    <p>
+      OpenAI surpassed $25 billion in annualized revenue this month, and the company is reportedly
+      taking early steps toward a public listing potentially as soon as late 2026. Rival Anthropic
+      is close behind at approximately $19 billion in annualized revenue. PwC's 2026 AI Performance
+      Study, published this week, found that three-quarters of AI's economic gains are being captured
+      by just 20% of companies — and that the leading companies are focused on growth, not just
+      productivity gains. The AI economy is concentrating fast.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "There is no question that we used AI to accelerate this development."
+    </blockquote>
+    <cite>— Oratomic researchers, on AI-assisted quantum computing breakthrough, April 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Restricted-access frontier models are becoming standard practice.</strong>
+        Claude Mythos available to 50 orgs. GPT-5.4 Pro in limited preview. The frontier is now
+        a two-tier system: a public model and a more capable model that most people can't access.
+        That gap will widen before it narrows.
+      </li>
+      <li>
+        <strong>AI and quantum computing are converging on a hard deadline.</strong>
+        AI is accelerating quantum algorithm development. Quantum computing is accelerating AI chip
+        design. The feedback loop is tightening — and the organizations that haven't started
+        post-quantum cryptography migration are now behind schedule.
+      </li>
+      <li>
+        <strong>Open-source has closed the capability gap with proprietary models.</strong>
+        Gemma 4's 27B model delivering frontier-comparable results on a single GPU is a
+        structural shift — not a one-off. The era of "open-source is three years behind" is over.
+      </li>
+      <li>
+        <strong>Energy efficiency is the next moat in AI infrastructure.</strong>
+        The 100× energy reduction paper signals where the next research arms race is headed.
+        As inference scales, electricity costs are becoming a strategic differentiator — not
+        just an operational concern.
+      </li>
+      <li>
+        <strong>Frontier labs are learning to cooperate on defense, compete on offense.</strong>
+        The OpenAI/Anthropic/Google anti-copying coalition is the second major instance of
+        cross-lab cooperation in 2026. Expect more — geopolitical pressure creates strange alliances.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 20, 2026<br />
+      Issue No. 32
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: TechCrunch &middot; Fortune &middot; Bloomberg &middot; MIT Technology Review &middot;
+    Time &middot; ScienceDaily &middot; NVIDIA Blog &middot; devFlokers &middot; LLM Stats &middot;
+    Build Fast With AI &middot; PwC Newsroom &middot; The Japan Times &middot; Radical Data Science &middot; Fazm AI
+  </div>
+
+</div>
+</body>
+</html>
