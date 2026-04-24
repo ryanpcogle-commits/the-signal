@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 24, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 35</span>
+    <span>April 24, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>DeepSeek V4 Drops — and It's the Most Powerful Open-Source AI Model Yet</h2>
+    <p class="deck">
+      A year after it rattled Silicon Valley, DeepSeek is back with V4 Flash and V4 Pro — models that challenge every closed frontier lab with an open license and performance that tops coding benchmarks.
+    </p>
+    <p>
+      China's DeepSeek released preview versions of its V4 series Friday, unveiling V4 Flash and V4 Pro — a dual-tier open-source family the company describes as "the most powerful open-source platform" in the world. Both models feature DeepSeek's new <strong>Hybrid Attention Architecture</strong>, a technique the company says dramatically improves long-context memory by letting the model retain information across conversations spanning up to 1 million tokens.
+    </p>
+    <p>
+      On coding and reasoning benchmarks, the V4 Pro model matches or beats several closed proprietary systems from OpenAI and Anthropic. The "agentic" improvements are especially notable: the model can now autonomously chain together multi-step workflows across tools — a capability that was largely confined to flagship paid models just six months ago.
+    </p>
+    <p>
+      The timing is pointed. DeepSeek's first major release, roughly a year ago, crashed Nvidia's stock price in a single day and forced a rethink of the US AI industry's assumption that compute advantages were insurmountable. V4's arrival at ICLR 2026 week sends a deliberate signal that the open-source Chinese lab remains a serious competitive force — and that the race is far from over.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$25B</span>
+      <div class="num-label">Tesla 2026 AI capex commitment — Musk doubles down</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">295B</span>
+      <div class="num-label">Parameters in Tencent's new Hy3 open-source model</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100×</span>
+      <div class="num-label">Energy reduction from new neuro-symbolic AI efficiency breakthrough</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Tencent Launches Hy3 Preview — 295B Parameters, Open-Source</h3>
+    <p>
+      Tencent Holdings launched Hy3 Preview today, a 295-billion-parameter open-source model with only 21 billion parameters activated at inference time — a Mixture-of-Experts architecture designed for efficiency at scale. The model ships with a 256,000-token context window and is already powering Tencent's Yuanbao chatbot, replacing DeepSeek's models internally. With both DeepSeek V4 and Hy3 dropping the same week, China's open-source AI output is outpacing anything the US labs have publicly released this month.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Xiaomi Enters the AI Arms Race With MiMo-V2.5</h3>
+    <p>
+      Xiaomi opened public testing for its MiMo-V2.5 series — a family of four models covering text reasoning, voice synthesis (TTS), and speech recognition (ASR). The lineup signals Xiaomi's ambition to build a full-stack AI platform spanning its hardware ecosystem, from phones to home devices. The V2.5-Pro variant is aimed at multi-step reasoning tasks and AI agent use cases, directly competing with OpenAI's o-series and Anthropic's extended thinking models.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google Cloud Next: Gemini Comes to Apple Intelligence — and Siri</h3>
+    <p>
+      At Google Cloud Next 2026 in Las Vegas, CEO Sundar Pichai and Cloud CEO Thomas Kurian confirmed that Gemini will underpin Apple Intelligence features and a redesigned, more capable Siri later this year. The partnership — unexpected given Apple's historical resistance to third-party AI — reflects a strategic bet by Apple that Google's multimodal capabilities outpace what its in-house models can deliver. Google also deepened its ties with Mira Murati's Thinking Machines Lab in a new multibillion-dollar infrastructure agreement giving the startup access to Google's GB300 Nvidia chip clusters.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI's GPT-5.5 Is Built for Agents, Not Conversations</h3>
+    <p>
+      OpenAI announced GPT-5.5 this week, an explicitly agentic model designed to handle complex multi-step tasks by autonomously switching between tools — web search, code execution, file manipulation — in a single session. The announcement marks a deliberate pivot in how OpenAI is positioning its frontier models: less as conversational assistants and more as autonomous workflow engines. GPT-5.5 ships alongside Google Cloud Next's own agentic tooling push, intensifying the race to define what "AI agent" actually means at enterprise scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Researchers Cut AI Energy Use by 100× Using Symbolic Reasoning</h3>
+    <p>
+      A breakthrough paper making waves ahead of ICLR 2026 describes a neuro-symbolic architecture that reduces AI energy consumption by up to 100 times compared to standard neural networks — while improving accuracy. The approach hybridizes deep learning with classical symbolic reasoning, letting models solve logical problems through structured rules rather than brute-force pattern matching. Separately, engineers published details of a high-temperature memory chip that operates at 700°C and could dramatically speed up AI inference while consuming far less power.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>AI Is Accelerating the Quantum Encryption Threat — Cloudflare Moves Up Its Deadline</h3>
+    <p>
+      New research from Google and startup Oratomic reveals that AI was "instrumental" in developing algorithms that could crack current internet encryption years sooner than previously estimated. The team's findings suggest quantum computers capable of breaking RSA encryption may arrive closer to 2030 than the 2035 window most security planners assumed. Cloudflare responded by accelerating its quantum-readiness deadline to 2029, and several US government agencies are quietly updating their post-quantum cryptography migration timelines. The message: AI is not just a target of cyberattacks — it's now a tool that accelerates the threat timeline.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>OpenAI, Anthropic, and Google Form United Front Against Chinese Model Copying</h3>
+    <p>
+      The three leading US AI labs — ordinarily fierce competitors — have begun sharing intelligence through the Frontier Model Forum to combat a wave of Chinese attempts to distill and replicate their proprietary models. The collaboration involves sharing detection techniques for "model extraction" attacks, where outputs from expensive frontier models are used to cheaply train near-equivalent open-source alternatives. The effort reflects a broader industry anxiety: that even without direct access to model weights, adversaries can reverse-engineer capabilities through systematic querying — a gap that current export controls don't address.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "There is no question that we used AI to accelerate this development — the encryption threat timeline has moved."
+    </blockquote>
+    <cite>— Oratomic researchers, on AI-assisted quantum algorithm development, April 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>China's open-source output is compressing the frontier gap.</strong>
+        DeepSeek V4 and Tencent Hy3 in the same week means open-source models are now matching closed proprietary systems on key benchmarks. The compute moat US labs relied on is eroding faster than expected.
+      </li>
+      <li>
+        <strong>Agentic capability is the new battleground metric.</strong>
+        OpenAI's GPT-5.5, Google's Cloud Next agent tooling, and DeepSeek V4's "agentic improvements" all signal the same thing: conversational AI is yesterday's product. The race is now about autonomous task completion.
+      </li>
+      <li>
+        <strong>Energy efficiency is becoming a strategic differentiator.</strong>
+        A 100× energy reduction from neuro-symbolic approaches isn't just an academic result — it's a potential unlock for edge deployment, smaller data centers, and inference economics that favor new entrants over hyperscalers.
+      </li>
+      <li>
+        <strong>Strategic partnerships are reshaping AI's supply chain.</strong>
+        Google-Apple on Gemini/Siri. Google-Thinking Machines Lab on infra. Anthropic-Amazon on 5GW of capacity. The AI industry is consolidating into dependency graphs, not just competing products.
+      </li>
+      <li>
+        <strong>Quantum risk just got a hard deadline.</strong>
+        Cloudflare moving its post-quantum deadline to 2029 is a concrete forcing function. Organizations that haven't started post-quantum cryptography migrations are now officially behind schedule.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 24, 2026<br />
+      Issue No. 35
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Bloomberg &middot; US News &middot; Caixin Global &middot; TechCrunch &middot; The Next Web &middot;
+    LLM Stats &middot; devFlokers &middot; ScienceDaily &middot; Nature &middot; Fortune &middot; Promethean AI &middot;
+    Google Blog &middot; NVIDIA Blog &middot; Transparency Coalition
+  </div>
+
+</div>
+</body>
+</html>
