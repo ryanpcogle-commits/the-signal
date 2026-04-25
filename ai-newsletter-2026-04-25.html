@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 25, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 36</span>
+    <span>April 25, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>DeepSeek V4 Arrives: One Year After Shaking Silicon Valley, China's AI Comeback Is Official</h2>
+    <p class="deck">
+      DeepSeek launched V4 Flash and V4 Pro this week — exactly one year after V3 sent shockwaves
+      through U.S. markets. The new models claim top-tier coding benchmarks and a new generation
+      of agentic capabilities.
+    </p>
+    <p>
+      DeepSeek unveiled the V4 series on Friday, April 24th, touting major advances in knowledge,
+      reasoning, and what the company calls "agentic" tasks — AI that can plan, act, and iterate
+      autonomously across complex workflows. The release includes both a "Flash" variant optimized
+      for speed and a "Pro" variant targeting maximum capability, both published as open-source models.
+    </p>
+    <p>
+      The timing is pointed. It has been almost exactly one year since DeepSeek V3 rattled U.S. tech
+      stocks and prompted emergency congressional hearings about America's AI lead. Since then, the
+      Chinese lab has operated quietly — until now. Bloomberg reports the V4 Pro's coding benchmark
+      scores are competitive with OpenAI's GPT-5.5, which itself launched just 48 hours earlier.
+    </p>
+    <p>
+      The dual launch — a U.S. frontier model and a Chinese open-source challenger within the same
+      news cycle — illustrates how compressed the AI race has become. Analysts at Kersai note that
+      both the pace and the geographic spread of frontier AI development are accelerating simultaneously,
+      creating an environment where no single lab can expect an extended lead.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$2.5B</span>
+      <div class="num-label">Claude Code ARR — fastest enterprise product in history</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100×</span>
+      <div class="num-label">Energy reduction from new symbolic-neural AI approach</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">12/14</span>
+      <div class="num-label">Benchmarks won by Claude Opus 4.7 at same price point</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Ships GPT-5.5 — Better at Coding, Computer Use, and Deep Research</h3>
+    <p>
+      OpenAI announced GPT-5.5 on Thursday, April 23rd, rolling it out immediately to Plus, Pro,
+      Business, and Enterprise subscribers in ChatGPT and the Codex coding assistant. The company
+      describes GPT-5.5 as its most capable model to date for coding tasks, computer-use automation,
+      and extended research workflows. The release comes as OpenAI prepares for a widely anticipated
+      IPO later in 2026, and the new model is seen partly as a response to Anthropic's Claude Opus 4.7
+      claiming the coding benchmark crown.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Opus 4.7 Wins 12 of 14 Benchmarks — at the Same Price</h3>
+    <p>
+      Anthropic's Claude Opus 4.7 is winning 12 of 14 reported benchmarks against comparable frontier
+      models, all at the same $5 input / $25 output per million token price as its predecessor, Opus 4.6.
+      The release has prompted Sergey Brin to personally assemble a dedicated "strike team" of
+      researchers and engineers inside Google DeepMind with a single mandate: close the coding gap
+      with Anthropic. Claude Code, the AI coding assistant, reached $2.5 billion in annualized
+      run-rate revenue by February 2026 — faster than any enterprise software product in recorded history.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Mira Murati's Thinking Machines Lab Signs Multi-Billion-Dollar Google Cloud Deal</h3>
+    <p>
+      Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, has signed a
+      new multibillion-dollar agreement to expand its use of Google Cloud infrastructure — including
+      systems powered by Nvidia's latest GPUs — in a deal valued in the single-digit billions.
+      The partnership deepens Google's position as a preferred cloud provider for frontier AI labs
+      outside its own DeepMind research arm, and signals that Google Cloud is successfully capturing
+      AI infrastructure spending from startups that might otherwise default to AWS or Azure.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Google Unveils AI Agent Platform at Cloud Next — With a Dedicated Agent Inbox</h3>
+    <p>
+      Google released a suite of tools at Cloud Next 2026 for building and deploying AI agents within
+      enterprise environments, including a dedicated "inbox" for tracking agent activity and outputs.
+      The platform is positioned as a direct challenge to OpenAI's enterprise agent tools and
+      Anthropic's computer-use capabilities. Separately, Google deepened its ties with Thinking
+      Machines Lab and announced new integrations between the Gemini API and Google Workspace Studio,
+      allowing AI agents to coordinate across Docs, Sheets, and Gmail workflows without human handoffs.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Researchers Cut AI Energy Use by 100× With a Symbolic-Neural Hybrid</h3>
+    <p>
+      Scientists published results this month showing that combining traditional neural networks with
+      symbolic reasoning — the kind of rule-based logic humans use — can cut AI energy consumption
+      by up to 100 times while actually improving accuracy. The system helps AI agents reason
+      logically through problems rather than relying on brute-force statistical pattern matching,
+      which requires enormous power. A complementary finding: a new high-temperature memory chip
+      capable of operating at 700°C can perform matrix multiplication — over 92% of AI compute — at
+      orders of magnitude lower energy draw. Both advances point toward AI workloads becoming
+      dramatically less expensive to run.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>AI Accelerates Quantum Threat Timeline — Encryption at Risk Sooner Than Expected</h3>
+    <p>
+      New research from Google and the startup Oratomic suggests that quantum computers capable of
+      breaking standard internet encryption may arrive sooner than the 10–15 year window previously
+      cited by most security researchers. AI played an "instrumental" role in developing the
+      underlying algorithm, accelerating what would have been years of manual research. Nature is
+      calling it "a real shock" to the cryptography community. Governments and enterprises relying
+      on RSA and elliptic-curve encryption are now under pressure to accelerate migration to
+      post-quantum cryptographic standards.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Arizona AI Bills, Oracle's $16B Michigan Data Center, and Intel's $36B Government Windfall</h3>
+    <p>
+      Three AI regulatory bills remain in play in Arizona as its legislature approaches adjournment
+      Saturday, April 25th — including transparency and liability measures that could become a
+      template for other states. On the infrastructure side, a $16 billion financing package closed
+      this week for a giant Oracle data center campus in Michigan, which Oracle plans to use to power
+      applications for OpenAI. And the U.S. government's stake in Intel — taken in August 2025 —
+      has appreciated fourfold to approximately $36 billion, a roughly $27 billion paper gain that is
+      already being cited as a model for strategic public-private investment in domestic chip capacity.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The AI race has moved past coding assistants. We are now in the era of AI software developers
+      that can take a task, analyze a codebase, plan, write code, run tests, and fix their own bugs."
+    </blockquote>
+    <cite>— AI Flash Report, April 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The U.S.-China AI release cycle is now synchronized.</strong>
+        DeepSeek V4 arrived within 48 hours of GPT-5.5. The competitive window is no longer
+        quarters — it's days. Every frontier release now has an immediate international answer.
+      </li>
+      <li>
+        <strong>Google is losing the coding war and knows it.</strong>
+        Sergey Brin personally forming a strike team to chase Anthropic is not a routine
+        management move. Claude Code at $2.5B ARR in under two years is the benchmark Google
+        is desperately trying to match.
+      </li>
+      <li>
+        <strong>Energy efficiency is the next strategic moat.</strong>
+        A 100× reduction in compute energy is not incremental — it would fundamentally change
+        the economics of AI deployment. The labs that crack efficient inference first will
+        operate at margins no one else can match.
+      </li>
+      <li>
+        <strong>Quantum risk just moved up the board.</strong>
+        AI-assisted cryptography research is compressing the quantum threat timeline.
+        Organizations still running legacy encryption are now operating on borrowed time,
+        not the comfortable long runway they assumed.
+      </li>
+      <li>
+        <strong>The U.S. government is becoming an AI investor, not just a regulator.</strong>
+        A $36B paper gain on Intel, a $16B Oracle data center deal, and active AI legislation
+        in multiple states — Washington is no longer just watching AI happen. It is funding the
+        infrastructure layer and will want a say in how it's used.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 25, 2026<br />
+      Issue No. 36
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Bloomberg &middot; CNBC &middot; TechCrunch &middot; US News &middot;
+    Fortune &middot; Nature &middot; ScienceDaily &middot; AI Flash Report &middot; LLM Stats &middot;
+    Kersai &middot; devFlokers &middot; NVIDIA Blog &middot; The Next Web &middot; AI2Work
+  </div>
+
+</div>
+</body>
+</html>
