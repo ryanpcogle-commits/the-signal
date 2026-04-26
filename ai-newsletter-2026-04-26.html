@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · April 26, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 37</span>
+    <span>April 26, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>GPT-5.5 Lands, DeepSeek V4 Answers — and the Parameter Race Reaches 10 Trillion</h2>
+    <p class="deck">
+      Three major model launches in four days have reset the competitive landscape. The gap between US and Chinese frontier AI is narrowing faster than anyone publicly admitted.
+    </p>
+    <p>
+      OpenAI released GPT-5.5 on April 23rd, calling it the most capable agentic model the company has shipped. The model arrives with improved tool use, reasoning, and coding performance — while matching the latency of its predecessor. OpenAI's guidance to developers was pointed: don't port your old prompts, start from scratch. The release also unlocked workspace agents in ChatGPT for Business and Enterprise users, letting teams build and share AI agents that work autonomously across Slack, Gmail, and other tools.
+    </p>
+    <p>
+      Within 24 hours, Beijing's DeepSeek unveiled a preview of DeepSeek V4 — a 1.6 trillion parameter model that rivals GPT-5.5 on several public benchmarks. The announcement rattled markets and prompted renewed calls from lawmakers for export controls on AI compute shipped to China. DeepSeek V4 follows Moonshot AI's Kimi K2.6, which launched April 20th with a "Swarm 2.0" multi-agent architecture capable of coordinating 300 parallel sub-agents executing up to 4,000 steps simultaneously.
+    </p>
+    <p>
+      Meanwhile, Anthropic quietly crossed its own threshold: <strong>Claude Mythos 5</strong>, at 10 trillion parameters, is now the largest publicly disclosed AI model in history — purpose-built for cybersecurity, academic research, and high-stakes coding environments where reliability matters more than speed.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">10T</span>
+      <div class="num-label">Parameters in Claude Mythos 5 — largest disclosed model ever</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">1.6T</span>
+      <div class="num-label">DeepSeek V4 parameters — China's answer to GPT-5.5</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">100×</span>
+      <div class="num-label">Energy reduction from new neuro-symbolic AI architecture</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Sergey Brin Forms a DeepMind "Strike Team" to Close the Coding Gap With Anthropic</h3>
+    <p>
+      Google co-founder Sergey Brin has personally assembled a dedicated team of researchers and engineers inside Google DeepMind with a single mandate: close the growing gap in AI coding capabilities between Google and Anthropic. The move, reported April 21st, signals how seriously Google is taking Claude's dominance among software developers. The strike team operates outside the normal DeepMind org chart and reports directly to Brin. Separately, Google unveiled a sweeping set of AI agent tools at Google Cloud Next in Las Vegas — including the Agent-to-Agent (A2A) protocol and Workspace Studio — positioning itself as the full-stack enterprise alternative to OpenAI and Anthropic.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic, and Google Join Forces Against Chinese Model Extraction</h3>
+    <p>
+      In a rare show of cross-competitor unity, OpenAI, Anthropic, and Google announced on April 6th that they are coordinating through the Frontier Model Forum to prevent Chinese competitors from extracting capabilities from US frontier models. The joint effort targets a known tactic — sending large volumes of carefully crafted queries to US model APIs to distill and replicate capabilities into domestic Chinese models at far lower training cost. The collaboration is one of the most significant industry self-governance actions since the voluntary White House safety commitments of 2023.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Mira Murati's Thinking Machines Lab Signs Multibillion-Dollar Google Cloud Deal</h3>
+    <p>
+      Thinking Machines Lab, the AI startup founded by former OpenAI CTO Mira Murati, has signed a new multibillion-dollar agreement with Google Cloud — expanding its access to Nvidia GPU infrastructure and Google's proprietary AI systems. The deal, valued in the single-digit billions, is one of the largest cloud commitments by a startup this year and signals that Google is aggressively locking in the next generation of frontier AI labs before they reach scale. Murati has yet to publicly release a product but has been described as building toward general-purpose reasoning systems.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Kimi K2.6 Introduces "Swarm 2.0" — 300 Agents, 4,000 Coordinated Steps</h3>
+    <p>
+      Beijing-based Moonshot AI released Kimi K2.6 on April 20th with a fundamentally different architecture than any prior release. While the model's 1 trillion parameter footprint matches its predecessor, Swarm 2.0 enables horizontal scaling across 300 parallel sub-agents executing up to 4,000 coordinated steps simultaneously. The practical upshot: Kimi K2.6 can complete software engineering projects end-to-end that would require dozens of sequential API calls from other models. The release immediately triggered comparisons to OpenAI's yet-unshipped Orion agent framework, which insiders say remains months away.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Researchers Cut AI Energy Use by 100× With Neuro-Symbolic Architecture</h3>
+    <p>
+      A team of researchers published results this month showing a hybrid neural-symbolic approach that slashes AI energy consumption by up to 100× compared to standard deep learning — while actually improving accuracy on structured reasoning tasks. The system combines neural networks with symbolic logic engines, allowing models to reason more like formal logic rather than statistical pattern-matching. ScienceDaily covered the findings, which have attracted attention from chip designers looking to apply the technique to edge AI deployments where power is the primary constraint.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Kills Sora's Compute Budget — Redirects It Toward IPO-Era Coding Push</h3>
+    <p>
+      OpenAI has quietly shifted compute resources away from Sora video generation toward its coding products, built on an upcoming model internally codenamed "Spud." The move comes as OpenAI prepares for a widely anticipated IPO in late 2026 and needs to demonstrate defensible enterprise revenue. Sora, which never found a scalable business model due to high per-minute inference costs, is no longer receiving priority infrastructure investment. The strategic pivot reinforces what the GPT-5.5 launch made clear: OpenAI is betting its public market story on agentic coding productivity, not media generation.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>AI Helped Crack a Quantum Computing Problem Physicists Couldn't Solve Alone</h3>
+    <p>
+      Quantum computing pioneer John Preskill expressed genuine surprise after an AI system combined prior research in "novel ways" to solve a qubit-reduction problem that had stymied researchers — dramatically lowering the hardware requirements for certain quantum error-correction schemes. The work, covered by <em>Time</em>, represents one of the clearest examples to date of AI accelerating fundamental physics research rather than merely automating existing workflows. Preskill noted the AI's ability to synthesize across niche sub-disciplines was the key factor — something no single human research team could replicate at the same speed.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Developers shouldn't carry over old prompts for GPT-5.5 — start minimal and from scratch."
+    </blockquote>
+    <cite>— OpenAI, GPT-5.5 developer guidance, April 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The parameter ceiling keeps moving.</strong>
+        Claude Mythos 5 at 10 trillion parameters and DeepSeek V4 at 1.6 trillion both launched within days of GPT-5.5. The frontier is no longer a single lab — it's a multi-front race where the definition of "largest model" changes weekly.
+      </li>
+      <li>
+        <strong>Agentic orchestration is the new moat.</strong>
+        Kimi K2.6's Swarm 2.0 — 300 agents, 4,000 steps — signals that raw model capability is secondary to coordination architecture. The labs that figure out reliable multi-agent execution will own enterprise automation.
+      </li>
+      <li>
+        <strong>OpenAI is shaping itself for the public market.</strong>
+        Killing Sora's compute budget, doubling down on coding, launching workspace agents, and dropping GPT-5.5 with enterprise-first messaging — every major decision in April reads as IPO preparation.
+      </li>
+      <li>
+        <strong>Google is fighting on every front simultaneously.</strong>
+        Brin's personal strike team, the Google Cloud Next agent blitz, the Thinking Machines Lab deal, and the Frontier Model Forum coordination effort — Google is refusing to cede any vertical to OpenAI or Anthropic.
+      </li>
+      <li>
+        <strong>Energy efficiency is the next competitive axis.</strong>
+        The 100× neuro-symbolic result, new high-temperature chip breakthroughs, and Meta's MTIA deployment all point to the same pressure: at current growth rates, power consumption becomes the binding constraint on AI scaling before compute does.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      April 26, 2026<br />
+      Issue No. 37
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: CNBC &middot; CNN Business &middot; Bloomberg &middot; TechCrunch &middot; Fortune &middot;
+    LLM Stats &middot; devFlokers &middot; Crescendo AI &middot; MarketingProfs &middot; ScienceDaily &middot;
+    Time &middot; The Next Web &middot; Radical Data Science &middot; Kersai &middot; AI2 Work
+  </div>
+
+</div>
+</body>
+</html>
