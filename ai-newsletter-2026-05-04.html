@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 4, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 45</span>
+    <span>May 4, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>The Pentagon Signed With Seven AI Giants — and Deliberately Left Anthropic Out</h2>
+    <p class="deck">
+      The Defense Department finalized classified AI contracts with OpenAI, Google, Microsoft, Nvidia,
+      SpaceX, Amazon, and Reflection AI. Anthropic was excluded — and the reason matters far beyond Washington.
+    </p>
+    <p>
+      The Department of Defense this week formally cleared seven technology companies to deploy their
+      AI systems on its classified networks, including OpenAI, Google, Microsoft, Nvidia, SpaceX,
+      Amazon Web Services, and newcomer Reflection AI. The contracts cover analysis, logistics,
+      large-scale data processing, and activities in classified environments — the most significant
+      government AI procurement in history.
+    </p>
+    <p>
+      Anthropic was the conspicuous absence. The company had refused Pentagon language requiring its
+      technology to be available for <em>"all lawful purposes"</em> — a term Anthropic argued was
+      broad enough to enable domestic mass surveillance or fully autonomous weapons systems. The DOD
+      responded by labeling Anthropic a supply-chain risk and proceeding without it.
+    </p>
+    <p>
+      The fallout inside Google was immediate. Senior Research Scientist <strong>Andreas Kirsch</strong>
+      publicly declared he was "speechless" and "incredibly ashamed" by the company's participation.
+      The episode crystallizes the industry's central tension: government revenue versus ethical
+      self-constraint. Every major lab now faces a version of the same choice.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$125B</span>
+      <div class="num-label">Meta's 2026 AI capital expenditure target</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">255</span>
+      <div class="num-label">Significant model releases in Q1 2026 alone</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">2M</span>
+      <div class="num-label">Token context window in Gemini 3.1 Ultra</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.5 Lands — OpenAI Calls It Their "Smartest and Most Intuitive" Model Yet</h3>
+    <p>
+      OpenAI shipped GPT-5.5 on April 23, just six weeks after GPT-5.4, continuing an
+      accelerating release cadence that has left the industry scrambling to evaluate each
+      new system before the next one arrives. GPT-5.5 excels at agentic coding, computer use,
+      knowledge work, and scientific research. It is now available in preview on Amazon Bedrock
+      alongside GPT-5.4, giving enterprise customers multiple tiers of OpenAI capability
+      to deploy against specific workloads.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Ships Four Major Updates in 50 Days — Opus 4.7 and "Mythos" Still Ahead</h3>
+    <p>
+      Despite the Pentagon controversy, Anthropic has maintained a punishing internal release
+      schedule. Four major Claude updates shipped in roughly 50 days during early 2026. Claude
+      Opus 4.7 is confirmed as incoming, and a model codenamed <strong>Claude Mythos</strong>
+      is currently in limited internal testing. The Mythos name suggests a significant capability
+      jump rather than an incremental update — and its existence signals Anthropic is not slowing
+      down despite the political and legal headwinds surrounding its DOD refusal.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.1 Ultra Ships With a 2-Million-Token Context Window</h3>
+    <p>
+      Google released Gemini 3.1 Ultra, featuring a 2-million-token context window that works
+      natively across text, image, audio, and video in a single pass. The context length is
+      roughly double the previous frontier record and changes what's practical to process in a
+      single prompt — entire codebases, lengthy legal documents, and hours of video footage
+      can now be analyzed without chunking. The release also functions as Google's answer to
+      the competitive pressure it faces from every direction, including from a DoD partner
+      list it agreed to join despite internal researcher opposition.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepSeek V4 Matches Western Frontier — At a Fraction of the Inference Cost</h3>
+    <p>
+      DeepSeek V4 has landed at roughly the same capability ceiling as GPT-5.5 and Gemini 3.1
+      on agentic engineering benchmarks, while running at meaningfully lower inference cost than
+      its Western counterparts. Separately, Zhipu AI released <strong>GLM-4.7</strong>, a model
+      trained entirely on Huawei Ascend silicon that reports a 1.2% hallucination rate — the
+      lowest publicly claimed figure by any frontier lab. Both releases underscore that China's
+      AI development has not been deterred by export controls on Western chips.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Meta Launches Muse Spark and Commits $125 Billion to AI in 2026</h3>
+    <p>
+      Meta unveiled <strong>Muse Spark</strong>, its first flagship large language model developed
+      under Chief AI Officer Alexandr Wang's newly formed Superintelligence Labs. The launch
+      marks Meta's most direct challenge yet to OpenAI and Anthropic on model quality — not just
+      open-source reach. To fund the ambition, Meta announced AI capital expenditures of
+      $115–135 billion for 2026, nearly double last year's spending. The midpoint of that range,
+      $125 billion, exceeds the combined AI infrastructure spend of Microsoft and Google in 2025.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Novo Nordisk Bets Its Entire Business on OpenAI</h3>
+    <p>
+      Danish pharmaceutical giant Novo Nordisk announced a strategic partnership with OpenAI
+      to integrate AI across every function of the company — from drug discovery and clinical
+      trials to manufacturing, supply chains, and commercial operations — with full deployment
+      planned by end of 2026. The partnership is among the most comprehensive AI integrations
+      announced by a company of Novo Nordisk's scale and represents a signal that life sciences,
+      not just tech, is now treating AI as core operating infrastructure rather than an experiment.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>The Air Force's WarMatrix Runs Its First Operational Mission — 10,000× Faster Than Real Time</h3>
+    <p>
+      The U.S. Air Force announced the successful inaugural operational use of <strong>WarMatrix</strong>,
+      its AI-powered wargaming environment, at the GE 26 Benchmark Wargame. More than 150 participants
+      executed military simulations designed to run up to 10,000 times faster than real time —
+      compressing years of strategic decision-making into hours. The milestone demonstrates AI
+      moving beyond analysis and into live operational planning, and it comes at the same moment
+      that civilian AI companies are being pressed to decide how far they will go in supporting
+      military applications.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "I'm speechless at Google signing a deal to use our AI models for classified tasks. Frankly, it is shameful."
+    </blockquote>
+    <cite>— Andreas Kirsch, Senior Research Scientist, Google DeepMind · April 30, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The Pentagon deal fractures the industry along ethical lines.</strong>
+        Anthropic's exclusion from the DoD contracts is not just a business loss — it's a
+        philosophical marker. Every major lab now has to publicly answer whether it will
+        accept government work with broad "all lawful purposes" language, or refuse and accept the consequences.
+      </li>
+      <li>
+        <strong>Model release cadence has become a security and safety risk.</strong>
+        LLM Stats logged 255 significant model releases in Q1 2026 — roughly three per day.
+        At that pace, red-teaming, evaluation pipelines, and enterprise deployment processes
+        simply cannot keep up. Speed is now competing directly with safety.
+      </li>
+      <li>
+        <strong>Chinese frontier models are cost-competitive with Western ones.</strong>
+        DeepSeek V4 matching GPT-5.5 on benchmarks at lower inference cost — trained without
+        access to NVIDIA's latest chips — shows that export controls are slowing but not stopping
+        China's AI development. Western labs can no longer assume a capability moat.
+      </li>
+      <li>
+        <strong>Context windows are expanding faster than applications can use them.</strong>
+        Gemini 3.1 Ultra's 2-million-token window is remarkable, but most real-world use cases
+        don't yet know how to exploit context at this scale. The infrastructure is ahead of the workflows.
+      </li>
+      <li>
+        <strong>Non-tech industries are making irreversible AI commitments.</strong>
+        Novo Nordisk's full-company OpenAI integration is a template, not an outlier. Pharma,
+        logistics, and financial services are now treating AI adoption as a permanent operational
+        shift — not a pilot program. The enterprise AI market is maturing faster than the models themselves.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 4, 2026<br />
+      Issue No. 45
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: CNN Business &middot; gHacks Tech News &middot; Breaking Defense &middot;
+    TechCrunch &middot; LLM Stats &middot; Build Fast With AI &middot; Air Street Press &middot;
+    Mean CEO Blog &middot; NVIDIA Blog &middot; MIT Technology Review &middot; Crescendo AI &middot;
+    Breitbart Tech &middot; Digital Commerce 360 &middot; Coaio &middot; The Intercept
+  </div>
+
+</div>
+</body>
+</html>
