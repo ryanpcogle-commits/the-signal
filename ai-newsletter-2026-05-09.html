@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 9, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 50</span>
+    <span>May 9, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Targets $900B Valuation — and Just Had the Biggest Week in AI History</h2>
+    <p class="deck">
+      A $50B funding round, an 80x revenue jump, a $200B Google Cloud commitment, and a model that
+      finds zero-day vulnerabilities in every major OS. Anthropic didn't have a good week — it had
+      a generational one.
+    </p>
+    <p>
+      Anthropic is seeking a $50 billion funding round at a $900 billion valuation, a figure that
+      would place it among the most valuable private companies ever. The round comes as the company
+      disclosed that its Q1 2026 annualized revenue has surpassed <strong>$44 billion</strong> —
+      an 80x year-over-year increase and the steepest single-quarter revenue jump any frontier AI
+      company has publicly disclosed.
+    </p>
+    <p>
+      Simultaneously, Anthropic committed to spending <strong>$200 billion</strong> with Google Cloud
+      over five years — an extraordinary bet on Google's infrastructure as Anthropic scales its
+      compute-hungry frontier models. To meet near-term demand, the company also announced it had
+      partnered with SpaceX's Colossus One data center, adding 300 megawatts of new capacity
+      (equivalent to approximately 220,000 NVIDIA GPUs) and immediately doubling Claude Code's
+      rate limits.
+    </p>
+    <p>
+      The financial story is remarkable on its own, but Anthropic's technical disclosures this week
+      may be the more consequential development. Through Project Glasswing, select organizations
+      given access to Claude Mythos Preview reported that the model identified thousands of
+      zero-day vulnerabilities across every major operating system and web browser within weeks of
+      internal testing — raising serious questions about what it means to deploy an AI system with
+      genuine offensive security capabilities.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$900B</span>
+      <div class="num-label">Anthropic's target valuation in new $50B funding round</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$44B</span>
+      <div class="num-label">Anthropic ARR — up 80x year-over-year in a single quarter</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">98%</span>
+      <div class="num-label">Google DeepMind UK staff voting to form AI's first union</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Hits $25B ARR — With an IPO Clock Ticking</h3>
+    <p>
+      OpenAI has reached $25 billion in annualized revenue, cementing its position as the
+      highest-revenue AI company in history at this stage of development. The milestone arrives
+      as the company is widely expected to pursue a public offering in late 2026 or early 2027.
+      ChatGPT's consumer base continues to grow, but enterprise API contracts — driven by agent
+      deployments in legal, finance, and software engineering — are now the dominant revenue driver,
+      according to analysts tracking the company's ARR composition.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Pentagon Signs AI Deals With Eight Companies — Anthropic Notably Absent</h3>
+    <p>
+      The Department of Defense finalized AI contracts with OpenAI, Google, Microsoft, NVIDIA, and
+      four other companies this week, expanding AI use into classified environments for analysis,
+      logistics, and large-scale data processing. Anthropic was pointedly excluded — a continuation
+      of the DOD's friction with the company over its refusal to allow certain military applications.
+      However, the White House quietly reopened discussions with Anthropic in recent days following
+      the company's announcements about Claude Mythos's security capabilities, suggesting the
+      exclusion may be temporary.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>White House Moves Toward Mandatory AI Model Vetting</h3>
+    <p>
+      National Economic Council Director <strong>Kevin Hassett</strong> confirmed the White House is
+      drafting an executive order that would require AI models to pass a federal vetting process
+      before public deployment — comparing the framework to FDA drug approval. Hassett cited
+      Anthropic's Mythos model, which demonstrated the ability to find network vulnerabilities at
+      scale, as a direct catalyst. Separately, Google DeepMind, Microsoft, and Elon Musk's xAI
+      have already agreed to participate in a voluntary testing program run by the Center for AI
+      Standards and Innovation, though critics argue voluntary compliance cannot match the stakes.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google DeepMind UK Staff Vote 98% to Unionize — AI's First Frontier Lab Union</h3>
+    <p>
+      In a historic vote, Google DeepMind's UK employees backed unionization 98% — the first
+      union at any top AI research laboratory. The trigger: a classified Pentagon AI contract
+      that DeepMind researchers were asked to contribute to without disclosure of its purpose.
+      The vote marks a turning point in AI labor politics. For years, high compensation and
+      mission-driven culture kept researchers from organizing. The military AI question appears
+      to have changed the calculus — and the DeepMind outcome is likely to be studied carefully
+      at OpenAI, Anthropic, and Meta.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Ships Claude Code Auto Mode — Targets 90% of Coding Tasks With No Human Input</h3>
+    <p>
+      Anthropic launched Claude Code "Auto Mode" this week, in which the agent selects the
+      appropriate model and tools for each coding task autonomously, without waiting for user
+      direction. The company's stated target: completing approximately 90% of coding tasks from
+      start to finish without human intervention. The launch arrives as Anthropic simultaneously
+      doubled Claude Code's rate limits through the Colossus One infrastructure deal — timing
+      that signals the company is preparing for a significant jump in agentic coding workloads.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Meta Launches Muse Spark, Google Ships Gemma 4</h3>
+    <p>
+      Meta introduced Muse Spark, a new large language model optimized for creative and
+      multimodal generation tasks, joining a May model-release sprint that shows no signs of
+      slowing. Google simultaneously released Gemma 4, its latest open model series built
+      specifically for advanced reasoning and agentic workflows — delivering what Google describes
+      as an unprecedented level of intelligence-per-parameter at its size class. Both releases
+      follow OpenAI's GPT-5.5 launch in late April, reinforcing that the frontier model cadence
+      is now measured in weeks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>NVIDIA Unveils Ising: Open-Source AI Models Built to Accelerate Quantum Computing</h3>
+    <p>
+      NVIDIA announced Ising, described as the world's first family of open-source AI models
+      purpose-built to accelerate quantum computing research. The Ising models are designed to
+      simulate quantum systems and solve optimization problems that classical hardware cannot
+      efficiently handle — a bet that AI and quantum computing will cross-pollinate rather than
+      compete. The release extends NVIDIA's strategy of open-sourcing domain-specific model
+      families (following BioNemo for life sciences) to establish early infrastructure standards
+      in emerging compute categories.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "SaaS firms that fail to adopt AI could go bankrupt."
+    </blockquote>
+    <cite>— Dario Amodei, CEO, Anthropic · May 5, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Anthropic's valuation signals a permanent shift in AI's financial stakes.</strong>
+        A $900B target for a company that barely existed five years ago is not a bubble —
+        it is a reflection of how quickly AI revenue is compounding. The 80x YoY ARR jump is
+        the number every CFO in tech is now measuring themselves against.
+      </li>
+      <li>
+        <strong>Government AI oversight is transitioning from voluntary to mandatory.</strong>
+        The White House's FDA-style vetting proposal — triggered specifically by Claude Mythos —
+        suggests the era of self-regulation is ending. What gets defined as a "dangerous model"
+        will shape the entire industry's deployment freedom.
+      </li>
+      <li>
+        <strong>Military AI contracts are now an existential values question for every frontier lab.</strong>
+        DeepMind's union vote, Anthropic's Pentagon exclusion, and the DOD's active AI procurement
+        sprint are forcing every lab to articulate — publicly, legally — what it will and will not
+        build for defense. There is no longer a neutral position.
+      </li>
+      <li>
+        <strong>Autonomous agentic coding is closing in on 90% — developer workflows are being restructured in real time.</strong>
+        Claude Code Auto Mode's 90% autonomy target isn't marketing. As coding agents clear that
+        threshold, the question is no longer whether AI changes software engineering — it's which
+        roles disappear and which transform.
+      </li>
+      <li>
+        <strong>AI's first frontier lab union is a preview of what's coming everywhere.</strong>
+        The conditions at DeepMind UK — high pay, mission-driven culture, a specific classified
+        contract as the breaking point — exist at every major lab. Expect the organizing question
+        to arrive at OpenAI, Meta, and Anthropic within the next 12 months.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 9, 2026<br />
+      Issue No. 50
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: AI Tools Recap &middot; Crescendo AI &middot; LLM Stats &middot;
+    CNBC &middot; CNN Business &middot; Euronews &middot; Yahoo Finance &middot; AI Weekly &middot;
+    NeuralBuddies &middot; MIT Technology Review &middot; IBM Newsroom &middot; NVIDIA Blog &middot;
+    Air Street Press &middot; Nathan Benaich / State of AI
+  </div>
+
+</div>
+</body>
+</html>
