@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 23, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 62</span>
+    <span>May 23, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>An AI Just Disproved a Geometry Conjecture That Stumped Mathematicians for 80 Years</h2>
+    <p class="deck">
+      OpenAI's internal reasoning model autonomously disproved an Erdős conjecture that had
+      stood since 1946 — and a Fields medalist called it "a milestone in AI mathematics."
+    </p>
+    <p>
+      On May 20, OpenAI announced that one of its general-purpose reasoning models working
+      autonomously had disproved a central conjecture in discrete geometry posed by mathematician
+      Paul Erdős in 1946. The conjecture had resisted human proof for eight decades. No hints
+      were given to the model — it found the counterexample independently.
+    </p>
+    <p>
+      Fields Medal winner <strong>Tim Gowers</strong>, one of the most respected mathematicians
+      alive, reviewed the result and called it "a milestone in AI mathematics." The significance
+      isn't just the result itself — it's that the model didn't retrieve a known solution. It
+      reasoned its way to something genuinely new.
+    </p>
+    <p>
+      This is a different kind of AI achievement than benchmark records or coding competitions.
+      Erdős problems are famous for their simplicity of statement and near-impossibility of
+      resolution. If AI can reliably operate at this level of abstract mathematical reasoning,
+      the implication for scientific discovery — drug design, physics, cryptography — is profound.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">80</span>
+      <div class="num-label">Years the Erdős conjecture stood before AI disproved it</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">58.5%</span>
+      <div class="num-label">Google searches now ending without a single click</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">11K</span>
+      <div class="num-label">Jobs cut at Meta &amp; Intuit, explicitly tied to AI gains</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google I/O: Gemini 3.5 Flash Goes GA, Spark Agent Debuts, Omni Arrives</h3>
+    <p>
+      Google's I/O developer conference delivered three major Gemini announcements in a single
+      week. Gemini 3.5 Flash became generally available today — frontier-level intelligence at
+      4× the speed of comparable models, priced at $1.50/$9 per million tokens with a
+      1M-token context window. It posts 76.2% on Terminal-Bench 2.1, beating Gemini 3.1 Pro on
+      coding and agentic tasks. Google also launched Gemini Spark, a reasoning agent that works
+      across connected apps, and Gemini Omni — a new multimodal model purpose-built for video
+      generation and editing. Additionally, three major creative platforms — Adobe, Canva, and
+      CapCut — will integrate directly into the Gemini app, letting Gemini generate content and
+      pass it immediately to professional editing tools without switching apps.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic's Claude Mythos Clears a 32-Step Cyber-Attack Range</h3>
+    <p>
+      Anthropic's Claude Mythos Preview — a model the company has been quietly developing for
+      advanced reasoning and security work — completed a 32-step end-to-end simulated cyber-attack
+      range without human assistance. Anthropic CEO <strong>Dario Amodei</strong> personally
+      briefed senior Trump administration officials on Mythos at the White House, framing it as a
+      defensive security tool. OpenAI's GPT-5.5 subsequently cleared the same range, three weeks
+      later. The back-to-back results suggest AI is maturing rapidly as an offensive-security
+      research tool — which, depending on who holds it, cuts both ways.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Meta Caught Monitoring Employees to Train AI — Then Fired 8,000 of Them</h3>
+    <p>
+      Leaked audio confirmed that Meta had been tracking employees' Gmail, coding sessions, and
+      internal tool usage to generate training data for its AI systems — without explicit consent.
+      The same week the audio surfaced, Meta announced layoffs of approximately 8,000 employees,
+      with the official explanation citing AI efficiency gains. Intuit followed days later with
+      3,000 cuts for the same stated reason. The double event crystallized a tension that has been
+      building across the industry: companies are simultaneously using workers to train AI and
+      using that AI to eliminate workers.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Google, Microsoft, and xAI Agree to Government Pre-Release Model Testing</h3>
+    <p>
+      The Trump administration announced that major AI developers — including Google, Microsoft,
+      and Elon Musk's xAI — have agreed to provide federal regulators early access to frontier
+      models before public release. The arrangement is voluntary and non-binding, but it marks
+      the first systematic government access to AI systems before deployment. The policy came
+      weeks after the White House scrapped its earlier AI safety executive order following
+      pressure from Zuckerberg, Musk, and AI czar David Sacks. The new arrangement is narrower
+      in scope but more practically enforceable.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>58.5% of Google Searches Now End Without a Click</h3>
+    <p>
+      Google's AI Overviews now appear in approximately 20% of all search queries, and new data
+      shows 58.5% of Google searches in 2026 resolve entirely on the results page — no click
+      to any external website. The figure is up from 34% in 2023. For publishers, bloggers, and
+      media companies that rely on search traffic, the shift is existential. Google insists AI
+      Overviews increase overall search engagement, but the data on downstream traffic tells a
+      different story. The open web is being consumed from above.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Researchers Achieve 100× Energy Reduction in AI Computing</h3>
+    <p>
+      Researchers at Penn unveiled a hybrid neural-symbolic approach that slashes AI energy
+      consumption by up to 100× while actually improving model accuracy — combining deep neural
+      networks with human-style symbolic reasoning rather than scaling parameters alone. Separately,
+      a team demonstrated a hybrid light-matter particle that could dramatically accelerate AI
+      inference at drastically lower power draw. Both results point toward the same architectural
+      insight: the brute-force scaling era may be hitting physical limits, and the next efficiency
+      gains will come from rethinking how models process information, not just throwing more chips
+      at the problem.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Grok 4.3, Gemma 4, and a Subquadratic LLM Round Out a Busy Month</h3>
+    <p>
+      Beyond the headline launches, May has seen a steady stream of model releases. xAI's
+      Grok 4.3 arrived with aggressive pricing, a voice cloning suite, and a dedicated
+      "Imagine" agent mode for creative tasks. Google's Gemma 4 open family — released May 4 —
+      was engineered specifically for reasoning and agentic workflows, delivering remarkable
+      intelligence-per-parameter against much larger closed models. Most architecturally
+      interesting: SubQ shipped the first commercial subquadratic LLM with a 12-million-token
+      context window, challenging the transformer's dominance in long-context applications.
+      After April's frontier sprint, May went quieter on scale and louder on fundamentals.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "AI will deliver a Nobel-worthy breakthrough within 12 months — and there is a non-zero
+      chance it could kill everyone on the planet."
+    </blockquote>
+    <cite>— Jack Clark, Anthropic co-founder, Oxford University, May 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>AI is doing genuine science, not just benchmarks.</strong>
+        Disproving an 80-year Erdős conjecture is categorically different from scoring well on
+        MMLU. If this generalises, every hard open problem in mathematics and physics becomes
+        fair game within the decade.
+      </li>
+      <li>
+        <strong>The zero-click web is no longer a future scenario.</strong>
+        58.5% of Google searches ending without a click is a structural shift. Every business
+        model built on search traffic needs to rethink its distribution from first principles.
+      </li>
+      <li>
+        <strong>AI security is splitting into offensive and defensive tracks.</strong>
+        Mythos and GPT-5.5 completing cyber ranges marks a new era where AI is a first-class
+        security tool. The race to deploy it defensively — before adversaries deploy it offensively —
+        is already underway.
+      </li>
+      <li>
+        <strong>Corporate honesty about AI displacement is collapsing.</strong>
+        Surveilling employees to build AI, then cutting them for AI efficiency, in the same week,
+        is a defining data point. Workers and regulators are watching the gap between stated values
+        and actual behavior narrow to zero.
+      </li>
+      <li>
+        <strong>Architecture is replacing scale as the core competition.</strong>
+        Subquadratic attention, hybrid neural-symbolic reasoning, 100× energy cuts — May's story
+        isn't "bigger models." It's "smarter models at a fraction of the cost." The next phase of
+        the race will be won on efficiency, not parameter counts.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 23, 2026<br />
+      Issue No. 62
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; Google Cloud Blog &middot; CNBC &middot;
+    Air Street Press &middot; TechTimes &middot; Axios &middot; LLM Stats &middot; WhatLLM.org &middot;
+    AI Flash Report &middot; devFlokers &middot; NVIDIA Blog &middot; ScienceDaily &middot;
+    MIT Technology Review &middot; AIToolsRecap &middot; theaitrack.com
+  </div>
+
+</div>
+</body>
+</html>
