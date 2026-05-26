@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 26, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 65</span>
+    <span>May 26, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Raises Another $30 Billion — Its Second Mega-Round of 2026</h2>
+    <p class="deck">
+      Anthropic's annualized revenue doubled in twelve weeks. Now it has a near-trillion-dollar
+      valuation and enough capital to fight the frontier war on its own terms.
+    </p>
+    <p>
+      Anthropic has closed a $30 billion Growth round led by Sequoia Capital, Dragoneer Investment
+      Group, Altimeter Capital, and Greenoaks Capital Partners, pushing the company's implied
+      valuation above $900 billion. Remarkably, this is Anthropic's <em>second</em> $30 billion
+      raise of 2026 — the company closed an identical amount in February and has now taken in
+      $60 billion in a single calendar year.
+    </p>
+    <p>
+      The fundraise reflects a business in genuine hypergrowth. Anthropic's annualized revenue run
+      rate climbed from $14 billion in February to $30 billion in April — a near-doubling in just
+      twelve weeks. That velocity, which outpaces even early OpenAI growth curves, is what justified
+      a second record raise so quickly. Alongside the funding news, Anthropic confirmed a major
+      compute deal with SpaceX and xAI, partnering on Colossus 1 infrastructure to secure GPU
+      access independent of any single cloud provider.
+    </p>
+    <p>
+      The scale of capital flowing into Anthropic — and the speed at which it is being absorbed —
+      signals that the frontier AI race has entered a phase where compute acquisition and talent
+      retention require war-chest funding. Executives at Google, OpenAI, and Anthropic now openly
+      describe the frontier race as "effectively neck-and-neck," with each lab making different
+      tradeoffs around cost, speed, and raw compute.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$900B</span>
+      <div class="num-label">Anthropic implied valuation after second $30B raise</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$67B</span>
+      <div class="num-label">NextEra–Dominion deal — AI power demand goes macro</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">58.5%</span>
+      <div class="num-label">Google searches now ending without a single click</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google I/O 2026: Gemini 3.5 Flash Goes GA — Frontier Speed at a Fraction of the Cost</h3>
+    <p>
+      Google made Gemini 3.5 Flash generally available at Google I/O 2026, billing it as
+      "frontier-level intelligence at 4× the speed of comparable models." Priced at $1.50 per
+      million input tokens and $9 per million output tokens, with a 1-million-token context
+      window, Flash is positioned as the model that runs inside products used by billions —
+      not just researchers and power users. The launch reflects Google's stated strategy of
+      staying at the frontier while keeping costs low enough for mass deployment across Search,
+      Workspace, and Android.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Gemini Spark: Google's Always-On Personal Agent Lives in the Cloud and Never Sleeps</h3>
+    <p>
+      The most ambitious product announcement from any lab this year came from Google: Gemini Spark,
+      a personal AI agent that runs 24/7 on Google Cloud virtual machines and works autonomously
+      across Gmail, Google Drive, third-party apps, and the open web — even when your device is off.
+      Spark is Google's direct answer to OpenAI's Operator. Unlike browser-based agents, Spark
+      operates as a persistent cloud process, enabling it to handle multi-hour tasks, monitor
+      inboxes, draft responses, and manage schedules without requiring an active session.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google Bets $40 Billion on Anthropic — and Lands the Deal to Power Apple's Next Siri</h3>
+    <p>
+      Google Cloud CEO confirmed at I/O that Gemini will power a new, more personalized version
+      of Siri launching later in 2026, with Google serving as Apple's preferred cloud AI provider
+      for next-generation Apple Foundation Models. Separately, Google's cumulative investment in
+      Anthropic now stands at $40 billion — the largest single strategic bet in AI history —
+      underscoring a strategy of competing at the model frontier while simultaneously funding its
+      most capable rival. The Apple partnership, if it holds, would give Gemini access to over
+      1.5 billion active devices.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Launches 'Frontier' Platform, a $4B Consulting Arm, and a Cybersecurity Program</h3>
+    <p>
+      OpenAI moved beyond model-provider in May with three simultaneous enterprise launches.
+      <strong>Frontier</strong> is a new platform for building, deploying, and managing AI agents
+      with shared context and integration into existing enterprise systems. <strong>DeployCo</strong>
+      is a $4 billion consulting subsidiary designed to help companies implement AI at scale — a
+      direct play for the professional services market. And <strong>Daybreak</strong> is a
+      cybersecurity program combining GPT-5.5 with Codex to automate threat modeling,
+      vulnerability identification, and patch generation. Three products, one message: OpenAI
+      wants to be the operating system for enterprise AI.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>ChatGPT Connects to Your Bank — Plaid Integration Brings a Finance Dashboard to Pro Users</h3>
+    <p>
+      OpenAI rolled out a Plaid integration for ChatGPT Pro subscribers, giving the assistant
+      read-only access to bank balances, transaction histories, investment accounts, subscriptions,
+      upcoming bills, and savings goals. The result is a natural-language personal finance dashboard
+      — users can ask "what did I spend on food last month?" or "am I on track for my savings
+      target?" and receive answers grounded in live account data. The move extends ChatGPT's
+      surface area from productivity tool to financial advisor, raising immediate questions about
+      data handling and the long-term competitive threat to fintech incumbents.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Elon Musk Loses His OpenAI Lawsuit</h3>
+    <p>
+      A court ruled against Elon Musk in his lawsuit against OpenAI, which had alleged the
+      company violated its founding nonprofit mission by transitioning to a for-profit structure.
+      The ruling clears a significant legal overhang for OpenAI as it pursues its restructuring
+      into a public benefit corporation and eyes a potential IPO later in 2026. Musk, who co-founded
+      OpenAI before departing in 2018, had sought to halt the conversion and recover assets he
+      argued belonged to the original nonprofit. The court found his claims insufficient to warrant
+      relief.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>America's Power Grid Is Being Rebuilt Around AI: NextEra's $67B Dominion Acquisition</h3>
+    <p>
+      NextEra Energy announced a $67 billion deal to acquire Dominion Energy, explicitly citing
+      AI-driven power demand as the primary rationale — one of the largest utility mergers in
+      history, justified directly by data center load growth. AI model training and inference are
+      now consuming power at a scale that is reshaping the economics of the entire US electricity
+      grid. The deal signals that infrastructure investors have moved from speculation about AI's
+      energy requirements to large, irreversible bets on them.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The frontier race is effectively neck-and-neck."
+    </blockquote>
+    <cite>— Executives at Google, OpenAI &amp; Anthropic, May 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Anthropic's ARR is doubling every quarter.</strong>
+        From $14B in February to $30B in April — no company in history has scaled revenue
+        this fast at this size. The next benchmark is whether it sustains that velocity into Q3.
+      </li>
+      <li>
+        <strong>Google is playing a two-sided game — and winning.</strong>
+        Competing with OpenAI at the model frontier, investing $40B in Anthropic, and landing
+        Apple as a cloud partner simultaneously is unprecedented. Google's strategy is to ensure
+        Gemini runs everywhere, regardless of who wins the model war.
+      </li>
+      <li>
+        <strong>The agent era is no longer theoretical.</strong>
+        Gemini Spark, OpenAI Frontier, and ChatGPT-Plaid all launched in the same month.
+        The shift from AI as chat tool to AI as autonomous work system is the defining
+        product transition of 2026.
+      </li>
+      <li>
+        <strong>AI is restructuring physical infrastructure.</strong>
+        A $67B utility merger justified by AI power demand is a new category of consequence.
+        AI is now directly reshaping energy grids, not just software ecosystems.
+      </li>
+      <li>
+        <strong>AI search is rewriting the internet economy.</strong>
+        58.5% of Google searches ending without a click is an existential challenge for
+        every publisher, retailer, and advertiser whose business model depends on web traffic.
+        The downstream effects are only beginning to surface.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 26, 2026<br />
+      Issue No. 65
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Axios &middot; TechCrunch &middot; LLM Stats &middot; Google Cloud Blog &middot;
+    AI Tools Recap &middot; Digital Applied &middot; Build Fast With AI &middot; The AI Track &middot;
+    StartupHub.ai &middot; Trending Topics EU &middot; CNBC &middot; devFlokers &middot; imfounder.com &middot; WhatLLM.org
+  </div>
+
+</div>
+</body>
+</html>
