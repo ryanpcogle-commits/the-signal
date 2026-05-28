@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 28, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 67</span>
+    <span>May 28, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Raises Another $30 Billion — Valuation Approaches $900 Billion</h2>
+    <p class="deck">
+      In its second mega-round of 2026, Anthropic has closed a $30 billion Growth raise led by
+      Sequoia Capital, Dragoneer, Altimeter, and Greenoaks — pushing its valuation to within
+      striking distance of a trillion dollars.
+    </p>
+    <p>
+      The round is extraordinary by any measure, but made more so by its timing: Anthropic has
+      now raised $60 billion in 2026 alone. The company, founded in 2021 by former OpenAI
+      researchers including <strong>Dario Amodei</strong> and <strong>Daniela Amodei</strong>,
+      is now valued at a figure that would place it among the most valuable private companies
+      ever to exist — and well ahead of its OpenAI rival in per-employee valuation.
+    </p>
+    <p>
+      The capital signals where the smart money believes AI is heading: large, safety-focused
+      labs building frontier models with enterprise deployment at scale. Anthropic's Claude
+      is already running inside Goldman Sachs to automate accounting and compliance workflows,
+      and KPMG has deployed it to all 276,000 of its employees across 138 countries —
+      the single largest enterprise Claude deployment in history.
+    </p>
+    <p>
+      Separately, Anthropic announced a major compute partnership with SpaceX and xAI around
+      the Colossus 1 supercluster — securing training infrastructure at a scale that previously
+      only OpenAI and Google could access. The combination of capital and compute suggests
+      Anthropic's next frontier model will be its most ambitious yet.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">276K</span>
+      <div class="num-label">KPMG employees now running on Claude — across 138 countries</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$900B</span>
+      <div class="num-label">Anthropic's valuation after its second $30B raise in 2026</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">58.5%</span>
+      <div class="num-label">of Google searches now end without a click, per 2026 data</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Launches $4 Billion Consulting Arm — DeployCo</h3>
+    <p>
+      OpenAI has created a dedicated consulting subsidiary called <strong>DeployCo</strong>,
+      capitalized at $4 billion, to help enterprises integrate AI agents into their existing
+      systems. The unit offers shared-context architectures, white-glove migration support,
+      and integration into legacy software stacks — areas where most AI vendors have left
+      companies stranded. The launch mirrors a playbook pioneered by IBM and Accenture in
+      earlier technology waves and signals that OpenAI sees professional services as its
+      next major revenue stream alongside API access.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.5 Flash Is Now Generally Available — Frontier Speed at Commodity Price</h3>
+    <p>
+      Google DeepMind's <strong>Gemini 3.5 Flash</strong> is now generally available,
+      delivering what the company calls "frontier-level intelligence at four times the speed
+      of comparable models" — at $1.50 per million input tokens and $9 per million output
+      tokens with a one-million-token context window. Google also cut its Gemini Ultra
+      subscription from $250 to $200 per month. The Flash launch comes days after Google I/O 2026,
+      where the company made more than 100 AI announcements and introduced the
+      <strong>Waymo World Model</strong> — a simulation engine powered by Genie 3 that
+      generates hyper-realistic 2D and 3D environments for autonomous vehicle training.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Cohere Acquires Aleph Alpha — A $20 Billion Sovereign AI Challenger Emerges</h3>
+    <p>
+      Canadian AI company Cohere has acquired Germany's Aleph Alpha, creating a transatlantic
+      sovereign AI platform valued at $20 billion. The deal is explicitly aimed at governments
+      and enterprises that require AI infrastructure outside of US hyperscaler control —
+      a market that has grown sharply following concerns about data sovereignty in Europe
+      and the Asia-Pacific region. Aleph Alpha had positioned itself as the EU's most
+      credible frontier AI lab; combined with Cohere's enterprise customer base, the merged
+      entity could become the dominant alternative to OpenAI and Anthropic for regulated industries.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Canada Rules OpenAI Violated Privacy Law — China Restricts AI Researcher Travel</h3>
+    <p>
+      Canada's Office of the Privacy Commissioner ruled that OpenAI violated the country's
+      privacy legislation, marking the first major regulatory finding against the company
+      in North America. The ruling centers on how user data was collected, retained, and
+      used for model training without adequate consent. Meanwhile, China has begun imposing
+      overseas travel restrictions on individuals working in advanced AI at private firms,
+      including researchers at <strong>DeepSeek</strong> and <strong>Alibaba</strong> —
+      a move interpreted as Beijing attempting to prevent talent and intellectual property
+      from flowing to Western competitors.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>SubQ Ships the First Commercial Subquadratic LLM — With a 12M-Token Context</h3>
+    <p>
+      Startup SubQ has released what it claims is the first commercially deployed large
+      language model built on a subquadratic architecture — meaning attention costs do not
+      scale quadratically with context length the way they do in standard transformers.
+      The result is a model with a 12-million-token context window that runs at a fraction
+      of the inference cost of equivalently capable transformer models. Separately,
+      Zyphra released an 8-billion-parameter Mixture-of-Experts model trained entirely on
+      AMD hardware — a meaningful signal that the industry's NVIDIA-hardware monoculture
+      may be starting to crack.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>The Pope Writes an AI Encyclical — 42,300 Words on Humanity and Machine Intelligence</h3>
+    <p>
+      Pope Leo XIV has released <em>Magnifica Humanitas</em>, a 42,300-word papal encyclical —
+      the first in history devoted to artificial intelligence. The document addresses AI's
+      impact on labor, human dignity, the nature of creativity, and the moral responsibilities
+      of developers and governments. It stops short of condemning AI outright but calls for
+      binding international frameworks and argues that systems capable of autonomous decision-making
+      over human lives require "explicit ethical governance." The encyclical has been welcomed
+      by AI ethicists and criticized by some in the industry as technologically uninformed.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>AI Overviews Now Appear in 1-in-5 Google Searches — Zero-Click Era Is Here</h3>
+    <p>
+      New data shows Google's AI Overviews appear in approximately 20% of all searches,
+      with 58.5% of Google queries in 2026 now ending without a user clicking any result —
+      as the AI-generated answer resolves the question directly on the results page.
+      For publishers and content businesses, the numbers are alarming: organic search
+      referral traffic is down sharply across news, reference, and how-to verticals.
+      Google frames the shift as improving user experience; critics argue the company is
+      simultaneously destroying the web ecosystem it built and monetizing the same content
+      without compensation.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The battle for enterprise AI deployment is the defining commercial contest of 2026 — and it is only beginning."
+    </blockquote>
+    <cite>— Synthesized from KPMG, OpenAI DeployCo, and Anthropic announcements, May 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Enterprise deployment is the new arms race.</strong>
+        KPMG's 276,000-employee Claude rollout, OpenAI's $4B DeployCo launch, and Anthropic's Goldman Sachs
+        deal all signal the same thing: the labs that win enterprise deployment at scale will define the
+        AI market for the next decade. The research phase is ending; the deployment phase is here.
+      </li>
+      <li>
+        <strong>Sovereign AI is becoming a real market.</strong>
+        The Cohere–Aleph Alpha merger creates a credible $20B alternative to US hyperscaler AI. As data
+        sovereignty concerns multiply — especially in Europe — governments and regulated industries will
+        pay a premium for AI infrastructure they control.
+      </li>
+      <li>
+        <strong>The zero-click web is no longer theoretical.</strong>
+        When 58.5% of searches end without a click, the traditional web traffic model has collapsed.
+        Content businesses face an existential reckoning; the companies that build destination products
+        rather than information sources will survive.
+      </li>
+      <li>
+        <strong>Regulatory pressure is arriving simultaneously from every direction.</strong>
+        Canada ruling on OpenAI, China restricting researcher movement, the Pope publishing AI doctrine,
+        and governments globally testing models pre-release — the era of self-regulation for AI is ending.
+        Policy environments will increasingly shape what these models can do and where.
+      </li>
+      <li>
+        <strong>Architecture innovation is back.</strong>
+        Subquadratic LLMs with 12M-token contexts, AMD-trained MoE models, and hybrid light-matter
+        computing research all signal that the transformer monoculture is being challenged at the
+        hardware and architecture layer simultaneously. The next performance leap may not come from
+        scale — it may come from fundamentally different designs.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 28, 2026<br />
+      Issue No. 67
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; unrot.co &middot; LLM Stats &middot;
+    Digital Applied &middot; WhatLLM.org &middot; devFlokers &middot; Axios &middot;
+    Google Blog (I/O 2026) &middot; HeyGoTrade &middot; QverLabs &middot; StartupHub.ai &middot;
+    ScienceDaily &middot; MIT Technology Review &middot; Fortune &middot; InfoWorld &middot; imFounder
+  </div>
+
+</div>
+</body>
+</html>
