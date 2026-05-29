@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · May 29, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 68</span>
+    <span>May 29, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Google I/O 2026: Gemini 3.5 Flash Arrives, Search Becomes an Agent Platform</h2>
+    <p class="deck">
+      Google dropped its biggest I/O in years — a cheaper flagship model, search agents that work 24/7 in the background, and a $200 Ultra subscription that undercuts every competitor.
+    </p>
+    <p>
+      Google launched <strong>Gemini 3.5 Flash</strong> at I/O 2026, making it generally available immediately through the Gemini API in Google AI Studio and Android Studio. The model delivers intelligence that rivals large flagship models at Flash-tier speeds, outperforming Gemini 3.1 Pro on challenging coding and agentic benchmarks — a combination the company has never achieved at this price point.
+    </p>
+    <p>
+      The more consequential announcement may be Search agents: persistent, customizable AI agents that users can create directly inside Google Search to run in the background 24/7. Starting with "information agents" that continuously monitor topics and surface updates, Google is reframing its most-used product not as a query box but as an always-on agent infrastructure layer. The implications for how people interact with the web — and for every company that depends on search traffic — are hard to overstate.
+    </p>
+    <p>
+      Google also cut its Gemini Ultra subscription from $250 to $200 per month while adding capabilities, a direct shot across the bow at OpenAI and Anthropic. Separately, DeepMind recruited more than 20 researchers from Contextual AI under an $80–$90 million licensing agreement, continuing its aggressive talent consolidation strategy heading into the second half of 2026.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$900B+</span>
+      <div class="num-label">Anthropic valuation after second $30B raise of 2026</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">12M</span>
+      <div class="num-label">Token context window — SubQ's new subquadratic model</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">10+</span>
+      <div class="num-label">Frontier model launches in just 22 days this month</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Raises Another $30 Billion — Now Valued Above $900 Billion</h3>
+    <p>
+      Anthropic has closed a second $30 billion growth round in 2026, this time led by Sequoia Capital, pushing its valuation above $900 billion. The raise is remarkable not just for its size but for its timing — coming fewer than six months after the first $30 billion round closed. The company simultaneously announced a major compute deal with SpaceX and xAI to access the Colossus 1 infrastructure, and Goldman Sachs confirmed it is deploying Claude across accounting and compliance roles, replacing human headcount at scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Launches 'Frontier' Enterprise Platform and $4B Consulting Arm</h3>
+    <p>
+      OpenAI introduced <strong>Frontier</strong>, a platform designed to help enterprises build, deploy, and manage AI agents with shared context and deep integration into existing enterprise systems. The company said it is targeting 50% of total revenue from enterprise clients by year end. Separately, OpenAI launched <strong>DeployCo</strong>, a $4 billion consulting subsidiary that will embed teams inside major corporations to implement AI workflows — a significant departure from OpenAI's traditional software-only model and a direct challenge to the major consulting firms.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>May's Release Avalanche: GPT-5.5, Opus 4.7, and the Densest Cluster of 2026</h3>
+    <p>
+      Between May 13 and May 23, the industry shipped more than ten frontier model launches in 22 days — the densest release cluster of the year. OpenAI's <strong>GPT-5.5</strong> pushed further into coding and agentic work, arriving just six weeks after GPT-5.4. Anthropic shipped <strong>Claude Opus 4.7</strong>, distinguished by safer and more literal instruction-following. DeepSeek released <strong>V4</strong>, attacking on price and long context. Analysts tracking release cadence note that evaluation, red-teaming, and enterprise deployment pipelines are struggling to keep pace with the speed of launches.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>SubQ's 12-Million-Token Model Challenges the Attention Bottleneck</h3>
+    <p>
+      Startup Subquadratic launched <strong>SubQ 1M-Preview</strong> with a native 12 million token context window — the largest of any publicly available model. The architecture replaces standard attention with sparse, subquadratic attention end-to-end, delivering roughly one-fifth the cost of frontier models on long-context tasks and up to 52x faster attention at scale. If the benchmarks hold in production, SubQ represents the most significant architectural departure from transformer orthodoxy since Mamba, with direct implications for every use case that requires reasoning over entire codebases, legal corpora, or scientific literature.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>California Passes Nearly All 30 AI Bills Ahead of Crossover Deadline</h3>
+    <p>
+      Nearly all of California's 30 AI-related bills cleared their chamber of origin ahead of today's crossover deadline, setting up the most significant state-level AI regulatory push since SB 1047 in 2024. The bills span transparency requirements for AI-generated content, liability frameworks for autonomous systems, and new data-use restrictions for foundation model training. The Transparency Coalition — which tracks AI legislation — noted the breadth and pace of passage was unexpected, and predicts federal preemption battles by autumn. What California enacts tends to propagate nationally within two to three legislative cycles.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Waymo's World Model, Powered by DeepMind's Genie 3, Simulates the Unthinkable</h3>
+    <p>
+      Waymo unveiled the <strong>Waymo World Model</strong>, built on Google DeepMind's <strong>Genie 3</strong> generative world model, to synthesize hyper-realistic simulations of rare and dangerous driving scenarios that occur too infrequently to capture in real-world data. The system can generate photorealistic edge cases — unexpected debris, unusual pedestrian behavior, extreme weather — and use them to train and validate Waymo's driver at a scale impossible through real-world miles alone. DeepMind's Genie 3, originally built for interactive environments, is proving to be infrastructure for physical-world AI well beyond gaming.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>PolyU Researchers Store Digital Data Inside Engineered Proteins</h3>
+    <p>
+      Researchers at The Hong Kong Polytechnic University demonstrated a complete end-to-end pipeline for storing and retrieving digital data encoded in de novo designed unnatural proteins — completing the full cycle from encoding to retrieval for the first time. The method offers dramatically higher density than magnetic or flash storage, strong environmental stability, and a built-in encryption layer derived from protein structure. With AI training datasets now measured in exabytes, next-generation storage architectures are no longer a niche research concern, and biological storage is moving from conceptual curiosity to serious engineering roadmap.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Executives at Google, OpenAI and Anthropic increasingly describe the frontier race as effectively neck-and-neck — companies making different tradeoffs around cost, speed and compute."
+    </blockquote>
+    <cite>— QverLabs, May 2026 AI Arms Race Analysis</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Google is winning the price war.</strong>
+        Cutting Ultra to $200, launching Flash at flagship-rival quality, and deploying persistent Search agents — Google is competing on three dimensions simultaneously. OpenAI and Anthropic have to respond to all three at once.
+      </li>
+      <li>
+        <strong>Anthropic's valuation trajectory is unlike anything in tech history.</strong>
+        Two $30 billion raises in under six months, approaching a trillion-dollar valuation for a company that has yet to go public. Sequoia and peers are betting the safety-first lab wins the enterprise. Goldman Sachs deploying Claude at scale suggests they may be right.
+      </li>
+      <li>
+        <strong>Architecture is having its moment.</strong>
+        SubQ's subquadratic attention and Google's TurboQuant both address transformer scaling limits from different angles. After two years of "bigger is better," the frontier is shifting to "smarter architecture wins."
+      </li>
+      <li>
+        <strong>State-level AI regulation is moving fast.</strong>
+        California's 30 bills crossing over today means 2026 will produce the most extensive state AI regulatory framework in U.S. history. Companies operating in California — effectively every major AI firm — will need dedicated compliance infrastructure within 12 months.
+      </li>
+      <li>
+        <strong>The consulting wars have begun.</strong>
+        OpenAI's DeployCo entering the $200B+ enterprise consulting market puts it in direct competition with Accenture, McKinsey, and Deloitte — all of whom are simultaneously OpenAI customers and now competitors. The next phase of AI monetization runs through implementation, not just API calls.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      May 29, 2026<br />
+      Issue No. 68
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Google Blog &middot; AI Tools Recap &middot; LLM Stats &middot; Digital Applied &middot;
+    WhatLLM &middot; Axios &middot; QverLabs &middot; StartupHub.ai &middot; devFlokers &middot; Build Fast With AI &middot;
+    Transparency Coalition &middot; EurekAlert / PolyU &middot; ScienceDaily &middot; HeyGoTrade &middot; Brookings
+  </div>
+
+</div>
+</body>
+</html>
