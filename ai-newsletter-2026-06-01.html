@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 1, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 71</span>
+    <span>June 1, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Google Goes Fast: Gemini 3.5 Flash Launches at I/O 2026 as AI Mode Crosses 1 Billion Users</h2>
+    <p class="deck">
+      Rather than announce a bigger model, Google opened its biggest developer conference of the year
+      with a cheaper, faster one — and the strategy appears to be working at a scale no competitor can match.
+    </p>
+    <p>
+      At Google I/O 2026, the company launched <strong>Gemini 3.5 Flash</strong> — the first model in the
+      new Gemini 3.5 family — as its general availability headliner. The model delivers output tokens
+      4x faster than comparable frontier models and is optimized for complex agentic workflows and coding tasks.
+      It is now the default model powering AI Mode in Google Search, which crossed <strong>1 billion monthly
+      users</strong> today. AI Overviews, the broader AI-in-Search layer, now reaches 2.5 billion users monthly.
+    </p>
+    <p>
+      The pricing moves were equally notable. Google cut the Gemini Ultra subscription from $250 to
+      <strong>$200 per month</strong> and introduced a new Developer tier at $100 per month aimed at
+      engineers and professional users. Monthly active Gemini users have now hit <strong>900 million</strong>,
+      doubling from 400 million in May 2025 — the fastest consumer AI growth ever recorded.
+    </p>
+    <p>
+      The strategic message was unmistakable. Executives at Google, OpenAI, and Anthropic increasingly
+      describe the frontier race as neck-and-neck — with companies making different tradeoffs around cost,
+      speed, and compute. Google's answer is to prioritize models cheap and fast enough to deploy across
+      products used by billions, rather than chasing the largest possible parameter count.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">1B</span>
+      <div class="num-label">Monthly users on Google AI Mode, upgraded today</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">2.5B</span>
+      <div class="num-label">Monthly users on Google AI Overviews globally</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">900M</span>
+      <div class="num-label">Gemini monthly users — doubled in 12 months</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Opus 4.8 Scores 88.6% on SWE-bench — With a 2.5× Speed Mode</h3>
+    <p>
+      Anthropic's Claude Opus 4.8 has posted benchmark results that solidify its position at the
+      top of the coding leaderboard: <strong>88.6%</strong> on SWE-bench Verified,
+      <strong>74.6%</strong> on Terminal-Bench 2.1, and an Elo of 1890 on GDPval-AA — placing it
+      at or above human-expert level on economically valuable software tasks. The model ships with
+      parallel-subagent workflows that enable multi-step agentic work at scale, and a 2.5× fast mode
+      that delivers the same quality at significantly lower latency. Pricing remains unchanged at
+      $5 input / $25 output per million tokens.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>DeepMind Absorbs Contextual AI's Research Team in $80–90M Talent Deal</h3>
+    <p>
+      Google DeepMind has hired more than <strong>20 researchers from Contextual AI</strong> — including
+      co-founder and CEO <strong>Douwe Kiela</strong> — under an $80 to $90 million licensing arrangement.
+      The deal follows a pattern of frontier labs acquiring talent through structured IP-and-people
+      transactions rather than traditional acquisitions, allowing DeepMind to absorb a specialized
+      team focused on retrieval-augmented generation and enterprise AI without the regulatory overhead
+      of a full merger. Contextual AI had raised over $100 million before the deal.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepSeek Releases V4-Pro and V4-Flash With 1-Million-Token Context Windows</h3>
+    <p>
+      Beijing-based DeepSeek shipped two new Mixture-of-Experts models this week:
+      <strong>DeepSeek-V4-Pro</strong> and <strong>DeepSeek-V4-Flash</strong>. Both feature a
+      1-million-token context window and are optimized for long-running agentic tasks that require
+      reasoning across very large codebases or document sets. The releases extend DeepSeek's streak
+      of releasing frontier-quality open models at a fraction of Western labs' reported training costs,
+      and keep international pressure on Anthropic and OpenAI to match long-context performance.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>GitHub Copilot Switches to Metered "AI Credits" Billing — Starting Today</h3>
+    <p>
+      Effective June 1, 2026, GitHub has transitioned Copilot from request-based billing to
+      usage-based metered billing powered by a new virtual currency called <strong>GitHub AI Credits</strong>.
+      The shift means enterprise customers will pay based on actual model consumption rather than
+      per-seat subscriptions — aligning Copilot's economics with the cost structure of the models
+      underneath it. The change reflects an industry-wide move toward consumption pricing as AI
+      assistants handle increasingly variable workloads across coding, testing, and documentation tasks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Sets Sunset Dates: GPT-4.5 Retires June 27, o3 Retires August 26</h3>
+    <p>
+      OpenAI confirmed that <strong>GPT-4.5 will be retired from ChatGPT on June 27, 2026</strong>
+      following a 30-day sunset period, and <strong>o3 will follow on August 26</strong> after a 90-day
+      wind-down. The moves accelerate OpenAI's strategy of consolidating its product lineup around
+      newer architectures. Meanwhile, GPT-5.4 "Thinking" — the current flagship — scored
+      <strong>83.0%</strong> on the GDPVal benchmark, a level OpenAI describes as matching or
+      exceeding human experts on economically meaningful tasks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>COMPUTEX 2026 Opens in Taipei: Physical AI Gets Its Biggest Stage Yet</h3>
+    <p>
+      COMPUTEX 2026 opens today in Taipei with <strong>1,500 exhibitors from 33 countries</strong>
+      across more than 6,000 booths — and a brand-new AI Robotics Zone as its centerpiece. NVIDIA's
+      GTC Taipei runs alongside the show, spotlighting Isaac GR00T open models (robots that follow
+      natural language instructions across complex multi-step tasks), Cosmos world models for
+      synthetic training data, and <strong>Newton 1.0</strong> — a new foundation for dexterous robot
+      manipulation. Cadence Design Systems and NVIDIA also announced an expanded partnership combining
+      Cadence's simulation engines with NVIDIA's Isaac and Cosmos models to close the "sim-to-real" gap.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>AI 3D Startup Vast Raises $200M at Over $1B Valuation</h3>
+    <p>
+      Vast, a Beijing-based company that generates 3D assets from text and image prompts, raised
+      approximately <strong>$200 million</strong> at a valuation above $1 billion. The company has
+      <strong>20 million global users</strong> and competes in a fast-moving segment of generative AI
+      aimed at game studios, architects, and product designers. The raise signals continued investor
+      appetite for vertical AI applications — particularly those that automate creative workflows that
+      previously required specialized human labor. Vast is among a wave of Chinese AI startups posting
+      explosive user growth while remaining largely under the radar of Western press.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "We debuted not with a behemoth model, but with a faster, cheaper Gemini — frontier intelligence
+      that works for billions."
+    </blockquote>
+    <cite>— Google, Google I/O 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Speed and cost are beating raw scale.</strong>
+        Google's I/O play was Gemini 3.5 Flash — not Gemini 3.5 Ultra. Anthropic's Opus 4.8 ships
+        with a 2.5× fast mode. The market is rewarding deployment economics over benchmark maximalism.
+      </li>
+      <li>
+        <strong>Agentic infrastructure is maturing fast.</strong>
+        Metered billing for Copilot. 1M-token contexts from DeepSeek. Parallel subagent workflows
+        from Anthropic. The plumbing for multi-step AI agents is quietly becoming enterprise-grade.
+      </li>
+      <li>
+        <strong>Talent deals are the new acquisitions.</strong>
+        DeepMind's Contextual AI deal — paying $80–90M for 20 researchers via licensing — mirrors the
+        Inflection and Character.AI playbooks. Expect more regulatory-light talent absorption in 2026.
+      </li>
+      <li>
+        <strong>Physical AI is leaving the lab.</strong>
+        COMPUTEX's AI Robotics Zone, NVIDIA Newton 1.0, and the Cadence sim-to-real partnership all
+        point to 2026 as the year physical AI transitions from research to production hardware.
+      </li>
+      <li>
+        <strong>Model consolidation is accelerating.</strong>
+        GPT-4.5 and o3 are being retired within months of launch. The half-life of a "frontier" model
+        is shrinking — labs are learning that maintaining too many model lines is operationally unsustainable.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 1, 2026<br />
+      Issue No. 71
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Google Blog &middot; LLM Stats &middot; Crescendo AI &middot; HeyGoTrade &middot;
+    Axios &middot; AI Flash Report &middot; InfoWorld &middot; NVIDIA Blog &middot; PR Newswire &middot;
+    Pluralsight &middot; QverLabs &middot; GitHub Changelog &middot; MIT Technology Review
+  </div>
+
+</div>
+</body>
+</html>
