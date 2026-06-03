@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 3, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 73</span>
+    <span>June 3, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Microsoft Goes Independent: MAI-Code-1-Flash and MAI-Thinking-1 Land at Build 2026</h2>
+    <p class="deck">
+      At its annual developer conference, Microsoft unveiled its first homegrown AI models — a direct shot at OpenAI, its own closest partner, and the clearest sign yet that every tech giant is building its own AI stack from scratch.
+    </p>
+    <p>
+      Microsoft Build 2026 opened June 2–3 in San Francisco with a headline that would have been unthinkable two years ago: the company announced <strong>MAI-Code-1-Flash</strong>, its first coding model that takes written descriptions and generates application source code, and <strong>MAI-Thinking-1</strong>, a reasoning model designed to compete directly with OpenAI's o-series and Anthropic's extended-thinking models. Both ship natively into the company's developer tools.
+    </p>
+    <p>
+      Microsoft also announced <strong>Aion 1.0</strong>, a 14-billion-parameter reasoning and tool-calling model with a 32K context window that ships in-box as part of Windows itself — making Windows the first major operating system to bundle a capable frontier-class model at the OS level. Separately, Microsoft's Fabric Data Warehouse benchmarked up to 7x faster than three other major cloud warehouses in AI-driven analytics scenarios.
+    </p>
+    <p>
+      The subtext of Build 2026 was unmistakable. As CNBC reported, Microsoft is systematically reducing its reliance on OpenAI while simultaneously lowering costs for developers. The company that bet $13 billion on OpenAI is now methodically hedging that bet — in public, at its biggest annual event of the year.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$965B</span>
+      <div class="num-label">Anthropic's valuation — now ahead of OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">900M</span>
+      <div class="num-label">Gemini monthly active users — doubled in 13 months</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">14B</span>
+      <div class="num-label">Parameters in Aion 1.0 — now shipping inside Windows</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Files Confidentially for IPO at $965 Billion Valuation</h3>
+    <p>
+      Anthropic has confidentially filed for an initial public offering, according to multiple reports, at a valuation of <strong>$965 billion</strong> — surpassing OpenAI and making it the most valuable AI company in the world ahead of a potential public listing. The company's ascent is largely attributed to <strong>Claude Code</strong>, its AI coding assistant, which has become a category leader since its launch earlier this year. Anthropic also expanded its Project Glasswing initiative to 200 organizations across 15+ countries, with partners identifying 23,000 potential vulnerabilities in 1,000 open-source projects — a meaningful demonstration of AI's role in defensive cybersecurity at scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.5 Flash Hits GA — Google Cuts Ultra Subscription to $200</h3>
+    <p>
+      Google's <strong>Gemini 3.5 Flash</strong> reached general availability this week, following its debut at Google I/O 2026. The company simultaneously dropped the price of its Gemini Ultra subscription from $250 to $200 per month — a price signal that capability is becoming commoditized faster than anyone expected. Gemini's monthly active users have now reached <strong>900 million</strong>, doubling from 400 million in May 2025, underscoring Google's scale advantage even as it trails on frontier model benchmarks. DeepMind also hired more than 20 researchers from Contextual AI in an <strong>$80–90 million</strong> licensing deal, with Contextual AI CEO <strong>Douwe Kiela</strong> joining DeepMind directly.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI to Retire GPT-4.5 From ChatGPT on June 27</h3>
+    <p>
+      OpenAI confirmed that <strong>GPT-4.5</strong> will be retired from ChatGPT on June 27, 2026, as the company continues to consolidate around its newer model families. The GPT-5.5 line — including GPT-5.5 Pro and GPT-5.5 Instant — is drawing the most developer attention heading into mid-year, with Pro variants maintaining a strong lead on multi-step reasoning benchmarks. The retirement accelerates OpenAI's strategy of simplifying its model menu even as rival labs proliferate options.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>NVIDIA Puts a One-Petaflop AI Chip Inside the Personal Computer</h3>
+    <p>
+      NVIDIA announced a new personal AI chip delivering <strong>one petaflop</strong> of AI compute — the equivalent of what used to require a datacenter rack — inside a standard personal computer form factor. The announcement came alongside COMPUTEX 2026, which drew 1,500 technology companies from 33 countries under the theme "AI Together," highlighting AI's shift from cloud-only deployment into edge and local inference. NVIDIA's new Isaac GR00T open models for robotics were also showcased, enabling robots to understand natural language and perform complex multistep tasks using vision-language-action reasoning.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>The Runtime Wars: Every Major Conference Is Now Fighting for the Same Thing</h3>
+    <p>
+      Microsoft Build, Google I/O, and NVIDIA's GTC all converged on the same competitive battleground in May–June 2026: the runtime environment that autonomous AI agents execute inside. Microsoft, Google, NVIDIA, and ServiceNow are each positioning their platforms as the place where agentic AI lives — not the model underneath it. As analyst <strong>Dr. Vikram Singh</strong> noted, "the contest has moved beyond the model." Teams of cooperating agents tackling complex, multi-session goals are now the product roadmap for every major AI platform.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>White House AI Order and DARPA's AI Forge Reshape U.S. Strategy</h3>
+    <p>
+      The White House issued a new executive order this week titled "Promoting Advanced Artificial Intelligence Innovation and Security," reaffirming U.S. leadership and removing what the administration described as bureaucratic constraints on AI development. Separately, DARPA and the National Science Foundation jointly launched the <strong>AI Forge</strong> program — designed to accelerate AI breakthroughs for national security applications, with a focus on building AI that is "significantly more reliable and predictable in high-stakes settings." The forum will formally launch summer 2026.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Enterprise AI Is No Longer Optional — Boards Are Calling It Infrastructure</h3>
+    <p>
+      Enterprise AI adoption continued to harden in June 2026, with company boards and CFOs reclassifying AI investments from R&amp;D line items to core infrastructure. Reports from multiple analysts point to measurable enterprise results — efficiency gains, cost reductions, and faster decision cycles — that are converting skeptics into committed spenders. The shift mirrors the cloud infrastructure wave of 2013–2016: the companies that moved first are building compounding advantages, and the laggards are beginning to notice the gap.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The contest has moved beyond the model."
+    </blockquote>
+    <cite>— Big Tech's June 2026 AI Blitz analysis, Dr. Vikram Singh</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Microsoft is quietly ending its OpenAI dependency.</strong>
+        MAI-Code-1-Flash and MAI-Thinking-1 are not research experiments — they're products. Microsoft is building an AI supply chain it controls, even while its OpenAI partnership remains nominally intact.
+      </li>
+      <li>
+        <strong>Anthropic's IPO would be the largest tech debut in years.</strong>
+        A $965B valuation filing means Anthropic is on a trajectory to rival Apple and Microsoft on paper before it has even gone public. The Claude Code flywheel is real, and the market knows it.
+      </li>
+      <li>
+        <strong>The model race is commoditizing faster than expected.</strong>
+        Google cutting its Ultra subscription from $250 to $200, GPT-4.5 retired after less than a year, Gemini Flash at GA — the frontier is moving so fast that last year's flagship is this year's budget option.
+      </li>
+      <li>
+        <strong>AI is leaving the cloud and entering the device.</strong>
+        A one-petaflop chip inside a consumer PC changes the economics of local inference entirely. On-device AI means lower latency, better privacy, and no per-token cost — a trifecta that will reshape how people interact with AI daily.
+      </li>
+      <li>
+        <strong>Agentic runtimes are the new platform war.</strong>
+        Every major tech company is competing for the same thing: the environment in which autonomous agents live and operate. Whoever owns the runtime owns the distribution. This is the operating system battle of the 2020s.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 3, 2026<br />
+      Issue No. 73
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Microsoft Build 2026 Live Blog &middot; CNBC &middot; Anthropic AI Weekly &middot;
+    Google I/O 2026 &middot; LLM Stats &middot; Build Fast With AI &middot; AI Startup Edge &middot;
+    DARPA &middot; White House &middot; NVIDIA Blog &middot; COMPUTEX 2026 &middot; Dr. Vikram Singh &middot; Manifold Markets
+  </div>
+
+</div>
+</body>
+</html>
