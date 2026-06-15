@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 15, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 85</span>
+    <span>June 15, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic's Fable 5 and Mythos 5 Go Dark After Commerce Department Export Order</h2>
+    <p class="deck">
+      Three days after the US Department of Commerce issued an export control directive, Anthropic's
+      two flagship models remain offline — and the company is fighting it publicly.
+    </p>
+    <p>
+      Claude Fable 5 and Claude Mythos 5 have been inaccessible since June 12, when the Department
+      of Commerce issued an export control directive targeting the models. The directive — whose precise
+      scope has not been publicly disclosed — appears to restrict the technology's availability in
+      certain international markets, forcing Anthropic to suspend access globally while it determines
+      its legal obligations.
+    </p>
+    <p>
+      Anthropic has published a formal statement of public disagreement with the directive but has
+      not announced a timeline for resolution. The action echoes last year's DOD supply-chain dispute
+      and signals that US regulators are increasingly willing to use export law as a lever on frontier
+      AI models — tools that, unlike semiconductors, are distributed instantly via API.
+    </p>
+    <p>
+      The timing is notable: Anthropic's CEO <strong>Dario Amodei</strong> is among the AI lab leaders
+      confirmed to attend the G7 summit in Évian-les-Bains, France, beginning today. Alongside OpenAI's
+      <strong>Sam Altman</strong> and Google DeepMind's <strong>Demis Hassabis</strong>, Amodei is
+      expected to address heads of state on AI governance — making the export control dispute an
+      unavoidable backdrop to the conversations.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">3</span>
+      <div class="num-label">AI lab CEOs at the G7 summit today in France</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">15B</span>
+      <div class="num-label">Parameters in Microsoft's new Phi-4-reasoning-vision model</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$0.01</span>
+      <div class="num-label">Price per GitHub AI Credit under new Copilot metered billing</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>AI Lab CEOs Sign Joint Letter Demanding Mandatory Synthetic DNA Screening</h3>
+    <p>
+      The heads of OpenAI, Anthropic, Google DeepMind, and Microsoft AI signed a joint open letter
+      to Congress on June 5, calling for mandatory screening requirements on synthetic DNA providers.
+      The letter warns that advances in AI are eroding the technical barriers previously needed to
+      weaponize biological material — "AI models are actively lowering the expertise threshold for
+      misuse of synthetic DNA and RNA," the letter states. The cross-company solidarity on biosecurity
+      is rare and signals the labs are positioning themselves as responsible actors ahead of
+      expected Congressional AI legislation.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Launches Real-Time Audio Suite and a ChatGPT Ads Manager</h3>
+    <p>
+      OpenAI shipped three real-time audio models today: one for conversational agents, one for
+      translation, and one for transcription — all designed to power low-latency voice applications
+      without batching. Separately, OpenAI launched a self-serve Ads Manager inside ChatGPT,
+      opening a new revenue stream beyond subscriptions. The ads product includes advertiser tooling
+      and signals that OpenAI is treating ChatGPT's 500M+ user base as a media platform, not just
+      an AI assistant. Both announcements come as the company eyes a late-2026 IPO.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Releases Gemma 4 12B on Hugging Face — Gemini 3.5 Pro Still Weeks Away</h3>
+    <p>
+      Google released the Gemma 4 12B open model on Hugging Face today, expanding its open-weight
+      portfolio for developers building reasoning and agentic applications. Meanwhile, Gemini 3.5
+      Pro — announced at Google I/O on May 19 — has yet to ship publicly. Prediction market traders
+      are concentrating odds on late June windows, with June 23 and June 30 emerging as the
+      leading forecasts. The delay is notable given the competitive pressure from GPT-5.5 variants
+      already in market and Anthropic's flagship models currently offline.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Microsoft's Phi-4-reasoning-vision-15B Targets On-Device Math and Science</h3>
+    <p>
+      Microsoft announced Phi-4-reasoning-vision-15B, a 15 billion parameter open-weight multimodal
+      model designed to deliver high-level reasoning capabilities in math and science while remaining
+      computationally efficient enough for on-device or edge deployment. The model continues
+      Microsoft's "small but capable" Phi strategy — a direct counterargument to the assumption that
+      frontier reasoning requires hundreds of billions of parameters. Early benchmarks put it
+      competitive with models twice its size on STEM tasks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Integrates Gemini Robotics-ER 1.6 Into Spot and Orbit</h3>
+    <p>
+      Boston Dynamics partnered with Google Cloud and DeepMind to embed Gemini Robotics-ER 1.6 into
+      its Spot robot dog and Orbit AI visual inspection platform. The integration enables Spot to
+      perform enhanced spatial reasoning, autonomous navigation in unstructured environments, and
+      continuous on-device learning from sensor data — without requiring cloud round-trips for each
+      decision. It is the most significant capability upgrade to the Spot platform since launch and
+      marks DeepMind's deepest commercial robotics deployment to date.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>GitHub Copilot Moves to Metered Billing With $0.01 AI Credits</h3>
+    <p>
+      Microsoft's GitHub announced it will transition Copilot from request-based billing to
+      usage-based metered billing, introducing a virtual currency called GitHub AI Credits priced
+      at $0.01 each. The shift makes AI coding assistance pricing variable and consumption-linked
+      rather than flat-subscription — a model change that will force enterprise buyers to track
+      and forecast AI usage the same way they track cloud compute. It also signals GitHub's intent
+      to expand Copilot's capabilities beyond code completion into broader agentic workflows that
+      consume more tokens per interaction.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI Launches Rosalind Biodefense; Anthropic's Project Glasswing Targets Cyber</h3>
+    <p>
+      OpenAI launched Rosalind Biodefense on June 1 — a specialized access program enabling
+      vetted researchers in biodefense, public health, and pandemic preparedness to work with
+      GPT-Rosalind, a capability-expanded model trained on biological and epidemiological data.
+      Anthropic launched Project Glasswing (powered by Claude Mythos Preview) in parallel,
+      scoped to cybersecurity infrastructure defense. Both programs launched within weeks of each
+      other and represent a strategic shift: frontier AI labs building deliberately restricted,
+      mission-specific versions of their most capable models for national security applications.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "AI models are actively lowering the expertise threshold for misuse of synthetic DNA and RNA."
+    </blockquote>
+    <cite>— Joint letter to Congress, signed by OpenAI, Anthropic, Google DeepMind &amp; Microsoft AI · June 5, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Export controls are the new frontier of AI regulation.</strong>
+        The Commerce Department directive against Anthropic's models proves that frontier AI
+        is now subject to the same export machinery historically applied to semiconductors and
+        defense technology. Every frontier lab now carries regulatory risk that scales with
+        capability.
+      </li>
+      <li>
+        <strong>AI lab CEOs are becoming diplomatic actors.</strong>
+        Altman, Hassabis, and Amodei attending the G7 — not as tech vendors, but as invited
+        participants in geopolitical conversations — marks a structural shift. AI governance is
+        being negotiated at the same tables as trade and defense.
+      </li>
+      <li>
+        <strong>Biosecurity is emerging as a core AI concern.</strong>
+        A joint letter from four major AI labs on synthetic DNA, plus two dedicated biodefense
+        programs launching within weeks, shows the industry is moving fast to get ahead of
+        biological risk — before regulators mandate it.
+      </li>
+      <li>
+        <strong>Metered billing will change how enterprises think about AI.</strong>
+        GitHub's shift to per-credit pricing is likely a preview of how all AI-embedded enterprise
+        tools will be priced. Usage forecasting and cost governance will become as important as
+        technical evaluation in enterprise AI procurement.
+      </li>
+      <li>
+        <strong>The open model race is tightening at every tier.</strong>
+        Google's Gemma 4 12B, Microsoft's Phi-4 15B, NVIDIA's Nemotron Nano Omni 30B — capable
+        open weights are landing across every parameter range. The commercial moat of closed models
+        gets harder to defend when open alternatives hit similar benchmarks at a fraction of the
+        cost.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 15, 2026<br />
+      Issue No. 85
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; LLM Stats &middot; DEV Community &middot;
+    Dataconomy &middot; Yellow.com &middot; WaveSpeed Blog &middot; QverLabs &middot;
+    Manifold Markets &middot; InfoWorld &middot; Crescendo AI &middot; AIapps.com &middot;
+    dentro.de/ai &middot; unrot.co
+  </div>
+
+</div>
+</body>
+</html>
