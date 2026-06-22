@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 22, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 92</span>
+    <span>June 22, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>The Architect of the Transformer Leaves Google for OpenAI — and Google DeepMind's Talent Dam Breaks</h2>
+    <p class="deck">
+      Noam Shazeer, co-author of "Attention Is All You Need," joins OpenAI as Lead for Architecture Research,
+      following Nobel laureate John Jumper's departure to Anthropic. Google's most prized research engine
+      is losing the engineers who built it.
+    </p>
+    <p>
+      Noam Shazeer announced today he is leaving Google DeepMind to join OpenAI as Lead for Architecture Research —
+      responsible for the physical neural network structures underlying all OpenAI models. Shazeer co-authored the
+      2017 paper "Attention Is All You Need," which introduced the Transformer architecture that underpins every
+      major AI model in existence. He is not a peripheral figure; he is the intellectual foundation of the field.
+    </p>
+    <p>
+      The move lands just three days after CNBC reported that <strong>John Jumper</strong> — the Nobel Prize–winning
+      computational biologist behind AlphaFold — is also leaving Google DeepMind, headed for Anthropic. Two of the
+      most consequential researchers in AI history, both departing the same lab within a week. The pattern is hard
+      to ignore: Google built the intellectual capital of modern AI, and its rivals are now systematically
+      acquiring it.
+    </p>
+    <p>
+      For Google DeepMind, which has staked enormous credibility on its research prestige, the dual departures
+      represent more than lost headcount. Shazeer and Jumper are not just talented engineers — they are
+      the proof points that Google's lab sits at the frontier. Their exits raise an uncomfortable question:
+      if the people who built the transformer and folded proteins are now at OpenAI and Anthropic,
+      where exactly does the frontier live?
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$295B</span>
+      <div class="num-label">China's 5-year state AI infrastructure plan</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">46.4%</span>
+      <div class="num-label">ChatGPT market share — first time below 50%</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$1.25B</span>
+      <div class="num-label">SpaceX monthly compute fee from Anthropic</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>ChatGPT Falls Below 50% Market Share for the First Time</h3>
+    <p>
+      Sensor Tower's 2026 State of AI Report puts ChatGPT at 46.4% of the AI assistant market by late May —
+      the first time below majority. Gemini has climbed to 27.7%, and Claude sits at 10.3% with the
+      highest subscriber conversion rate in the category at 13%. The report cites OpenAI's Defense Department
+      deal as a trust-erosion factor, while Gemini's multimodal improvements and Claude's stickiness
+      among paying users have chipped steadily away. The era of ChatGPT as a synonym for AI is ending.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>SpaceX's S-1 Reveals a $1.25 Billion/Month Compute Deal With Anthropic</h3>
+    <p>
+      SpaceX's confidential IPO filing, reviewed by multiple outlets, disclosed a contract renting
+      300 megawatts of compute capacity to Anthropic for <strong>$1.25 billion per month</strong> through
+      May 2029. The scale is staggering: that's $15 billion annually — more than Anthropic's total
+      funding to date — spent purely on training compute. The deal signals that the AI infrastructure
+      arms race has broken past the traditional cloud providers, with rocket companies now serving as
+      data center landlords.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>G7 Summit: Amodei, Hassabis, and Altman Call for a U.S.-Led AI Coalition</h3>
+    <p>
+      Anthropic CEO Dario Amodei and Google DeepMind CEO Demis Hassabis jointly called for a
+      U.S.-led international AI coalition at the G7 summit in Italy, with OpenAI's Sam Altman
+      also in attendance alongside world leaders including President Trump. The joint appeal frames
+      AI governance as a geopolitical necessity, not just a safety exercise — particularly given
+      China's $295 billion five-year AI infrastructure investment unveiled this week. On June 5,
+      the four major AI lab CEOs had already jointly petitioned Congress to mandate screening of
+      synthetic DNA providers, signaling a new era of coordinated industry policy action.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Files Confidentially for IPO — September 2026 Target in Sight</h3>
+    <p>
+      OpenAI has begun the confidential IPO filing process with the SEC, with banking sources
+      citing a potential public offering as soon as September 2026. The company is simultaneously
+      navigating regulatory scrutiny, its ongoing nonprofit-to-capped-profit restructuring, and
+      the reputational fallout from its Defense Department contract. The stakes are enormous:
+      an IPO at current private valuations would make it one of the largest technology offerings
+      in market history, and the first major AI-native company to go public at frontier scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Deploys Gemini Robotics-ER 1.6 Inside Spot and Orbit</h3>
+    <p>
+      Boston Dynamics announced a partnership with Google Cloud and DeepMind to integrate
+      Gemini Robotics-ER 1.6 into its Spot robot dog and Orbit AI visual inspection platform.
+      Separately, DeepMind's AlphaEvolve — the AI system originally trained to discover
+      mathematical algorithms — has expanded into genomics and quantum physics, achieving a
+      <strong>30% reduction in DNA sequencing error detection rates</strong>. The same architecture
+      that plays Go and proves theorems is now accelerating fundamental science.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>June's Model Landscape: Fable 5 Billing Begins, Gemini 3.5 Expands</h3>
+    <p>
+      Anthropic's Claude Fable 5 and Mythos 5 — launched June 9 — remain under restricted access
+      following a U.S. Department of Commerce emergency export control directive. Today marks the
+      end of the free-trial window; Fable 5 moves to usage-credit billing starting June 23.
+      Meanwhile, Google DeepMind's Gemini 3.5 Pro continues expanding with its 2-million-token
+      context window and "Deep Think" cognitive mode, while GPT-5.5 Pro and GPT-5.5 Instant
+      variants from OpenAI are seeing broad enterprise adoption. The frontier has never been
+      more crowded — or more contested.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Microsoft Scout: An Always-On AI Agent Across Your Entire Microsoft 365 Stack</h3>
+    <p>
+      Microsoft unveiled Scout, an always-on AI agent that monitors Teams, Outlook, calendars,
+      OneDrive, and SharePoint autonomously — coordinating schedules, identifying workflow
+      bottlenecks, and executing routine tasks without user prompting. Scout represents the most
+      visible mainstream deployment yet of agentic AI in enterprise software, moving Microsoft
+      365 from a productivity suite to a system that acts on your behalf. China's Meituan
+      released a complementary signal this week: the open-source LongCat-Video-Avatar 1.5,
+      delivering commercial-grade digital human technology with precise lip-sync and long-form
+      video stability.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "A U.S.-led AI coalition is the only viable path to ensuring democratic values shape
+      the next decade of technology."
+    </blockquote>
+    <cite>— Dario Amodei, Anthropic CEO &middot; G7 Summit, June 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Google DeepMind is losing the people who defined it.</strong>
+        Shazeer (Transformers) and Jumper (AlphaFold) leaving the same week is not a coincidence —
+        it's a signal that compensation, autonomy, or mission alignment has shifted decisively
+        toward OpenAI and Anthropic.
+      </li>
+      <li>
+        <strong>ChatGPT below 50% is a structural shift, not a blip.</strong>
+        The market is fragmenting. Gemini's multimodal improvements and Claude's conversion rate
+        suggest users are developing genuine preferences — not just defaulting to the first AI
+        they tried.
+      </li>
+      <li>
+        <strong>Compute infrastructure is no longer a cloud monopoly.</strong>
+        SpaceX becoming a $15B/year compute provider for Anthropic signals that AI labs will seek
+        capacity wherever they can find it — traditional hyperscalers, rocket companies, sovereign
+        data centers. The geography of AI compute is being redrawn.
+      </li>
+      <li>
+        <strong>AI policy has gone geopolitical.</strong>
+        China's $295B plan, the G7 AI coalition call, and Congressional DNA screening letters in
+        the same week reflect a world where AI is a strategic resource — not just a product category.
+        Every lab CEO is now also a foreign policy actor.
+      </li>
+      <li>
+        <strong>OpenAI's IPO changes everything.</strong>
+        A September 2026 public offering would make OpenAI accountable to shareholders for the
+        first time. Expect pricing pressure on APIs, new compliance obligations, and renewed
+        pressure on competitors to follow suit.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 22, 2026<br />
+      Issue No. 92
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: CNBC &middot; Sensor Tower &middot; Build Fast With AI &middot; AIToolly &middot;
+    LLM Stats &middot; WaveSpeed Blog &middot; devFlokers &middot; dentro.de/ai &middot;
+    White House &middot; Radical Data Science &middot; Crescendo AI &middot; MarketingProfs
+  </div>
+
+</div>
+</body>
+</html>
