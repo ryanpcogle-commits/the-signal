@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 24, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 94</span>
+    <span>June 24, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Nobel Prize Winner John Jumper Leaves Google DeepMind for Anthropic</h2>
+    <p class="deck">
+      The AI talent war just claimed its highest-profile defection yet: the scientist whose AlphaFold
+      work won the 2024 Nobel Prize in Chemistry is walking out of DeepMind's door and into Anthropic's.
+    </p>
+    <p>
+      John Jumper, a vice president at Google DeepMind and one of the most decorated scientists in
+      modern AI, announced he is leaving to join Anthropic PBC. Jumper shared the Nobel Prize in
+      Chemistry in 2024 alongside DeepMind CEO Demis Hassabis for AlphaFold's revolutionary protein
+      structure predictions — work that fundamentally changed computational biology. At DeepMind, he
+      had more recently been central to the company's AI coding and software-engineering efforts.
+    </p>
+    <p>
+      The departure is a significant blow to Google. Jumper's move comes as Anthropic has quietly
+      become the talent magnet of the industry, fueled by the runaway success of Claude Code and
+      a near-trillion-dollar valuation. According to Bloomberg and CNBC, DeepMind leadership was
+      informed of his decision last week — the same week Anthropic confidentially filed for an IPO.
+    </p>
+    <p>
+      The timing is pointed. Just days earlier, Hassabis and Anthropic CEO Dario Amodei stood side
+      by side at the G7 summit calling for a united U.S.-led AI coalition. The display of inter-lab
+      diplomacy at the policy level now sits in sharp contrast to the fiercely competitive talent
+      dynamics playing out behind the scenes.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$965B</span>
+      <div class="num-label">Anthropic valuation — now ahead of OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">52.5%</span>
+      <div class="num-label">Reduction in hallucinations — GPT-5.5 Instant</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$60B</span>
+      <div class="num-label">SpaceX acquires Cursor — largest VC startup deal ever</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI's GPT-5.5 Instant Becomes the New Default — Hallucinations Drop 52.5%</h3>
+    <p>
+      OpenAI has made GPT-5.5 Instant its primary default model across ChatGPT and the API.
+      The company says the model achieves a 52.5% reduction in hallucinations across high-stakes
+      domains — medicine, law, and finance — compared to its predecessor. GPT-5.5 Pro and GPT-5.5
+      variants are also available for tasks requiring deeper reasoning. The hallucination reduction
+      figure is the most significant reliability claim OpenAI has published since GPT-4's launch.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Files Confidentially for IPO at Near-Trillion-Dollar Valuation</h3>
+    <p>
+      Anthropic has confidentially filed for an initial public offering, according to multiple reports,
+      after closing a financing round that values the company at approximately $965 billion — surpassing
+      OpenAI's last known private valuation. The company that began as an AI safety spinout from OpenAI
+      has grown into one of the most valuable private technology companies in history, driven largely by
+      Claude Code's enterprise adoption. An IPO, if completed, would be among the largest technology
+      listings in years.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Gemini 3.5 Pro Enters Enterprise Preview With 2-Million-Token Context</h3>
+    <p>
+      Google's Gemini 3.5 Pro is now available to enterprise customers in limited preview on Vertex AI,
+      with general availability expected by June 30. The model features a 2-million-token context window —
+      the largest of any generally available model — and full multimodal support across text and images.
+      Gemini 3.5 Flash, which went GA at Google I/O in May, is already the default model in the Gemini app
+      and AI Mode in Google Search, where it powers the company's rapidly expanding agentic search features.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Microsoft Debuts MAI-Code-1-Flash — Its First In-House Coding Model</h3>
+    <p>
+      Microsoft unveiled MAI-Code-1-Flash, its inaugural proprietary model built specifically to generate
+      source code from written descriptions. The announcement marks a significant strategic pivot: after
+      years of deep reliance on OpenAI's models, Microsoft is now building its own AI stack for developer
+      tools. The move directly targets the coding-assistant market where Anthropic's Claude Code has
+      emerged as the dominant player, and where GitHub Copilot — previously powered exclusively by OpenAI —
+      faces its most serious internal competition yet.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>SpaceX Acquires Cursor's Parent Anysphere for $60 Billion in All-Stock Deal</h3>
+    <p>
+      SpaceX announced a $60 billion all-stock acquisition of Anysphere, the company behind the Cursor
+      AI code editor, in what is now the largest acquisition of a venture-backed startup in history.
+      The deal, announced June 16, gives SpaceX a leading AI coding platform to potentially integrate
+      across its engineering operations and the broader Elon Musk technology ecosystem. Anysphere
+      had been valued at roughly $9 billion just months earlier, reflecting the extraordinary premium
+      the market is now placing on AI-native developer tooling.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Amodei and Hassabis Call for U.S.-Led AI Coalition at G7 Summit</h3>
+    <p>
+      Anthropic CEO Dario Amodei and Google DeepMind CEO Demis Hassabis jointly called for a U.S.-led
+      AI coalition in a closed-door session at the G7 summit attended by around a dozen tech executives
+      and multiple heads of state. OpenAI CEO Sam Altman was also present. The executives argued that
+      democratic nations must coordinate AI governance before authoritarian-aligned AI systems reach
+      strategic parity. Separately, the CEOs of OpenAI, Anthropic, Google DeepMind, and Microsoft
+      AI signed a joint letter to Congress this month urging mandatory screening requirements on
+      synthetic DNA providers — a rare display of cross-competitor alignment on biosecurity.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Anthropic Claims 1 Gigawatt of Compute Capacity — Mostly on U.S. Soil</h3>
+    <p>
+      Anthropic announced it has secured 1 gigawatt of compute capacity through a combination of
+      owned and leased infrastructure, with the majority sited in the United States. The figure
+      is a striking marker of how quickly the leading AI labs have moved from pure cloud customers
+      to infrastructure operators in their own right. For context, a single gigawatt is roughly
+      equivalent to powering 750,000 average American homes. The buildout positions Anthropic to
+      reduce its dependency on third-party cloud providers as it moves toward a public offering.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Democratic nations must coordinate now — before authoritarian-aligned AI systems reach strategic parity."
+    </blockquote>
+    <cite>— Dario Amodei &amp; Demis Hassabis, G7 Summit, June 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The AI talent war is entering a new phase.</strong>
+        Jumper's departure from DeepMind is a bellwether. As Anthropic's valuation and prestige
+        rise, expect more elite researchers to follow. The competitive advantage in AI is
+        increasingly a function of who you can recruit — not just what you can compute.
+      </li>
+      <li>
+        <strong>Coding AI is the battlefield that matters most right now.</strong>
+        Microsoft building its own coding model. SpaceX paying $60B for Cursor. Google retooling
+        Copilot. Every major player is betting that control of the developer workflow is the
+        strategic chokepoint of the AI economy.
+      </li>
+      <li>
+        <strong>Anthropic's IPO trajectory will reshape the industry.</strong>
+        A near-trillion-dollar Anthropic going public sets a valuation benchmark that affects
+        how investors price every other AI lab. Watch for OpenAI to respond with its own
+        IPO timeline acceleration.
+      </li>
+      <li>
+        <strong>The compute arms race is becoming infrastructure policy.</strong>
+        Anthropic's 1 GW announcement is not just a technical flex — it's a geopolitical signal.
+        The U.S. government's push to keep frontier AI compute domestic is filtering into
+        every major lab's capital allocation decisions.
+      </li>
+      <li>
+        <strong>Open-weight models are closing the frontier gap fast.</strong>
+        MiniMax M3 combines a 1-million-token context window, native multi-modal computer use,
+        and frontier-tier coding in an open-weight package. The cost and accessibility advantage
+        of open models is converging with closed-model capability — a dynamic that will pressure
+        every commercial lab's pricing strategy.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 24, 2026<br />
+      Issue No. 94
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: CNBC &middot; Bloomberg &middot; Taipei Times &middot; LLM Stats &middot;
+    Build Fast With AI &middot; devFlokers &middot; WaveSpeed Blog &middot; AI Startup Edge &middot;
+    Price Per Token &middot; Build This Now &middot; dentro.de/ai &middot; Fortune &middot; OpenAI Newsroom
+  </div>
+
+</div>
+</body>
+</html>
