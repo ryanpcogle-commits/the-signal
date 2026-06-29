@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 29, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 99</span>
+    <span>June 29, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Surpasses OpenAI in Valuation at $965 Billion — and Files Confidential IPO</h2>
+    <p class="deck">
+      The company that started as an "AI safety" spinout from OpenAI has now outvalued its former parent.
+      Both are racing toward the most consequential IPO in tech history.
+    </p>
+    <p>
+      Anthropic closed a new financing round at a staggering $965 billion valuation this week,
+      surpassing OpenAI's $852 billion private valuation from March. In the same announcement, Anthropic
+      confirmed it has confidentially filed an S-1 with the SEC, setting the stage for a public listing
+      that could redefine how markets value AI companies. The dual milestone — highest valuation and
+      imminent IPO — is a remarkable turn for a company founded just three years ago by former OpenAI
+      researchers who left over safety disagreements.
+    </p>
+    <p>
+      OpenAI, which filed its own confidential S-1 on June 8, is not sitting still. The company is pushing
+      ahead with GPT-5.6, previewing three distinct model tiers — <strong>Sol</strong> (flagship for hard
+      problems), <strong>Terra</strong> (balanced everyday use), and <strong>Luna</strong> (fast, high-volume)
+      — all currently under government-gated access as part of Washington's new frontier AI review process.
+      ChatGPT now serves more than <strong>900 million weekly active users</strong>, with roughly one in
+      five queries already expressing direct commercial intent.
+    </p>
+    <p>
+      The valuation gap between the two companies may be partly explained by what happened earlier this
+      month: the U.S. government imposed export controls on Anthropic's most powerful models, Fable 5 and
+      Mythos 5, citing national security concerns and barring foreign access. The restriction was partially
+      lifted for critical infrastructure defenders, but the episode underscored how quickly frontier AI
+      models are being treated as strategic national assets rather than commercial products.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">900M</span>
+      <div class="num-label">ChatGPT weekly active users as of June 2026</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$965B</span>
+      <div class="num-label">Anthropic's latest private valuation, surpassing OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">6+</span>
+      <div class="num-label">Senior Google DeepMind researchers departed in June alone</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google DeepMind Is Bleeding Talent — to Anthropic and OpenAI</h3>
+    <p>
+      In one of the most striking talent shifts in recent AI history, Google DeepMind is losing
+      researchers to its direct rivals at an accelerating rate. <strong>John Jumper</strong> — a DeepMind
+      vice president and co-recipient of the 2024 Nobel Prize in Chemistry for his work on AlphaFold —
+      is heading to Anthropic, along with <strong>Jonas Adler</strong>, who led Google's AI coding work
+      inside DeepMind, and <strong>Alexander Pritzel</strong>, who worked on pretraining. Meanwhile,
+      <strong>Noam Shazeer</strong>, one of the co-authors of the landmark 2017 paper "Attention Is All
+      You Need" and co-lead of the Gemini project, is joining OpenAI. The exodus follows Google's
+      decision to pivot DeepMind's focus heavily toward coding applications — a strategic choice that
+      appears to have alienated researchers whose interests lie elsewhere.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>White House Issues New Frontier AI Security Order — With Teeth</h3>
+    <p>
+      The Biden-era executive order on AI safety has been superseded. The White House released
+      "Promoting Advanced Artificial Intelligence Innovation and Security" on June 29, establishing
+      a formal frontier AI review process that gives Washington oversight of models above a capability
+      threshold before they can be released or exported. The order directly triggered the export
+      restrictions on Anthropic's Fable 5 and Mythos 5 models and the government-gated rollout of
+      OpenAI's GPT-5.6 family. Dario Amodei and Demis Hassabis called for a U.S.-led AI coalition
+      at the G7 summit alongside OpenAI CEO Sam Altman — signaling that even the companies most
+      affected by the rules are supporting tighter governance frameworks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.5 Pro Slips to July — But the Specs Are Extraordinary</h3>
+    <p>
+      Google's Gemini 3.5 Pro missed its Google I/O June deadline and is now targeting a July 2026
+      general availability release. The delay hasn't dimmed expectations: the model ships with a
+      <strong>2-million-token context window</strong> and a specialized "Deep Think" reasoning mode
+      designed for complex, multi-step problems. The companion Gemini 3.5 Flash model is already
+      live and drawing praise for its speed-to-cost ratio. The slip may reflect quality-bar
+      decisions rather than capability gaps — though the talent departures from DeepMind are drawing
+      scrutiny as a potential contributing factor.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Microsoft Scout: An Always-On AI Agent That Lives Inside Microsoft 365</h3>
+    <p>
+      Microsoft unveiled Scout, an autonomous AI agent built on the OpenClaw framework that operates
+      continuously across Teams, Outlook, calendars, OneDrive, and SharePoint. Unlike point-in-time
+      assistants, Scout monitors workflows in the background, coordinates schedules proactively, flags
+      bottlenecks before they surface, and carries out routine tasks without prompting. The launch
+      arrives alongside Microsoft's new proprietary model family: <strong>MAI-Code-1-Flash</strong>
+      for code generation and <strong>MAI-Thinking-1</strong> for reasoning — both positioned as
+      cost-efficient Azure alternatives to third-party frontier models. The agent-plus-model strategy
+      signals Microsoft's intent to compete on the full stack, not just access to OpenAI's APIs.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>A24 and Google DeepMind Sign $75 Million Film AI Partnership</h3>
+    <p>
+      Independent film studio A24 — known for <em>Everything Everywhere All at Once</em>, <em>Midsommar</em>,
+      and <em>Hereditary</em> — has entered a $75 million partnership with Google DeepMind to develop
+      AI tools for film production and distribution. The deal explicitly commits to preserving
+      filmmakers' creative control, positioning the tools as workflow support rather than creative
+      replacement. It is the largest declared AI partnership between a frontier AI lab and a major
+      creative content company to date, and a significant signal that Hollywood's posture toward
+      AI has shifted from resistance to selective adoption.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Gemini Robotics-ER 1.6 Powers Boston Dynamics' Spot in Industrial Deployments</h3>
+    <p>
+      Boston Dynamics announced a partnership with Google Cloud and DeepMind to integrate
+      <strong>Gemini Robotics-ER 1.6</strong> into its Spot robot dog and Orbit AI visual inspection
+      platform. The integration enables enhanced spatial reasoning, autonomous decision-making in
+      unstructured environments, and continuous learning from field experience. The deployment targets
+      industrial inspection, hazardous environment monitoring, and complex facility management —
+      sectors where human presence is costly or dangerous. It is the most substantive integration
+      of a frontier multimodal model into a commercial robotics platform to date.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Retires GPT-4.5 as GPT-5.6 Family Previews Begin</h3>
+    <p>
+      As of June 26, GPT-4.5 is no longer available in ChatGPT — including for custom GPTs.
+      Existing conversations that relied on GPT-4.5 are now automatically handled by GPT-5.5, marking
+      a clean generational transition. The retirement clears the deck for OpenAI's GPT-5.6 family —
+      Sol, Terra, and Luna — which are currently in government-reviewed preview and expected to reach
+      general availability within weeks. The three-tier architecture reflects a deliberate effort to
+      address the full cost spectrum, from low-latency consumer interactions (Luna) to enterprise-grade
+      reasoning tasks (Sol).
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "What we need is a strong U.S.-led coalition — one that sets the standards, invites allies, and
+      ensures the most capable AI remains developed under democratic oversight."
+    </blockquote>
+    <cite>— Dario Amodei, Anthropic CEO, G7 Summit, June 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The IPO race is a valuation arms race.</strong>
+        Anthropic at $965B and OpenAI at $852B are both eyeing public markets. Whichever lists first
+        will set the pricing benchmark for AI companies globally — and the gap between them is now
+        thin enough that the order of filing matters enormously.
+      </li>
+      <li>
+        <strong>Talent gravity is shifting away from Google.</strong>
+        When a Nobel laureate and the co-author of the transformer paper leave in the same month, it
+        is not coincidence. DeepMind's coding pivot is a strategic bet that may be costing it the
+        researchers who built its reputation for foundational science.
+      </li>
+      <li>
+        <strong>Export controls are the new AI governance lever.</strong>
+        Governments are treating frontier models the way they treat weapons technology. The partial
+        ban on Fable 5 and Mythos 5 is a preview of a world where model capability thresholds trigger
+        automatic regulatory review — reshaping how labs time and structure their releases.
+      </li>
+      <li>
+        <strong>The agentic workplace is no longer theoretical.</strong>
+        Microsoft Scout running continuously across the Microsoft 365 ecosystem is not a chatbot.
+        It is the first mass-market always-on AI agent. The shift from "ask AI a question" to
+        "AI operates in the background on your behalf" is now commercially live.
+      </li>
+      <li>
+        <strong>Creative industries are choosing selective adoption over resistance.</strong>
+        A24's $75M DeepMind deal shows the most respected independent studio in Hollywood has
+        concluded that AI-assisted production is inevitable — and that the strategic question is
+        whether to shape the tools or have them imposed. Expect more studios to follow.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 29, 2026<br />
+      Issue No. 99
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; White House &middot; CNBC &middot; TechCrunch &middot;
+    Bloomberg &middot; Taipei Times &middot; LLM Stats &middot; Manifold Markets &middot; Releasebot &middot;
+    MarketingProfs &middot; dentro.de/ai &middot; devFlokers &middot; AI Flash Report
+  </div>
+
+</div>
+</body>
+</html>
