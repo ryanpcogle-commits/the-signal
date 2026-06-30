@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · June 30, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 100</span>
+    <span>June 30, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>America's First Real AI Law Takes Effect Today — and Every Lab Is Watching</h2>
+    <p class="deck">
+      The Colorado Artificial Intelligence Act goes into force on June 30, 2026, making it the first
+      comprehensive state AI law in the United States to actually be enforced — not just passed.
+    </p>
+    <p>
+      After years of federal gridlock on AI regulation, Colorado has stepped into the void. The Act
+      requires any developer or deployer of a "high-risk" AI system — defined as one making or
+      substantially influencing consequential decisions in employment, housing, healthcare, education,
+      or financial services — to carry out impact assessments, disclose AI use to affected consumers,
+      and establish grievance mechanisms. Companies doing business in Colorado, regardless of where
+      they are headquartered, must comply.
+    </p>
+    <p>
+      The law's timing is pointed. It arrives on the same day that Anthropic and OpenAI are both
+      racing toward IPOs, Alphabet is raising nearly $85 billion in new capital, and GitHub Copilot's
+      shift to usage-based billing is creating the first real-world audit of what enterprise AI actually
+      costs. For the first time, AI companies face a legal accountability layer, not just voluntary
+      commitments. Virginia, Texas, and New York have all introduced copycat legislation; legal experts
+      say Colorado's enforcement record over the next 12 months will set the template.
+    </p>
+    <p>
+      Industry response has been cautious. The Chamber of Commerce filed a last-minute challenge arguing
+      the law's definition of "consequential decision" is too broad. Meanwhile, compliance software
+      vendors reported a 400% spike in inbound interest since March, when it became clear no federal
+      preemption bill would pass before the deadline. The AI era's governance reckoning has officially
+      begun.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$965B</span>
+      <div class="num-label">Anthropic's latest valuation — now ahead of OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$84.75B</span>
+      <div class="num-label">Alphabet equity raise, including $10B from Berkshire Hathaway</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">25×</span>
+      <div class="num-label">Speed gain from AI-augmented climate models vs. physics-only runs</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Hits $965B Valuation and Files Confidentially for IPO — Days After OpenAI Did the Same</h3>
+    <p>
+      Anthropic closed a new financing round at a staggering $965 billion valuation, overtaking OpenAI
+      to become the most highly valued private AI company in history. In the same week, the company
+      filed confidentially with the SEC for an initial public offering. OpenAI moved first, tapping
+      Goldman Sachs and Morgan Stanley and targeting a September 2026 listing. If both IPOs proceed,
+      the second half of 2026 will see the two most consequential public offerings in tech history land
+      within months of each other — reshaping the capital structure of the entire AI industry.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>GitHub Copilot's Usage-Based Billing Just Delivered Its First Shock: Costs Up 26×</h3>
+    <p>
+      June 30 closes the first full monthly billing cycle since GitHub Copilot moved to usage-based
+      pricing on June 1. The results are brutal for heavy users: developers who previously paid $29
+      per month are now projecting bills of $750; enterprise teams that paid $50 are seeing invoices
+      near $3,000. GitHub says the new pricing reflects "actual compute consumed," but the sticker
+      shock is sparking a wave of internal audits at companies that deployed Copilot broadly without
+      usage guardrails. Some teams are reverting to legacy plans; others are evaluating open-source
+      alternatives. The episode is the clearest signal yet that AI tooling at scale carries a cost
+      structure most organizations have not modeled.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Fable 5 Suspended for General Use — Mythos 5 Partially Restored for Critical Infrastructure</h3>
+    <p>
+      Anthropic's most capable model, Claude Fable 5, remains suspended for all general users following
+      undisclosed safety concerns identified after launch on June 9. Its companion model, Claude Mythos 5,
+      has been partially restored but only for vetted critical infrastructure defenders — energy grid
+      operators, cybersecurity incident response teams, and government partners operating under a new
+      Anthropic-managed access program. The company has said little publicly, but industry observers
+      note it is the first time a frontier lab has pulled a released model at this scale. Claude Opus 4.8,
+      released May 27, continues to hold the top spot on the Artificial Analysis Intelligence Index
+      with a score of 61.4 and remains the recommended default for enterprise users.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 2.5 Pro Deep Think Posts Strongest Science Benchmarks of Any Public Model</h3>
+    <p>
+      Google's Gemini 2.5 Pro with Deep Think, launched June 22, is setting records in scientific
+      and mathematical reasoning: 82.4% on GPQA Diamond (a graduate-level science exam) and 94.1%
+      on HumanEval Plus (advanced coding). The model's extended "thinking" mode lets it spend more
+      tokens on multi-step reasoning before producing an answer — a technique Google says yields
+      the largest gains on problems that require sustained logical chains. Gemini 3.5 Pro,
+      however, officially missed its Google I/O June deadline and is now targeting a July GA release.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Nobel Prize Winner John Jumper Leads a Wave of Top Researchers Leaving Google for Rivals</h3>
+    <p>
+      Google DeepMind vice president John Jumper — who shared the 2024 Nobel Prize in Chemistry for
+      his AlphaFold work — is leaving to join Anthropic, CNBC confirmed. He follows Jonas Adler and
+      Alexander Pritzel, two key architects of the Gemini model, who are also heading to Anthropic.
+      In the same week, Noam Shazeer, co-author of the foundational "Attention Is All You Need" paper
+      and a Gemini co-lead, announced he is joining OpenAI as Lead for Architecture Research. TechCrunch
+      called it "the most significant talent drain from a single AI organization in the industry's
+      history." Google has not publicly commented on retention strategy beyond confirming the departures.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Amodei and Hassabis Call for U.S.-Led AI Coalition at G7 — With Sam Altman in the Room</h3>
+    <p>
+      Anthropic CEO Dario Amodei and Google DeepMind CEO Demis Hassabis appeared together at a
+      closed-door G7 session to jointly advocate for a U.S.-led international AI coalition. OpenAI's
+      Sam Altman was among roughly a dozen tech executives in the room alongside heads of state.
+      The call is a notable show of alignment between the two companies that are otherwise competing
+      intensely for talent, capital, and model supremacy. The core argument: only a coordinated
+      Western coalition can set safety and governance standards before authoritarian governments
+      fill the vacuum. No formal commitments emerged from the session, but a joint statement
+      is expected before the G7 concludes.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Deploys Gemini Robotics-ER 1.6 Inside Spot — Spatial Reasoning Goes Autonomous</h3>
+    <p>
+      Boston Dynamics announced a partnership with Google Cloud and DeepMind to integrate Gemini
+      Robotics-ER 1.6 directly into its Spot robot dog and Orbit AI visual inspection platform.
+      The integration gives Spot enhanced spatial reasoning, autonomous decision-making in unstructured
+      environments, and continuous on-device learning — meaning the robot improves from each inspection
+      run without needing to sync to the cloud. Early industrial deployments in oil-and-gas facilities
+      are showing a 40% reduction in manual inspection hours. The collaboration is the clearest
+      demonstration yet that frontier language models are leaving the data center and taking physical
+      form in real-world operations.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The AI era's governance reckoning has officially begun."
+    </blockquote>
+    <cite>— The Signal · June 30, 2026, as the Colorado AI Act takes effect</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>State law is filling the federal AI vacuum.</strong>
+        Colorado's Act is live. Virginia, Texas, and New York have copycat bills in motion. The
+        next 12 months of Colorado enforcement will become the de facto regulatory template for
+        the entire country — regardless of what Congress does or doesn't do.
+      </li>
+      <li>
+        <strong>The dual IPO race is the defining financial event of 2026.</strong>
+        Anthropic at $965B and OpenAI in filing season means every major institutional investor
+        is being forced to choose a position on AI's commercial future before the year ends.
+        Whoever prices higher sets a valuation anchor for the entire sector.
+      </li>
+      <li>
+        <strong>AI tooling costs are hitting budget walls.</strong>
+        GitHub Copilot's usage-based billing shock is a preview. As enterprises discover real
+        AI compute costs in their first full billing cycles, expect CFO-level scrutiny of every
+        AI tool purchase that wasn't modeled against actual usage patterns.
+      </li>
+      <li>
+        <strong>Google's talent exodus is an existential signal, not a footnote.</strong>
+        When the co-author of "Attention Is All You Need" and a Nobel laureate leave in the
+        same month for your two main competitors, the question is no longer who is ahead on
+        benchmarks — it's whether Google can retain the people needed to close the gap.
+      </li>
+      <li>
+        <strong>Physical AI is reaching operational deployment.</strong>
+        Spot with Gemini Robotics-ER isn't a demo — it's in oil-and-gas facilities today.
+        The shift from "AI in the cloud" to "AI making physical decisions in the field"
+        has crossed the proof-of-concept threshold and is becoming an enterprise procurement category.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      June 30, 2026<br />
+      Issue No. 100
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; CNBC &middot; TechCrunch &middot; Bloomberg &middot;
+    Taipei Times &middot; LLM Stats &middot; WaveSpeed Blog &middot; Kersai &middot; Build This Now &middot;
+    White House &middot; LLM Gateway &middot; AI Flash Report &middot; Manifold Markets
+  </div>
+
+</div>
+</body>
+</html>
