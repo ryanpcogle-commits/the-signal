@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 7, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 107</span>
+    <span>July 7, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>169 Nations Convene in Geneva for the First Global AI Governance Dialogue</h2>
+    <p class="deck">
+      The United Nations opened its inaugural Global Dialogue on AI Governance this week — the largest
+      intergovernmental gathering ever convened on artificial intelligence, and a sign that AI regulation
+      is no longer a bilateral US-EU conversation.
+    </p>
+    <p>
+      Delegates from 169 countries gathered in Geneva on July 6–7 for the UN Global Dialogue on AI
+      Governance, immediately followed by the ITU AI for Good Global Summit running July 7–10. The
+      back-to-back events represent the most significant coordinated attempt by the international
+      community to shape how artificial intelligence is developed, deployed, and held accountable
+      across borders.
+    </p>
+    <p>
+      UN officials framed the dialogue around five emerging risk categories — including agentic AI systems
+      and autonomous weapons — and called for binding international standards rather than the voluntary
+      frameworks that have dominated Western approaches. The summit follows a joint cybersecurity advisory
+      issued this week by the Five Eyes nations (the US, Australia, Canada, New Zealand, and the United
+      Kingdom), which identified five distinct risk categories specific to agentic AI and published
+      best practices across the full AI lifecycle.
+    </p>
+    <p>
+      The timing is significant: with the White House preparing its own voluntary AI standards framework
+      expected within days, and OpenAI publicly proposing to hand the US government a 5% stake in the
+      company — worth roughly $42.6 billion at its $852 billion valuation — the question of who governs
+      AI, and how, is becoming the defining policy battle of 2026.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$19B</span>
+      <div class="num-label">Anthropic's data center lease with TeraWulf</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">169</span>
+      <div class="num-label">Countries at the UN AI Governance Dialogue</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">15K</span>
+      <div class="num-label">Meta employees affected by AI-driven restructuring</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Anthropic Signs $19 Billion Sustainable Data Center Deal With TeraWulf</h3>
+    <p>
+      Anthropic has signed a $19 billion AI data center lease with TeraWulf, a sustainable computing
+      infrastructure company that operates nuclear- and hydro-powered facilities targeting zero-carbon
+      output. The deal is the largest infrastructure commitment in Anthropic's history and signals
+      a deliberate bet on clean energy as a competitive differentiator — at a moment when rival labs
+      are locked in an arms race for power capacity. TeraWulf's nuclear-sourced electricity gives
+      Anthropic a guaranteed supply largely insulated from grid volatility and growing regulatory
+      pressure on data center energy consumption.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Ships GPT-Realtime-2.1 With 25% Lower Latency for Voice Agents</h3>
+    <p>
+      OpenAI released <strong>gpt-realtime-2.1</strong> and <strong>gpt-realtime-2.1-mini</strong>,
+      delivering at least 25% lower p95 latency across its Realtime voice model family. The update
+      adds improved alphanumeric recognition, better silence and noise handling, and stronger
+      interruption behavior — fixing the most common pain points for developers building voice-agent
+      workflows. Both models support configurable reasoning effort, richer tool use, and more complex
+      instruction following than their predecessors, pushing OpenAI's real-time speech platform
+      significantly closer to human-quality conversational AI.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Delays Gemini 3.5 Pro to July 17 — Scrapping the Architecture for a Full Rebuild</h3>
+    <p>
+      Google DeepMind has delayed the launch of Gemini 3.5 Pro to July 17, 2026, after making the
+      unusually dramatic decision to scrap its existing 2.5 Pro architecture entirely in favour of a
+      complete rebuild. The overhaul specifically targets mathematical reasoning, SVG scene generation,
+      and overall image quality — areas where Gemini has trailed OpenAI's GPT-5.6 and Anthropic's Fable 5.
+      The delay is a rare public admission that incremental improvements on the current foundation
+      would not be enough to close the gap, and puts significant pressure on the July 17 launch
+      to deliver a step-change in performance.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Nobel Prize Winner John Jumper Leaves Google DeepMind for Anthropic</h3>
+    <p>
+      John Jumper, who shared the 2024 Nobel Prize in Chemistry for his co-creation of AlphaFold,
+      is leaving Google DeepMind after nearly nine years to join Anthropic. Jumper is one of the
+      most decorated scientists in the history of AI-driven biology, and his departure is a significant
+      talent blow for DeepMind at a moment when it is already rebuilding Gemini's architecture.
+      At Anthropic, Jumper will work on Claude Science — the company's new research workbench that
+      orchestrates AI across scientific databases and runs on a lab's own infrastructure, with grants
+      open for up to 50 research projects.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Meta Lays Off 8,000 and Reassigns 7,000 More in Sweeping AI Pivot</h3>
+    <p>
+      Meta began implementing layoffs of approximately 8,000 employees — roughly 10% of its total
+      workforce — while simultaneously reassigning an additional 7,000 employees to AI-focused teams.
+      The restructuring is among the largest AI-driven workforce reorganizations at any major tech
+      company, and reflects a shift that has been building since Meta's "year of efficiency" began
+      in 2023. The company framed the moves as necessary to compete at the frontier of AI development,
+      where it has invested heavily in its Llama open-source model family and internal AI infrastructure.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Five Eyes Nations Issue Joint Security Guidance on Agentic AI Systems</h3>
+    <p>
+      The cybersecurity and intelligence agencies of the United States, Australia, Canada, New Zealand,
+      and the United Kingdom jointly released guidance addressing security risks specific to agentic AI
+      systems — AI that takes multi-step actions autonomously, uses tools, and persists state across
+      sessions. The advisory identifies five categories of risk, including prompt injection attacks,
+      tool misuse, and unintended privilege escalation, and outlines best practices for organizations
+      deploying AI agents in enterprise environments. It marks the first time the Five Eyes alliance
+      has issued coordinated guidance specifically targeting the agentic AI deployment model.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>AI Discovers Rare-Earth-Free Permanent Magnets — A Materials Science First</h3>
+    <p>
+      Researchers at Ames Laboratory developed an AI workflow using a physics-trained model called
+      <strong>DuctGPT</strong> to discover rare-earth-free permanent magnets — materials that could
+      substantially reduce the supply-chain dependence on rare-earth elements mined overwhelmingly in
+      China. Unlike standard ML approaches, DuctGPT is trained on the underlying physics governing
+      magnetic materials, allowing it to propose genuinely novel compounds while factoring in
+      production costs and component sourcing. The breakthrough is among the clearest demonstrations
+      yet of AI accelerating materials science beyond what human researchers could achieve through
+      traditional experimental methods.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The world needs to act now — AI governance cannot wait for the technology to mature before
+      international rules are agreed."
+    </blockquote>
+    <cite>— UN Global Dialogue on AI Governance, Geneva, July 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Governance is going global — fast.</strong>
+        169 nations in Geneva, Five Eyes agentic guidance, and a White House framework all arriving
+        in the same week signals AI regulation is compressing from a years-long process to an
+        urgent sprint. Companies that built "move fast" cultures may not be structurally ready.
+      </li>
+      <li>
+        <strong>Sustainable infrastructure is becoming a moat.</strong>
+        Anthropic's $19B nuclear-and-hydro deal with TeraWulf isn't just an energy bet — it's a
+        hedge against grid instability, regulatory pressure, and public perception. Expect rivals
+        to follow with their own clean-power commitments.
+      </li>
+      <li>
+        <strong>Talent is the new benchmark.</strong>
+        When a Nobel Prize winner leaves a top lab for a competitor, it's not just a headline.
+        It signals where researchers believe the most interesting work — and the best resources —
+        now live. Anthropic's Claude Science program is pulling scientific talent at a time DeepMind
+        is rebuilding its flagship model.
+      </li>
+      <li>
+        <strong>Google is in architectural trouble.</strong>
+        Scrapping Gemini 2.5 Pro for a complete rebuild rather than iterating is a costly and
+        public admission that the current approach isn't working. July 17 will be a high-stakes
+        launch — and a delay at that point would be damaging.
+      </li>
+      <li>
+        <strong>Agentic AI is the new attack surface.</strong>
+        The Five Eyes advisory on agentic systems marks official government recognition that
+        autonomous AI agents introduce security risks that traditional software frameworks
+        weren't designed to address. Prompt injection and tool misuse are no longer academic concerns.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 7, 2026<br />
+      Issue No. 107
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; ThursdAI &middot; AI Weekly &middot;
+    Open Data Science &middot; LLM Stats &middot; Fortune &middot; BigGo Finance &middot;
+    UN News &middot; Ames Laboratory &middot; OpenAI Release Notes &middot; Anthropic News &middot;
+    Crescendo AI &middot; InfoWorld
+  </div>
+
+</div>
+</body>
+</html>
