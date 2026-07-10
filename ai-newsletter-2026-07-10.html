@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 10, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 110</span>
+    <span>July 10, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Grok 4.5 Enters the Benchmark Wars — and Lands Fourth</h2>
+    <p class="deck">
+      xAI's latest model sparked independent benchmarking, a viral political-bias controversy,
+      and a token-efficiency claim that could reshape the cost math for high-volume agentic workloads.
+    </p>
+    <p>
+      Grok 4.5, released by Elon Musk's xAI on July 8, 2026, made its first full day in the wild on
+      Thursday — and the AI community wasted no time putting it through its paces. Artificial Analysis
+      ranked Grok 4.5 fourth on its Intelligence Index with a score of 54, behind <strong>Claude Fable 5</strong>
+      (#1), <strong>GPT-5.5</strong> (#2), and <strong>Claude Opus 4.8</strong> (#3). The model sits
+      comfortably in frontier territory but does not unseat the current leaders.
+    </p>
+    <p>
+      The more consequential claim came from xAI's own team: Grok 4.5 is significantly more
+      token-efficient than its predecessor, meaning the cost per useful output token drops
+      considerably for agentic workloads that run thousands of tool calls per session. If the
+      efficiency claim holds under independent scrutiny, it could shift enterprise buying decisions
+      even without a top-three intelligence ranking.
+    </p>
+    <p>
+      A separate controversy erupted almost immediately. Independent testers posted side-by-side
+      comparisons suggesting Grok 4.5 exhibited measurable political lean on current-events prompts —
+      reigniting a long-running debate about value alignment at xAI and whether the model's training
+      data introduces systematic bias. xAI has not issued a formal response.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$880B</span>
+      <div class="num-label">South Korea's 10-year AI &amp; semiconductor investment plan</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">#4</span>
+      <div class="num-label">Grok 4.5 ranking on Intelligence Index — Fable 5, GPT-5.5 &amp; Opus 4.8 lead</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$42.6B</span>
+      <div class="num-label">Value of 5% stake OpenAI offered the US government at $852B valuation</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Restores Fable 5 Globally — and Launches Sonnet 5 at Introductory Pricing</h3>
+    <p>
+      After a nearly month-long pause triggered by jailbreak concerns in mid-June, Anthropic restored
+      access to <strong>Claude Fable 5</strong> and <strong>Mythos 5</strong> globally on July 1, following
+      a deal with the Trump administration and the implementation of upgraded cybersecurity guardrails.
+      The models had been pulled from international availability after US export-control discussions
+      flagged potential misuse risk. Simultaneously, Anthropic launched <strong>Claude Sonnet 5</strong> —
+      offering near-Opus 4.8 performance at an introductory $2/$10 per-million-token price through
+      August 31, making frontier-class reasoning the most affordable it has ever been.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Claude Cowork Goes Mobile — Agentic Sessions No Longer Need a Desktop</h3>
+    <p>
+      Anthropic launched <strong>Claude Cowork</strong> for iOS and Android on July 9, eliminating
+      the previous constraint that required a desktop or laptop to keep agentic sessions active.
+      Users can now delegate long-running knowledge-work tasks — across documents, spreadsheets,
+      and presentations — from their phones, monitor agent progress remotely, and resume sessions
+      across devices without interruption. The release positions Anthropic directly against
+      OpenAI's newly merged ChatGPT Work product and marks a significant step toward always-available
+      AI work agents.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Merges Codex and ChatGPT Into One Super App</h3>
+    <p>
+      OpenAI consolidated its two flagship products — ChatGPT and Codex — into a single unified
+      application this week alongside the launch of <strong>ChatGPT Work</strong>, a dedicated
+      product tier aimed at enterprise knowledge workers. The merger simplifies OpenAI's product
+      surface and signals an intent to compete head-on with Anthropic's Cowork platform and
+      Microsoft's Copilot suite. Separately, Fortune reported that OpenAI has filed confidentially
+      for an IPO and offered the US government a 5% equity stake worth roughly $42.6 billion at
+      the company's $852 billion valuation — an unprecedented move in AI industry-government relations.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>DeepMind Lost Two Stars in One Week — and Gained Anthropic's Nobel Prize Hire</h3>
+    <p>
+      Google DeepMind suffered an extraordinary week of senior departures. <strong>Noam Shazeer</strong>,
+      VP of Engineering and Gemini co-lead, announced he was joining OpenAI. The following day,
+      Nobel Chemistry laureate <strong>John Jumper</strong> — who led the AlphaFold team — announced
+      his departure for Anthropic, where he will head a new computational biology division.
+      Anthropic also separately acquired Coefficient Bio, a computational biology startup, signaling
+      a serious push into AI-assisted drug discovery. Fortune questioned whether DeepMind can retain
+      its position at the frontier after losing two researchers of this caliber in 48 hours.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.5 Pro Is Now Six Weeks Late — Still No GA Date</h3>
+    <p>
+      As of July 10, Google's <strong>Gemini 3.5 Pro</strong> has no confirmed general-availability
+      launch date and remains confined to a limited Vertex AI enterprise preview. The model missed
+      its June 30 GA target and a separate commitment made at Google I/O, making it six weeks
+      overdue. The delays arrive at a particularly bad moment, given the week's talent departures
+      and growing questions about whether DeepMind's internal turmoil is affecting the product
+      roadmap. Google has not commented publicly on the revised timeline.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Illinois Signs AI Safety Act; Five Eyes Nations Publish Agentic AI Security Guidance</h3>
+    <p>
+      Illinois Gov. JB Pritzker signed the state's <strong>AI Safety Measures Act</strong> into law,
+      making Illinois the third US state to enact comprehensive AI safety legislation. Separately,
+      the cybersecurity and intelligence agencies of the United States, Australia, Canada, New Zealand,
+      and the United Kingdom — the "Five Eyes" alliance — jointly released guidance titled
+      <em>"Careful Adoption of Agentic AI Services."</em> The document identifies five categories
+      of risk specific to agentic AI: unauthorized action, privilege escalation, supply-chain compromise,
+      data exfiltration, and model manipulation. The five-nation coordination signals that governments
+      view agentic AI, not just large language models, as the primary near-term security concern.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>South Korea Commits $880 Billion to AI — Samsung and SK Hynix Lead</h3>
+    <p>
+      South Korea announced an $880 billion 10-year national investment plan covering semiconductors,
+      AI infrastructure, and robotics. <strong>Samsung</strong> and <strong>SK Hynix</strong> are
+      set to commit $518 billion of that total toward new chip fabrication sites. The announcement
+      comes as South Korea seeks to strengthen its position as the world's primary supplier of
+      high-bandwidth memory — the chip type most in demand for training and running large AI models.
+      Separately, <strong>NAVER</strong> and <strong>NVIDIA</strong> announced an expansion of
+      sovereign AI infrastructure using the NVIDIA DSX platform, starting at 55 megawatts with
+      plans to scale to gigawatt capacity at the GAK Sejong data center.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>China's GLM-5.2 Reignites the AI Race Debate</h3>
+    <p>
+      Z.ai's <strong>GLM-5.2</strong> has become the centerpiece of a growing debate over whether
+      China is closing the gap with US frontier AI labs. The model is inexpensive to run and shows
+      benchmark performance comparable to second-tier offerings from Anthropic and OpenAI — without
+      the export-control constraints that limit access to US models in some markets. Analysts note
+      that while GLM-5.2 does not match Fable 5 or GPT-5.5 on complex reasoning, its cost-performance
+      ratio makes it highly attractive for enterprise deployments in Asia, the Middle East, and
+      parts of Europe where US-model access is politically or commercially restricted.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "If 2024 was the year of chatbots, 2026 is the year of agents — AI that plans multi-step tasks,
+      uses tools, and acts toward a goal with minimal human input."
+    </blockquote>
+    <cite>— AI Flash Report, July 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Talent is now the most visible competitive weapon.</strong>
+        DeepMind losing Shazeer and Jumper in 48 hours is not a coincidence — it reflects a
+        market for elite AI researchers that has never been more liquid or more expensive. Every
+        lab announcement now comes with a talent scoreboard.
+      </li>
+      <li>
+        <strong>Agentic AI going mobile is a step-change moment.</strong>
+        Claude Cowork on iOS and Android breaks the desktop tether. When agents can be delegated,
+        monitored, and resumed from any device, the friction cost of AI adoption collapses.
+      </li>
+      <li>
+        <strong>OpenAI is aggressively consolidating its product surface before an IPO.</strong>
+        Merging Codex and ChatGPT, launching ChatGPT Work, offering the government equity —
+        these moves read as a company simplifying its narrative for public markets investors.
+      </li>
+      <li>
+        <strong>China's GLM-5.2 is proof that cost-performance wins markets that benchmarks don't.</strong>
+        US frontier models lead on raw capability, but in markets where export controls bite or
+        pricing is prohibitive, competitive Chinese models are gaining ground quickly.
+      </li>
+      <li>
+        <strong>Governments are regulating agentic AI before it's even mainstream.</strong>
+        The Five Eyes joint guidance and the Illinois AI Safety Act both target agentic systems
+        specifically. Regulators are not waiting for adoption to catch up; they're writing rules
+        for the next wave while the current one is still cresting.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 10, 2026<br />
+      Issue No. 110
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; Artificial Analysis &middot; LLM Stats &middot;
+    Fortune &middot; ThursdAI &middot; AI Flash Report &middot; Open Data Science &middot;
+    Transparency Coalition AI &middot; Distill Intelligence &middot; ZoneTechify &middot;
+    AI Insight (AUTOM8LABS) &middot; AIApps.com &middot; Five Eyes Joint Advisory
+  </div>
+
+</div>
+</body>
+</html>
