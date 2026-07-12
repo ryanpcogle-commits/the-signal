@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 12, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 112</span>
+    <span>July 12, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Apple Sues OpenAI, Alleging 400 Defecting Engineers Carried Away Trade Secrets</h2>
+    <p class="deck">
+      In the most consequential IP lawsuit the AI industry has ever seen, Apple frames four years of
+      OpenAI hiring as a coordinated extraction campaign — not ordinary talent movement.
+    </p>
+    <p>
+      Apple filed suit against OpenAI in Northern California federal court on July 11, alleging trade
+      secret theft and citing more than 400 former Apple employees who now work at the company. The
+      complaint focuses on three teams: silicon engineering, on-device AI, and hardware design — exactly
+      the capabilities OpenAI has been racing to build as it develops its own custom chip, code-named
+      Jalapeño, announced just weeks ago.
+    </p>
+    <p>
+      Apple's lawyers argue the pattern of departures was too targeted to be coincidental. Internal
+      communications cited in the filing allegedly show OpenAI recruiters explicitly prioritizing
+      candidates with access to Apple's secure enclave architecture and Neural Engine roadmaps. If the
+      court agrees, the case could reshape how AI companies recruit from hardware rivals — and expose
+      OpenAI to damages in the billions just as it prepares a $730 billion IPO.
+    </p>
+    <p>
+      OpenAI declined to comment on the lawsuit but noted in a statement that it "competes for talent
+      like every technology company." The case is being closely watched by Google, Meta, and Microsoft,
+      all of whom have faced similar talent drain to AI startups over the past three years.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">400+</span>
+      <div class="num-label">Former Apple engineers now at OpenAI — at the heart of the lawsuit</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$29B</span>
+      <div class="num-label">SK Hynix ADR raise — largest in history, ticker SKHY</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$730B</span>
+      <div class="num-label">OpenAI private market valuation ahead of planned September IPO</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>GPT-5.6 Sol Ultra Proves a Math Conjecture That Stood for 50 Years</h3>
+    <p>
+      OpenAI's GPT-5.6 Sol Ultra produced a verified proof of the Cycle Double Cover Conjecture in
+      under one hour, deploying 64 parallel subagents that collectively explored thousands of
+      combinatorial paths before converging on a complete solution. The conjecture — which posits
+      that every bridgeless graph has a cycle double cover — had resisted every human attempt since
+      it was formally posed in the 1970s. Three independent mathematicians reviewed the output and
+      confirmed it holds. It is the most significant AI-assisted mathematical breakthrough since
+      AlphaProof tackled the IMO problems in 2024, and it signals that agentic AI is beginning to
+      enter pure research domains previously considered decades away.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Gemini 3.5 Pro Launches July 17 With a 2-Million-Token Context Window</h3>
+    <p>
+      Google DeepMind's long-delayed Gemini 3.5 Pro has a confirmed launch date of July 17, according
+      to leaked internal plans circulating this week. The specs are aggressive: a 2-million-token
+      context window — double anything else on the market and roughly equivalent to 30 full novels in
+      a single prompt — plus a new Deep Think reasoning mode gated behind the $250/month Ultra
+      subscription. API pricing is expected to land around $1.25 per million input tokens. The
+      announcement comes as Google absorbs the departures of Noam Shazeer, Gemini co-lead, who left
+      for OpenAI, and John Jumper, 2024 Nobel Chemistry laureate, who has joined Anthropic.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Overtakes OpenAI in Revenue and Poaches Nobel Laureate from DeepMind</h3>
+    <p>
+      Anthropic disclosed in May that it is on track to hit $47 billion in annualized revenue —
+      surpassing OpenAI's self-reported figures and projecting profitability a full year ahead of
+      its rival, in 2029. This week the company added another trophy: John Jumper, who shared the
+      2024 Nobel Prize in Chemistry for co-leading AlphaFold at Google DeepMind, has joined
+      Anthropic's research team. Anthropic also restored Fable 5 and Mythos 5 access globally after
+      US export controls were lifted, and announced that California has signed a statewide deal
+      giving all state agencies 50% discounted access to Claude.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>SK Hynix Pulls Off the Largest ADR Offering in History at $28–29 Billion</h3>
+    <p>
+      SK Hynix completed its US ADR listing on July 10 under the ticker SKHY, raising between $28
+      and $29 billion — the largest American depositary receipt offering ever recorded. The listing
+      gives the memory giant direct access to US capital markets at the peak of AI-driven chip demand,
+      positioning it to fund the next generation of HBM4 production alongside Samsung's $518 billion
+      fabrication commitment as part of South Korea's sweeping $880 billion national AI and
+      semiconductor investment plan announced this month.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Meta's Stock Jumps 7% as It Unveils Plans to Double Its Computing Power by 2027</h3>
+    <p>
+      An internal Meta memo that leaked July 10 sent the company's stock surging more than 7%. The
+      document reveals plans to double total compute capacity by 2027, backed by long-term supply
+      agreements including one with Samsung. Meta also announced a $10 billion, 1-gigawatt data center
+      in Alberta, Canada — its first in the country and 33rd worldwide — as well as the imminent
+      launch of its custom Jalapeño-class inference chip for internal workloads. The infrastructure
+      push is being framed internally as the prerequisite for deploying Llama 5 at consumer scale
+      later this year.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Five Nations Issue Joint Warning on Agentic AI Security Risks</h3>
+    <p>
+      The cybersecurity and intelligence agencies of the United States, Australia, Canada, New
+      Zealand, and the United Kingdom jointly released formal guidance on the security risks of
+      agentic AI systems. The document identifies five categories of concern: privilege escalation,
+      design and configuration flaws, unpredictable model behavior, structural vulnerabilities in
+      multi-agent pipelines, and accountability gaps when autonomous systems take consequential
+      actions. It is the first coordinated five-nation regulatory statement specifically targeting
+      agentic AI, and it arrives as enterprises increasingly deploy AI agents with access to
+      financial systems, cloud infrastructure, and sensitive data.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>SambaNova Closes $1 Billion Series F at an $11 Billion Valuation</h3>
+    <p>
+      AI inference startup SambaNova Systems closed a $1 billion Series F led by General Atlantic,
+      with participation from BlackRock, Intel Capital, Qatar Investment Authority, T. Rowe Price,
+      Battery Ventures, Capital Group, and Vista Equity Partners. The $11 billion post-money
+      valuation reflects surging enterprise demand for on-premise AI inference that bypasses the
+      latency and data-sovereignty concerns of cloud APIs. SambaNova's reconfigurable dataflow
+      architecture claims significantly higher throughput per watt than GPU-based alternatives —
+      an increasingly important selling point as energy costs become the binding constraint on
+      large-scale AI deployment.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "This was not ordinary talent movement. It was a coordinated campaign to extract Apple's
+      most sensitive technology."
+    </blockquote>
+    <cite>— Apple complaint, filed in Northern California federal court, July 11, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>AI IP warfare has begun in earnest.</strong>
+        Apple vs. OpenAI is the first major trade-secret lawsuit specifically about AI talent
+        migration. It will not be the last. Labs hiring aggressively from hardware teams now
+        face real legal exposure, and every AI company's recruiting practices are suddenly
+        exhibit A in a potential courtroom.
+      </li>
+      <li>
+        <strong>The talent market is reshaping the competitive map.</strong>
+        DeepMind lost Noam Shazeer to OpenAI and John Jumper to Anthropic in a single week.
+        Meanwhile Apple accuses OpenAI of systematically extracting silicon expertise. At the
+        frontier, the real scarce resource isn't capital or compute — it's the 500 people in
+        the world who can push the state of the art.
+      </li>
+      <li>
+        <strong>Agentic AI is entering peer-reviewed science.</strong>
+        GPT-5.6 Sol Ultra's proof of the Cycle Double Cover Conjecture is a watershed. When AI
+        systems solve problems that have stumped professional mathematicians for half a century,
+        the frontier of "what AI can do" has moved somewhere most people haven't caught up to yet.
+      </li>
+      <li>
+        <strong>The infrastructure race has gone national.</strong>
+        South Korea's $880 billion commitment, Meta's Alberta megacenter, SK Hynix's record
+        capital raise, and SambaNova's $1 billion round all happened within days of each other.
+        AI infrastructure is now a sovereign priority, not just a corporate one.
+      </li>
+      <li>
+        <strong>OpenAI's IPO window is open — and closing.</strong>
+        A $730 billion private valuation, a September IPO timeline, and a trade-secret lawsuit
+        that could become a material risk disclosure: the timing couldn't be more delicate. The
+        next 60 days will define whether OpenAI enters the public markets as the AI era's defining
+        company or its most controversial one.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 12, 2026<br />
+      Issue No. 112
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; Medium (David Akpovi) &middot; Third Run Time &middot;
+    Unrot &middot; Fortune &middot; LLM Stats &middot; AI Flash Report &middot; ThursdAI &middot;
+    Autom8 Labs &middot; ZoneTechify &middot; Crescendo AI &middot; AIapps &middot; InfoWorld
+  </div>
+
+</div>
+</body>
+</html>
