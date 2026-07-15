@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 15, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 115</span>
+    <span>July 15, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>GPT-5.6 Goes Public After Government Review — and the Three-Tier Model War Is On</h2>
+    <p class="deck">
+      OpenAI's Sol, Terra, and Luna represent the sharpest product differentiation the company has
+      ever shipped. Rivals are already racing to match the pricing math.
+    </p>
+    <p>
+      After a customer-by-customer Commerce Department review that delayed its launch by nearly two
+      weeks, OpenAI publicly released the GPT-5.6 family this month — three distinct models targeting
+      different cost and capability points. <strong>Sol</strong> is the flagship, featuring a new "Ultra"
+      subagent mode and a Max reasoning-effort setting designed for autonomous, multi-step agentic work
+      in coding, biology, and cybersecurity. <strong>Terra</strong> delivers GPT-5.5-level quality at
+      roughly half the cost. <strong>Luna</strong> is the fast, affordable tier for high-volume workloads.
+    </p>
+    <p>
+      The staggered release itself is a story. The Trump administration's review process, which
+      required OpenAI to demonstrate each model's safeguards to a set of enterprise customers before
+      broader access, is the first time a US government body has materially delayed a frontier model
+      launch — and a preview of what federal AI oversight could look like at scale.
+    </p>
+    <p>
+      The competitive response was immediate. xAI is positioning Grok 4.5 as "Opus-class performance
+      but faster and more token-efficient," while Anthropic's recently released Claude Sonnet 5 is
+      already the default for Free and Pro plans at introductory pricing of $2/$10 per million tokens.
+      The pricing floor for frontier AI is collapsing — fast.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$730B</span>
+      <div class="num-label">OpenAI private market valuation ahead of September IPO</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">68%</span>
+      <div class="num-label">TSMC revenue growth YoY for June — N3 sold out through year-end</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">27</span>
+      <div class="num-label">Major AI model launches from top labs in July alone</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Sonnet 5 Sets a New Price Floor for Frontier Coding</h3>
+    <p>
+      Anthropic released Claude Sonnet 5 on June 30 and made it the default model for Free and Pro
+      users — the first time Anthropic has given its strongest widely-available model away at no
+      additional cost. The introductory price of $2 per million input tokens and $10 per million
+      output tokens (through August 31) undercuts most mid-tier competitors while matching or
+      exceeding them on coding, tool use, and debugging benchmarks. Separately, Anthropic restored
+      Fable 5 and Mythos 5 globally on July 1 after US export controls were lifted, adding
+      cybersecurity classifiers described as "the strongest safeguards" ever shipped in a public release.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>OpenAI Files Confidentially for an IPO — Targeting September 2026</h3>
+    <p>
+      OpenAI is preparing to file confidentially for an initial public offering, working with Goldman
+      Sachs and Morgan Stanley on a timeline that could bring the company public as soon as September
+      2026. The company currently carries a $730 billion private market valuation — making it the
+      most valuable pre-IPO technology company in history. Anthropic, by contrast, said in May it
+      is on course to hit $47 billion in annualized revenue and expects to turn profitable in 2029,
+      a full year ahead of OpenAI's own projections. The divergence in business models is sharpening:
+      OpenAI is building toward public markets while Anthropic appears focused on profitability first.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>TSMC Posts All-Time Records — and Anthropic Eyes Samsung Custom Chips</h3>
+    <p>
+      TSMC reported all-time revenue records this week: June revenue up 68% year-over-year, Q2
+      total at $39.6 billion, and its N3 process node sold out through year-end. The numbers confirm
+      that AI chip spending is real, compounding, and accelerating. Meanwhile, Anthropic is in early
+      talks with Samsung to develop custom Claude inference chips — a direct move to cut its reported
+      $1.25 billion-per-month compute bill. If the partnership advances, Anthropic would join Google,
+      Amazon, and Meta in building proprietary silicon to escape dependence on NVIDIA at scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>China's Anthropomorphic AI Rules Take Effect Today</h3>
+    <p>
+      New Chinese regulations governing "anthropomorphic" AI agents took effect today, July 15,
+      forcing companies like ByteDance and Alibaba to disable humanlike agent features — persistent
+      personas, emotional bonding mechanics, and identity claims — that Western AI labs face no
+      comparable restrictions on. The rules are China's sharpest domestic AI regulation yet, and
+      analysts note the irony: Chinese labs must strip back the most commercially compelling agentic
+      features precisely as US competitors race to add them. Separately, the US, Australia, Canada,
+      the UK, and New Zealand released joint guidance this month on security risks in agentic AI,
+      identifying five categories of risk and recommending best practices for autonomous systems
+      operating across enterprise environments.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepMind's Math Reasoner Scores Top 1% on International Olympiad Problems</h3>
+    <p>
+      Google DeepMind's latest mathematical reasoning system placed in the top 1% of scores on
+      International Mathematical Olympiad problems — the hardest math competition problems designed
+      for high school students globally. The result extends a now-clear trend: AI is not merely
+      pattern-matching on known math but developing something closer to genuine deductive reasoning
+      on novel problems. DeepMind also published new work this month on protein dynamics — AI that
+      predicts not just how proteins are shaped but how they move and change over time, a capability
+      that could significantly accelerate drug discovery and antibiotic resistance research.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>South Korea Pledges $880B in AI and Chip Infrastructure</h3>
+    <p>
+      South Korea announced an $880 billion, 10-year national investment plan covering semiconductors,
+      AI infrastructure, and robotics — one of the largest government-backed technology commitments
+      in history. Samsung and SK Hynix alone are set to commit $518 billion toward new chip
+      fabrication sites. The announcement signals that the AI infrastructure race is no longer
+      confined to US hyperscalers: national governments are treating AI compute capacity as
+      strategic infrastructure on the same level as power grids and defense. Blackstone separately
+      committed $30 billion to AI data centers in Japan this month, while Qualcomm acquired AI
+      startup Modular for $4 billion to strengthen its edge AI software stack.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Meta's Muse Family Expands — and GitHub Copilot Goes Open-Weight</h3>
+    <p>
+      Meta launched Muse Image on July 7, its most advanced image generation model, capable of
+      blending photos, understanding complex compositional prompts, and generating functional QR
+      codes embedded in images. Muse Spark 1.1 followed on July 9 with multimodal refinements.
+      Meanwhile, Google shipped Gemini 3.5 Live Translate — an audio model detecting over 70
+      languages for near-real-time speech-to-speech translation — and GitHub Copilot added its
+      first open-weight coding model to its enterprise lineup, offering teams the option to run
+      code suggestions on-premise without sending proprietary code to external APIs.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "AI should stay open — the strongest safeguard against concentration is visibility."
+    </blockquote>
+    <cite>— Tang Jie, founder of Z.ai, in a public memo responding to China's overseas AI restriction discussions</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The pricing floor for frontier AI is in freefall.</strong>
+        Sonnet 5 at $2/$10 per million tokens. Terra at half the cost of GPT-5.5. Luna as a
+        speed tier. Grok 4.5 promising Opus-class capability at lower cost. Every lab is racing
+        to own the "good enough but cheaper" position — and "good enough" keeps getting better.
+      </li>
+      <li>
+        <strong>Government is now in the model release process.</strong>
+        The Commerce Department's customer-by-customer review of GPT-5.6 delayed a major model
+        launch for the first time. That precedent will be cited in every future regulatory debate
+        about who controls frontier AI release timelines.
+      </li>
+      <li>
+        <strong>The chip layer is tightening faster than anyone expected.</strong>
+        TSMC N3 sold out through year-end. Anthropic entering talks with Samsung for custom
+        silicon. South Korea committing $880B. The question is no longer "who will build AI?"
+        but "who will control the compute it runs on?"
+      </li>
+      <li>
+        <strong>Agentic AI is splitting regulatory environments in half.</strong>
+        China banning humanlike agent features today while the US, UK, and allies jointly warn
+        about agentic security risks — but issue guidance rather than restrictions. Two entirely
+        different frameworks for the same technology are hardening simultaneously.
+      </li>
+      <li>
+        <strong>OpenAI's IPO will reshape the entire industry's incentives.</strong>
+        A $730B valuation entering public markets means quarterly earnings calls, shareholder
+        pressure, and public financial disclosure. The AI lab that set the pace for the entire
+        industry is about to become a publicly accountable company — and that changes everything
+        about how it can operate.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 15, 2026<br />
+      Issue No. 115
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: AIToolsRecap &middot; LLM Stats &middot; AI Flash Report &middot;
+    ThursdAI &middot; Build Fast With AI &middot; Fortune &middot; Distill Intelligence &middot;
+    AI Apps &middot; ZoneTechify &middot; Skycrumbs &middot; BuildEZ &middot; AIWeekly &middot;
+    OpenAI Newsroom &middot; Anthropic &middot; Google DeepMind
+  </div>
+
+</div>
+</body>
+</html>
