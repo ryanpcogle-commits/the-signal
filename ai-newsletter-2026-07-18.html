@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 18, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 118</span>
+    <span>July 18, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Is Now the Quiet Revenue King — and It Just Lured Away Andrej Karpathy</h2>
+    <p class="deck">
+      While OpenAI courts headlines, Anthropic has overtaken it on revenue, snagged the industry's
+      most iconic researcher, and launched a model that makes frontier AI affordable for the first time.
+    </p>
+    <p>
+      Anthropic quietly became the AI industry's revenue leader this month. The company is on track for
+      roughly <strong>$47 billion</strong> in annualized revenue — nearly double OpenAI's publicly stated
+      figures — driven by Claude Code's enterprise dominance and deep API adoption. More strikingly,
+      Anthropic says it expects to be profitable as early as this year, a full year ahead of OpenAI's
+      own forecast.
+    </p>
+    <p>
+      The talent story is equally dramatic. Anthropic has added <strong>Andrej Karpathy</strong> — the
+      legendary former Tesla AI director and OpenAI founding member — to its ranks, alongside
+      <strong>John Jumper</strong>, the Nobel Prize-winning DeepMind researcher whose AlphaFold work
+      transformed structural biology, and startup founder Tom Blomfield. It is the most concentrated
+      recruitment run any AI lab has executed in a single quarter.
+    </p>
+    <p>
+      To match the commercial momentum, Anthropic launched <strong>Claude Sonnet 5</strong> this week,
+      delivering near-Opus 4.8 performance at an introductory price of $2 per million input tokens and
+      $10 per million output tokens — available at that rate through August 31. After the US Commerce
+      Department lifted export restrictions earlier this month, Anthropic also restored global access to
+      Claude Fable 5, adding enhanced cybersecurity classifiers the company calls "the strongest
+      safeguards we have ever shipped."
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$47B</span>
+      <div class="num-label">Anthropic's annualized revenue run rate — now ahead of OpenAI</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">5×</span>
+      <div class="num-label">Growth in active OpenAI Codex users in the first half of 2026</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">Top 1%</span>
+      <div class="num-label">DeepMind's math reasoning AI score on International Mathematical Olympiad problems</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI's GPT-5.6 Arrives in Three Sizes — Sol Is the Flagship</h3>
+    <p>
+      OpenAI released the GPT-5.6 model family after a Commerce Department review process that cleared
+      exports on a customer-by-customer basis. The lineup has three tiers: <strong>Luna</strong> (fast,
+      cheap tier at $1 per million input tokens), <strong>Terra</strong> (GPT-5.5-level quality at half
+      the cost of Sol), and <strong>Sol</strong> (flagship, $5 per million tokens), which introduces a
+      new Ultra subagent mode and a Max reasoning-effort setting designed for scientific and long-running
+      coding tasks. All three share a 1-million-token context window and a February 2026 knowledge cutoff.
+      Sol reportedly outperforms Claude Fable 5 on long-running agentic benchmarks.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepMind's Math AI Scores in the Top 1% on Olympic-Level Problems</h3>
+    <p>
+      Google DeepMind's latest mathematical reasoning system achieved a score placing it in the top 1%
+      of human competitors on International Mathematical Olympiad problems — a milestone that was
+      considered years away as recently as early 2025. The system goes beyond pattern-matching, solving
+      novel proof-based problems that require multi-step symbolic reasoning. The result arrives as
+      DeepMind faces scrutiny over senior researcher departures, including John Jumper's move to
+      Anthropic, raising questions about whether the lab can sustain its scientific edge.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Agentic AI Has Left the Lab — Long-Running Tasks Are Up 10× at OpenAI</h3>
+    <p>
+      OpenAI reported a fivefold increase in active Codex users in H1 2026, paired with a tenfold jump
+      in agent tasks running longer than eight hours. Median developer output measured against AI
+      assistance surged between 13× and 50× year-over-year. The figures confirm what infrastructure
+      teams have been seeing for months: AI is no longer being used as a chat tool but as an autonomous
+      worker completing overnight jobs. Separately, Moonshot AI's <strong>Kimi K3</strong>, released
+      July 16, and Mira Murati's Thinking Machines lab, which shipped an open-weight model called
+      <strong>Inkling</strong>, are adding further supply to a market where new frontier models now
+      arrive on average every three days.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Microsoft's Project Perception Targets the Crowded AI Security Market</h3>
+    <p>
+      Microsoft announced <strong>Project Perception</strong>, a multi-model AI security platform that
+      draws on Anthropic, OpenAI, and Microsoft's own models simultaneously to detect threats. The
+      product is positioned explicitly as a lower-cost alternative to Anthropic's Mythos 5 security
+      suite, and Microsoft is leaning on its global distribution network as the differentiator. The
+      launch illustrates how quickly the AI security market has stratified: within months of frontier
+      models gaining agentic capabilities, a secondary market of tools designed to watch those agents
+      has emerged.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Oracle Is Cutting 30,000 Jobs to Fund the $500B Stargate Build-Out</h3>
+    <p>
+      Oracle confirmed it is eliminating up to 30,000 positions — one of the largest tech layoffs of
+      2026 — to redirect capital into the <strong>$500 billion Stargate AI infrastructure
+      partnership</strong>. The restructuring is the clearest single data point yet on how AI hardware
+      investment is being financed across the industry: not from new capital alone, but from redirecting
+      existing headcount spend. Oracle's move follows Atlassian's similar pivot earlier this year and
+      signals that the labor-for-compute tradeoff has become a standard board-level decision.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Research</span>
+    <h3>AI Discovers Rare-Earth-Free Permanent Magnets — a Materials Science First</h3>
+    <p>
+      Researchers at the Ames Laboratory used a physics-trained AI model called <strong>DuctGPT</strong>
+      to discover a new class of rare-earth-free permanent magnets. Unlike prior generative approaches
+      that merely suggested candidate materials, DuctGPT was designed to understand underlying
+      electromagnetic physics, model production costs, and factor in component sourcing constraints
+      before proposing formulations. Rare-earth magnets are currently essential for EV motors, wind
+      turbines, and defense systems — and almost entirely sourced from China. A domestically producible
+      alternative would have significant geopolitical and industrial implications.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Five Eyes Nations Jointly Flag Five Agentic AI Risk Categories</h3>
+    <p>
+      Cybersecurity agencies from the United States, Australia, Canada, New Zealand, and the United
+      Kingdom released joint guidance on agentic AI services, identifying five categories of risk:
+      excessive permissions, prompt injection from untrusted content, insufficient human oversight,
+      lack of audit trails, and cascading failures in multi-agent pipelines. The guidance comes as
+      the CEOs of OpenAI, Google DeepMind, and Anthropic are each publishing detailed positions on
+      AI regulation — an unusual alignment among competitors. Meanwhile, the Future of Life Institute's
+      2026 AI Safety Index awarded Anthropic the highest grade at C+, while OpenAI and Google DeepMind
+      both received a C.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Anthropic has quietly become the revenue leader, on track for roughly $47 billion annualized
+      and reportedly profitable in 2026."
+    </blockquote>
+    <cite>— Fortune, July 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Talent is concentrating at Anthropic at an alarming rate for rivals.</strong>
+        Karpathy, Jumper, and Blomfield all defected to the same lab inside one quarter. When the
+        most-respected researchers in the field converge on one destination, it tends to predict
+        where the next breakthrough comes from.
+      </li>
+      <li>
+        <strong>Inference is getting cheap fast — and triggering a demand explosion.</strong>
+        GPT-5.6 starts at $1 per million tokens. Sonnet 5 at $2. The price floor has collapsed.
+        Every enterprise that was "waiting to see" is now running the numbers on full deployment.
+      </li>
+      <li>
+        <strong>Agentic AI is in production, not pilot.</strong>
+        Ten-times growth in overnight agent tasks at OpenAI is not an experiment — it is a
+        workflow replacement. The question is no longer whether AI agents will handle knowledge
+        work autonomously but how quickly procurement and legal can catch up.
+      </li>
+      <li>
+        <strong>AI-funded workforce restructuring is becoming a template.</strong>
+        Oracle cutting 30,000 to fund Stargate. Atlassian's 10% reduction earlier this year.
+        The pattern is consistent: companies are treating headcount as a funding mechanism for
+        compute spend. This will accelerate as models improve.
+      </li>
+      <li>
+        <strong>Safety grades are embarrassingly low — and now public.</strong>
+        The best grade any frontier lab earned on the 2026 AI Safety Index was a C+. With
+        CEOs publicly converging on similar regulatory prescriptions, there is political will.
+        What is still missing is a credible enforcement mechanism.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 18, 2026<br />
+      Issue No. 118
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Fortune &middot; ThursdAI &middot; AIToolsRecap &middot; Radical Data Science &middot;
+    LLM Stats &middot; AI Flash Report &middot; Build Fast With AI &middot; ZoneTechify &middot;
+    Axios &middot; Crescendo AI &middot; KERSAI &middot; Skycrumbs &middot; AIapps &middot;
+    Future of Life Institute &middot; Five Eyes Joint Advisory
+  </div>
+
+</div>
+</body>
+</html>
