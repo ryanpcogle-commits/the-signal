@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 20, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 120</span>
+    <span>July 20, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>29 Nations Form a World AI Cooperation Bloc as Shanghai Conference Closes</h2>
+    <p class="deck">
+      The 2026 World AI Conference ended today with Xi Jinping's landmark keynote and the launch
+      of a new 29-country international AI body — a moment that may define the geopolitics of AI
+      for the next decade.
+    </p>
+    <p>
+      The World Artificial Intelligence Cooperation Organization officially launched today as the
+      four-day 2026 World AI Conference in Shanghai drew to a close. Twenty-nine founding countries
+      — including Pakistan, Russia, and Kazakhstan — signed on to the new body, which is positioned
+      as an alternative to Western-led AI governance frameworks. Chinese President Xi Jinping, making
+      his first-ever keynote at the event, framed the organization as a vehicle for "equitable AI
+      development" among nations outside North America and Europe.
+    </p>
+    <p>
+      The formation arrives at a pivotal moment. The European Commission adopted binding Digital
+      Markets Act requirements this same week ordering Google to open Android to rival AI assistants
+      and share search data with competitors — while US labs are simultaneously converging on their
+      own regulatory proposals for the first time. AI governance is fracturing along geopolitical
+      lines just as the underlying models grow powerful enough to matter strategically.
+    </p>
+    <p>
+      Analysts note the new organization lacks enforcement mechanisms but signals that the
+      developing world intends to have a voice in how AI is governed — rather than simply consuming
+      standards written by Washington, Brussels, or Beijing.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">29</span>
+      <div class="num-label">founding nations in the new World AI Cooperation Organization</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$265B</span>
+      <div class="num-label">TSMC's total US investment pledge across 10 Arizona fabs</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">C+</span>
+      <div class="num-label">Highest AI safety grade any frontier lab earned in the 2026 FLI index</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>July's Frontier Model Blitz: Sonnet 5, GPT-5.6, and Kimi K3 Land Within Weeks</h3>
+    <p>
+      Three major releases arrived in rapid succession. Anthropic's <strong>Claude Sonnet 5</strong>
+      brings near-Opus 4.8 reasoning at introductory pricing of $2 per million input tokens through
+      August 31. OpenAI's <strong>GPT-5.6</strong> ships as a three-tier lineup — Sol at $5/$30 for
+      high-end reasoning, Terra at roughly half that, and Luna for fast, lightweight tasks.
+      Moonshot AI's <strong>Kimi K3</strong> is a 2.8-trillion-parameter sparse MoE model with native
+      text, image, and video understanding and a 1-million-token context window; open weights arrive
+      July 27. The takeaway from July: the race has shifted from "best model" to "best fit" —
+      price, speed, and specialization now matter as much as raw benchmark scores.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Huawei Claims Its New Supercluster Trounces Nvidia by 6.7x</h3>
+    <p>
+      Huawei unveiled the <strong>Atlas 950 SuperPoD</strong> today, linking 1,024 Ascend chips to
+      deliver 1 EFLOPS of FP8 compute and 2 EFLOPS of FP4. The company claims 6.7 times the compute
+      and 15 times the memory bandwidth of Nvidia's NVL144 rack — though independent benchmarks are
+      not yet available. The system is targeted for Q4 2026 availability. The announcement lands as
+      TSMC pledged an additional $100 billion for its Arizona expansion, pushing its total US
+      commitment to $265 billion across ten fabs and two packaging facilities and raising its 2026
+      capex guidance to $60–64 billion.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>EU Orders Google to Open Android — AI Assistants Get a Fair Shot</h3>
+    <p>
+      The European Commission issued binding Digital Markets Act requirements today directing Google
+      to open Android across 11 feature groups to rival AI assistants, granting them voice activation
+      and cross-app capabilities previously reserved for Google Assistant. Third-party assistants
+      including those from Anthropic, Meta, and OpenAI will gain access to Android's microphone and
+      system integrations. Search data sharing with competitors begins in January 2027, with full
+      Android interoperability required by July 2027. The ruling represents the most significant
+      regulatory intervention in the AI assistant market to date.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Overtakes OpenAI in Business Subscriptions — and Is Profitable a Year Early</h3>
+    <p>
+      Anthropic overtook OpenAI in business subscriptions in May and appears to be pulling ahead on
+      multiple commercial metrics. The company said in May it was on course for $47 billion in
+      annualized revenue — and would reach profitability by 2029, a year ahead of OpenAI's projected
+      timeline. Similarweb data shows monthly visits to ChatGPT fell below a majority of the
+      generative AI market for the first time in May. The competitive picture is shifting: the lab
+      that launched commercially later is winning enterprise deals, partly on the strength of its
+      safety reputation and partly on model quality.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepMind Scores Top 1% on the International Mathematical Olympiad</h3>
+    <p>
+      Google DeepMind's mathematical reasoning system achieved scores placing it in the top 1% of
+      human competitors on International Mathematical Olympiad problems — problems that require
+      genuine creative insight, not pattern matching. The result extends a run that began with
+      AlphaProof and AlphaMathematician in prior years, and is the first time an AI system has
+      reached elite-competition level on problems that test multi-step, open-ended mathematical
+      creativity. Researchers noted the system still struggles with problems requiring the invention
+      of entirely novel proof techniques not seen in its training data.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Anthropic's "J-Lens" Finds a Tiny Internal Workspace That Makes Models Reason</h3>
+    <p>
+      Anthropic researchers published results using a Jacobian-based interpretability technique they
+      call the J-lens to identify a small internal subspace of roughly <strong>25 active concepts</strong>
+      that behaves like the global workspace described in cognitive neuroscience theories of
+      consciousness. Ablating this subspace collapses multi-step reasoning entirely while leaving
+      fluency intact — the model still produces grammatical text but loses the ability to chain
+      logical steps. The finding is one of the most concrete mechanistic accounts of what "reasoning"
+      looks like inside a large language model, and has implications for both AI safety and the
+      interpretability research agenda more broadly.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>AI Safety Gets Its First Grades — and the Curve Is Failing</h3>
+    <p>
+      The Future of Life Institute released its 2026 AI Safety Index, grading the major frontier
+      labs on safety practices, transparency, and governance commitments. The highest grade awarded
+      was a <strong>C+</strong> to Anthropic; OpenAI and Google DeepMind both received a C. No lab
+      earned above a C+. The same week, the CEOs of all three labs published detailed regulatory
+      proposals within five weeks of each other — a notable convergence after years of divergence
+      on the question of AI governance. Whether the coordination reflects genuine alignment or
+      strategic positioning ahead of incoming legislation remains an open question.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>22 Japanese Robotics Firms Join NVIDIA's Open Physical AI Coalition</h3>
+    <p>
+      Twenty-two Japanese robotics and manufacturing companies announced they will join the NVIDIA
+      Cosmos Coalition to co-build open physical AI foundation models. The partners include major
+      industrial robotics makers who will contribute real-world manipulation data and manufacturing
+      sensor streams to train shared base models for physical AI. The announcement comes as
+      agentic AI — AI that can take actions, not just generate text — moves from experimental
+      deployments into paid commercial work at scale across logistics, manufacturing, and facilities
+      management.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The AI race has shifted from 'best model wins' to 'best fit wins' — price, speed, access, and day-to-day use now matter as much as raw scores."
+    </blockquote>
+    <cite>— LLM Stats analysis of July 2026 model releases</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>AI geopolitics is hardening into blocs.</strong>
+        A 29-country AI Cooperation Organization launched in Shanghai today while the EU tightens
+        access rules on Google and US labs converge on their first regulatory proposals. The AI
+        world is sorting itself into governance blocs — and the fractures are widening.
+      </li>
+      <li>
+        <strong>The frontier pricing floor just dropped again.</strong>
+        Sonnet 5 at $2/$10, GPT-5.6 Terra at roughly half Sol's price, Kimi K3 free with open weights
+        arriving July 27. Access is rapidly becoming a commodity — the bottleneck shifts to what you
+        build with it.
+      </li>
+      <li>
+        <strong>Hardware sovereignty is the new arms race.</strong>
+        Huawei claims 6.7x Nvidia compute in a self-contained supercluster. TSMC pledges $265B for
+        Arizona. Every major power is trying to own its own AI chip supply chain — and those
+        investments will compound for a decade.
+      </li>
+      <li>
+        <strong>Interpretability is moving from theory to mechanism.</strong>
+        Anthropic's J-lens finding — 25 concepts, ablate them and reasoning collapses — is the kind
+        of mechanistic result that makes AI safety engineering tractable. Expect more labs to
+        publish findings at this level of specificity in H2 2026.
+      </li>
+      <li>
+        <strong>Safety grades are failing — but at least there are grades now.</strong>
+        The FLI 2026 index is the first meaningful public scorecard for frontier labs. A C+ is not
+        good. But the existence of a grading system creates accountability pressure that didn't
+        exist a year ago. Watch for labs to race toward a B.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 20, 2026<br />
+      Issue No. 120
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; LLM Stats &middot; AI Weekly &middot;
+    ZoneTechify &middot; AIApps &middot; Fortune &middot; ThursdAI &middot; Axios &middot;
+    Price Per Token &middot; Raul Ji Technologies &middot; UN News &middot; Future of Life Institute
+  </div>
+
+</div>
+</body>
+</html>
