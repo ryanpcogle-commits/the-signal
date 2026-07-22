@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 22, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 122</span>
+    <span>July 22, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Anthropic Poaches AlphaFold's Creator and Launches Claude Science to Disrupt Drug Discovery</h2>
+    <p class="deck">
+      With a $400 million biotech acquisition and the hire of Nobel laureate John Jumper,
+      Anthropic has opened a direct assault on the one frontier DeepMind has owned for a decade.
+    </p>
+    <p>
+      Anthropic launched <strong>Claude Science</strong> this week — a suite of AI tools targeting
+      life sciences research, drug discovery, and biomedical R&amp;D. The product is built on two
+      major moves: the acquisition of Coefficient Bio for approximately $400 million, and the
+      high-profile hire of <strong>John Jumper</strong>, the researcher who led Google DeepMind's
+      AlphaFold team and won the 2024 Nobel Prize in Chemistry for his work on protein structure
+      prediction.
+    </p>
+    <p>
+      CEO Dario Amodei has been vocal about his ambition to compress decades of life sciences R&amp;D
+      into years using AI. Claude Science is the operational bet on that thesis — offering tools
+      designed for lab automation, literature synthesis, and molecular design workflows. Anthropic has
+      been quietly building this capability for months, and analysts say DeepMind — which pioneered
+      AI in structural biology — now finds itself playing catch-up in the very field it invented.
+    </p>
+    <p>
+      The defection of Jumper is more than symbolic. AlphaFold's static protein structure prediction
+      transformed biology; the next leap is predicting how proteins <em>move</em> over time. Multiple
+      research groups published this week on AI for protein dynamics, and Anthropic has positioned
+      Claude Science to sit at the center of that emerging capability — arriving at exactly the right
+      moment.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$400M</span>
+      <div class="num-label">Anthropic's price for Coefficient Bio — its largest acquisition</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">2.8T</span>
+      <div class="num-label">Parameters in Kimi K3 — the largest open-weight model ever attempted</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">Top 1%</span>
+      <div class="num-label">DeepMind's math AI score on International Mathematical Olympiad problems</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google Releases Three Gemini Models and Starts Training Gemini 4</h3>
+    <p>
+      Google released <strong>Gemini 3.6 Flash</strong>, <strong>Gemini 3.5 Flash-Lite</strong>, and
+      <strong>Gemini 3.5 Flash Cyber</strong> on July 21. The flagship 3.6 Flash arrives at $1.50 input /
+      $7.50 output per million tokens with Computer Use built in and 17% fewer output tokens than its
+      predecessor — a meaningful cost improvement. Flash-Lite undercuts at $0.30/$2.50/M for
+      high-volume workloads. Flash Cyber is a security-tuned variant restricted to government and
+      enterprise partners. More significantly, Google confirmed it has started its most ambitious
+      pretraining run yet for Gemini 4, even as Gemini 3.5 Pro — the company's flagship model —
+      remains unreleased after missing multiple target dates.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepSeek V4 Drops Thursday — Open Kimi K3 Follows Sunday</h3>
+    <p>
+      Two of the most anticipated open-weight model releases of the year arrive within days of each
+      other. <strong>DeepSeek V4</strong> is scheduled for July 24, and <strong>Kimi K3</strong> from
+      Moonshot AI releases open weights on July 27. Kimi K3 is a 2.8-trillion-parameter frontier model
+      with a 1-million-token context window and native vision — the largest open-weight model yet
+      attempted by any lab. DeepSeek also separately disclosed it is designing custom inference silicon
+      to reduce its dependence on Nvidia and Huawei chips, a move that could dramatically shift open-source
+      AI economics if it succeeds.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Three Frontier Models in 24 Hours Trigger Inference Price War</h3>
+    <p>
+      <strong>GPT-5.6</strong> (OpenAI), <strong>Grok 4.5</strong> (xAI), and <strong>Muse Spark 1.1</strong>
+      (Meta) all launched within a 24-hour window earlier this month, triggering a wave of competitive
+      repricing across the industry. Inference costs are now at historically low levels, with agentic AI
+      moving from pilot projects into paid production workloads. Separately, OpenAI has proposed granting
+      a 5% equity stake to the U.S. government and announced a $25 billion data center project in Texas —
+      moves analysts read as the company laying groundwork for its anticipated IPO filing. Anthropic is
+      reported to be preparing a similar raise of tens of billions.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic's Fable 5 and Mythos 5 Go Global After Export Controls Lifted</h3>
+    <p>
+      The Trump administration lifted previous export restrictions on Anthropic's top-tier
+      <strong>Fable 5</strong> and <strong>Mythos 5</strong> models after the company implemented
+      new cybersecurity guardrails and reportedly reached a compliance agreement with the White House.
+      The move opens major international markets to Anthropic for the first time, a significant
+      commercial unlock that had been blocked since the models launched. The policy reversal follows
+      broader U.S. government pressure on AI labs to build safeguards that preserve export access
+      without compromising national security.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Research</span>
+    <h3>DeepMind's Math AI Scores in the Top 1% on Olympiad Problems</h3>
+    <p>
+      Google DeepMind's latest mathematical reasoning system achieved a score placing it in the
+      top 1% of human participants on International Mathematical Olympiad problems — the hardest
+      formal math competition in the world. The result marks a sharp capability step from earlier
+      AI math solvers, which could handle structured problems but struggled with the open-ended,
+      multi-step proofs that IMO requires. A separate research result published this week introduced
+      "selective activation sparsity," a training method that teaches models to activate only the most
+      relevant parameters for each task — a potential path to dramatically more efficient frontier models.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Meta's AI Moderation Beats Human Reviewers — But Is Deleting Real Accounts</h3>
+    <p>
+      Meta reported that its AI content moderation system now produces <strong>13% fewer errors</strong>
+      and catches <strong>10% more policy violations</strong> than its human moderation teams across
+      Instagram and Facebook. The numbers represent a genuine capability milestone for automated content
+      enforcement at scale. However, a growing number of users report that the system has incorrectly
+      deleted their accounts — a failure mode that is difficult to appeal and has no human backstop.
+      The case is becoming a real-world test of whether accuracy statistics alone are the right measure
+      for high-stakes automated decisions affecting millions of people.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Substack Partners with Pangram for AI Content Detection</h3>
+    <p>
+      Substack announced a partnership with Pangram Labs to offer in-platform AI detection for
+      posts over 100 words — giving readers an estimate of how much of a piece was AI-generated.
+      The feature is opt-in and framed as a transparency tool rather than an enforcement mechanism.
+      The move reflects growing reader demand for disclosure norms as AI writing becomes indistinguishable
+      from human prose at the surface level. South Korea separately announced plans for a national
+      free AI access program, signaling that government-provided AI infrastructure is moving from
+      concept to policy in multiple countries simultaneously.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The goal is to compress decades of life sciences R&amp;D into years. AI is how we get there."
+    </blockquote>
+    <cite>— Dario Amodei, CEO, Anthropic</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>AI is going after biology's hardest problems.</strong>
+        Anthropic's move into drug discovery — backed by the AlphaFold founder — signals that the
+        most consequential AI bets are now in life sciences, not just software. DeepMind's decade-long
+        head start in structural biology is under direct competitive pressure for the first time.
+      </li>
+      <li>
+        <strong>Open-weight models are entering frontier territory.</strong>
+        Kimi K3's 2.8 trillion parameters and Kimi's open release policy challenge the assumption
+        that frontier-scale models are proprietary by necessity. If open weights perform at this level,
+        the competitive moat for closed models narrows considerably.
+      </li>
+      <li>
+        <strong>Inference is becoming a commodity.</strong>
+        Three top-tier models launching in 24 hours, price wars across all major providers, and
+        inference costs at historic lows mean the value is shifting from model access to application
+        quality, data, and workflow integration.
+      </li>
+      <li>
+        <strong>AI accuracy metrics are not the same as AI trustworthiness.</strong>
+        Meta's moderation system outperforms humans on every headline metric — and is still incorrectly
+        deleting real accounts. As AI replaces high-stakes human decisions, precision statistics
+        alone are proving to be insufficient accountability frameworks.
+      </li>
+      <li>
+        <strong>Mathematical reasoning is the new benchmark frontier.</strong>
+        IMO top-1% performance from DeepMind's math system suggests that formal reasoning capabilities
+        are advancing faster than general intelligence benchmarks have captured. Expect this to unlock
+        new applications in science, engineering, and formal verification.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 22, 2026<br />
+      Issue No. 122
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; AI Tools Recap &middot; LLM Stats &middot;
+    ThursdAI &middot; Fortune &middot; Distill Intelligence &middot; Skycrumbs Blog &middot;
+    KERSAI &middot; Manifold Markets &middot; AI Flash Report &middot; Crescendo AI &middot;
+    inews.zoombangla.com
+  </div>
+
+</div>
+</body>
+</html>
