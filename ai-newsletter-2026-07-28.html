@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 28, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 128</span>
+    <span>July 28, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>July 2026 Was the Most Intense Month in AI History — and It's Not Over Yet</h2>
+    <p class="deck">
+      GPT-5.6, Grok 4.5, Claude Sonnet 5, and Kimi K3 all landed within weeks of each other. A model now ships
+      every two days on average. The race has shifted from raw size to useful, cheap, and reliable.
+    </p>
+    <p>
+      July 2026 will be remembered as the month AI stopped competing on benchmarks and started competing on economics.
+      OpenAI released GPT-5.6 Terra and Sol on July 9. xAI followed with Grok 4.5 within days. Anthropic shipped
+      Claude Sonnet 5 on July 24 with stronger coding, tool use, and debugging — at a lower price point than its
+      predecessor. And Moonshot AI dropped open weights for Kimi K3 on July 16, making what may be the largest
+      freely downloadable model ever released.
+    </p>
+    <p>
+      The Grok 4.5–GPT-5.6–Muse Spark trifecta triggered a full-scale price war when SpaceXAI, OpenAI, and Meta
+      shipped competing flagships within a 24-hour window. Inference costs for capable frontier models dropped
+      dramatically in a single week. The pattern is now clear: every new entrant uses pricing as a weapon.
+    </p>
+    <p>
+      Google joined the fray with Gemini 3.6 Flash, priced at $1.50/$7.50 per million tokens, 17% more token-efficient
+      than its predecessor, and with Computer Use built in as a standard feature. A companion Gemini 3.5 Flash-Lite
+      arrived at just $0.30/$2.50 per million tokens — cheap enough to deploy in workflows where cost was previously
+      prohibitive. The message from every major lab this month: the model is no longer the moat; the price floor is.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">2 days</span>
+      <div class="num-label">Average cadence of new AI model releases in July 2026</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$500B</span>
+      <div class="num-label">Potential total cost of the SoftBank–OpenAI Ohio data center campus</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$400M</span>
+      <div class="num-label">Anthropic's all-stock acquisition of Coefficient Bio</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Nvidia Is Guaranteeing $250 Billion So OpenAI Can Build a 10-Gigawatt Data Center</h3>
+    <p>
+      Nvidia is in advanced talks to provide roughly $250 billion in financing guarantees so OpenAI can lease
+      a 10-gigawatt data center campus that SoftBank is building on a former uranium enrichment site in Ohio.
+      The full campus — one of the largest infrastructure projects in American history — could ultimately cost
+      $500 billion. The deal signals that AI compute is now considered critical national infrastructure, with
+      chip suppliers, cloud providers, and AI labs merging their capital structures in ways previously reserved
+      for sovereign wealth funds.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Kimi K3's Open Weights Are Live — The Largest Free-to-Download Model Ever</h3>
+    <p>
+      Moonshot AI released the open weights for Kimi K3 on July 16, making the model freely downloadable
+      for research and commercial use. By parameter count, K3 is the largest open-weight model ever released —
+      surpassing Meta's Llama 4 family and Mistral's entire lineup. Researchers who previously needed API
+      access to a closed frontier model can now run a comparable system locally. The move mirrors the strategic
+      logic DeepSeek used in early 2025: use openness as a distribution weapon against closed-model incumbents.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Bought a Biotech Startup and Hired the AlphaFold Nobel Laureate</h3>
+    <p>
+      Anthropic acquired Coefficient Bio, a computational biology startup, for approximately $400 million in
+      all-stock — and hired <strong>John Jumper</strong>, who led the AlphaFold team at Google DeepMind and
+      shared the 2024 Nobel Prize in Chemistry. CEO Dario Amodei has stated the goal plainly: use AI to compress
+      life sciences R&D cycles by a factor of 10. The resulting Claude Science product now competes directly
+      with OpenAI's GPT-Rosalind, which launched in April 2026, and Google DeepMind's Isomorphic Labs spinout.
+      All three frontier labs are now building dedicated AI drug-discovery divisions.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>DeepMind's Math AI Scores in the Top 1% on International Olympiad Problems</h3>
+    <p>
+      Google DeepMind's latest mathematical reasoning system scored in the top 1% on International Mathematical
+      Olympiad problems this month — a benchmark that has historically been seen as far beyond current AI
+      capabilities. The result follows last year's AlphaProof work and suggests that formal mathematical reasoning
+      is crossing a threshold where AI systems can meaningfully contribute to unsolved problems. Separately,
+      a Cambridge University research team published results showing an AI-designed vaccine component
+      completed its first-phase human trials with a clean safety profile.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>AI Safety Index: The Entire Industry Gets a C+ or Worse</h3>
+    <p>
+      The Future of Life Institute's latest AI Safety Index found that leading AI developers have collectively
+      weakened or removed commitments to pause development when systems approach specified danger thresholds.
+      Anthropic ranked first among all labs — and received only a C+. OpenAI and Google DeepMind both received
+      C grades. The report concludes that commercial pressure and the competitive race have made safety
+      commitments structurally difficult to maintain, and calls on governments to mandate pause protocols rather
+      than relying on voluntary developer pledges.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Puts Gemini Robotics Inside Its Spot Robot</h3>
+    <p>
+      Boston Dynamics announced a partnership with Google Cloud and DeepMind to integrate Gemini Robotics-ER 1.6
+      into its Spot quadruped robot and Orbit AI visual inspection platform. The integration means Spot can now
+      interpret natural-language instructions, reason about its environment, and execute multi-step inspection
+      tasks autonomously — without pre-programmed waypoints. Boston Dynamics describes it as the moment Spot
+      went from a remote-controlled device to a reasoning machine. Enterprise deployments in oil, gas, and
+      construction are scheduled to begin in Q4 2026.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>DeepSeek Is Building Its Own Inference Chips to Break Free From Nvidia</h3>
+    <p>
+      DeepSeek announced plans to design custom inference silicon, citing the need to break free from dependence
+      on both Nvidia and Huawei chips amid ongoing export restrictions. The move follows a pattern set by Google
+      (TPUs), Amazon (Trainium/Inferentia), and Meta (MTIA): every lab that reaches sufficient scale eventually
+      concludes that commodity chips are too expensive and too geopolitically exposed. DeepSeek's chip program,
+      if successful, would make it the first Chinese AI lab with a fully sovereign hardware stack — an outcome
+      that US policy-makers have been specifically trying to prevent.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "July 2026 stands out because the industry stopped chasing raw model size and started optimizing for
+      usefulness, cost, and reliability."
+    </blockquote>
+    <cite>— LLM Stats, July 2026 Monthly Roundup</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Price, not performance, is now the primary competitive weapon.</strong>
+        Every major lab shipped price cuts alongside model improvements this month. The model is no longer
+        the moat — the cost floor is. Whoever can run inference cheapest will capture the enterprise market.
+      </li>
+      <li>
+        <strong>AI and biotech are merging into a single industry.</strong>
+        Anthropic's Coefficient Bio acquisition, OpenAI's GPT-Rosalind, and DeepMind's Isomorphic Labs are
+        all bets on the same thesis: AI can compress drug discovery from decades to years. The Nobel Prize in
+        Chemistry now belongs to an AI researcher. The convergence is real and accelerating.
+      </li>
+      <li>
+        <strong>Open weights are closing the gap with closed frontier models.</strong>
+        Kimi K3's release means researchers and companies without API budgets can now run near-frontier
+        capabilities locally. The calculus for AI startups — build on closed APIs or self-host — has shifted
+        meaningfully in the past 90 days.
+      </li>
+      <li>
+        <strong>AI infrastructure is becoming geopolitically critical.</strong>
+        A $500B data center on a former uranium site. DeepSeek building sovereign chips. Export controls
+        shaping which labs can access which hardware. AI compute is now treated like energy — a strategic
+        national resource that governments will fight to control.
+      </li>
+      <li>
+        <strong>Safety commitments are eroding under competitive pressure.</strong>
+        The best-ranked lab in the world's most credible AI safety index got a C+. When commercial
+        incentives and safety pledges conflict, the pledges are losing. Regulatory mandates — not voluntary
+        commitments — are the only mechanism the Future of Life Institute now considers credible.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 28, 2026<br />
+      Issue No. 128
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: LLM Stats &middot; Build Fast With AI &middot; AIToolsRecap &middot;
+    ZoneTechify &middot; ThursdAI &middot; MarketingProfs &middot; AI Flash Report &middot;
+    Future of Life Institute &middot; Skycrumbs &middot; KERSAI &middot; Raul Ji Technologies &middot;
+    dentro.de/ai &middot; inews.zoombangla
+  </div>
+
+</div>
+</body>
+</html>
