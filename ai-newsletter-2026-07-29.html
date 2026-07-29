@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · July 29, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 129</span>
+    <span>July 29, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>1,000 AI Scientists Break Ranks — and Ask Washington to Slow the Race Down</h2>
+    <p class="deck">
+      Senior researchers at OpenAI, Anthropic, and Google DeepMind signed a joint statement
+      urging the U.S. government to help deliberately pace automated AI development — a remarkable
+      act of self-restraint from inside the labs driving the race.
+    </p>
+    <p>
+      More than 1,000 employees at America's leading AI companies — including senior staff and
+      some co-founders at OpenAI, Anthropic, and Google DeepMind — signed a public statement this
+      month calling on the U.S. government to develop technical and policy tools capable of controlling
+      the pace of automated AI progress. The statement explicitly calls for international coordination
+      with other companies and countries, signaling that at least a significant fraction of the
+      industry's own workforce fears the speed of development is outrunning the ability to govern it.
+    </p>
+    <p>
+      The move is significant precisely because it is self-directed. These are not outside critics
+      or regulators raising alarms — they are the engineers, researchers, and product leads responsible
+      for building the systems in question. The statement stops short of calling for a moratorium,
+      instead asking for mechanisms that would allow coordinated slowdowns if risks materialize, with
+      international buy-in to prevent defection.
+    </p>
+    <p>
+      Whether Washington will respond in kind is far from certain. But the letter signals a widening
+      gap between what the industry publicly claims about AI safety and what a growing share of its own
+      workers privately believe. NBC News, which broke the story, described it as the most significant
+      internal dissent the AI industry has produced since the open letter era of 2023.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">1,000+</span>
+      <div class="num-label">AI employees who signed the industry pacing statement</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">Top 1%</span>
+      <div class="num-label">DeepMind math AI score on International Math Olympiad</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">C+</span>
+      <div class="num-label">Anthropic's FLI Safety Index grade — best of the major labs</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Drops Claude Opus 5 — The New Benchmark King</h3>
+    <p>
+      Anthropic released Claude Opus 5 on July 24, making it the most recent significant frontier
+      model release and the fastest-climbing model on coding and reasoning benchmarks. The release
+      positions Anthropic directly against OpenAI's GPT-5.6 family (Luna, Terra, and Sol — released
+      July 9) and Google's Gemini 3.6 Flash (July 21). The model emphasizes agent-style coding and
+      complex multi-step workflows, reflecting Anthropic's push into day-to-day business automation.
+      Claude Opus 5 also serves as the flagship for Anthropic's newly announced Claude Science
+      initiative, aimed at AI-accelerated scientific research.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>FLI Safety Index Grades the Big Labs — Nobody Gets High Marks</h3>
+    <p>
+      The Future of Life Institute released its AI Safety Index for July 2026, and the results are
+      sobering. Anthropic received the highest grade among major labs at C+. OpenAI and Google
+      DeepMind both received C. xAI — Elon Musk's AI company — received a failing grade. All four
+      companies were cited for "moving the goalposts on safety commitments" as competitive pressure
+      intensified. The index measures commitments to interpretability research, third-party auditing,
+      deployment restraint, and transparency on risk assessments. The grades arrive just as those same
+      labs' employees are publicly calling for pacing mechanisms.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Hires the Nobel Laureate Who Built AlphaFold</h3>
+    <p>
+      Anthropic announced this month that it hired <strong>John Jumper</strong> — who led the
+      AlphaFold team at Google DeepMind and shared the 2024 Nobel Prize in Chemistry for the work —
+      to lead its new Claude Science division. The hire signals Anthropic's intent to compete directly
+      with OpenAI's GPT-Rosalind and Google's Isomorphic Labs (DeepMind's drug discovery spinout) in
+      AI-accelerated scientific research. Jumper's lab will focus on applying Claude to protein
+      dynamics, drug discovery, and molecular simulation — areas where frontier AI is poised to
+      compress years of research into months.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Google DeepMind's Math AI Scores in the Top 1% on the International Math Olympiad</h3>
+    <p>
+      Google DeepMind's mathematical reasoning system achieved a score in the top 1% on International
+      Mathematical Olympiad problems — a landmark result because IMO problems require creative insight
+      and proof construction, not just pattern matching or calculation. This is qualitatively different
+      from earlier AI math results: the system isn't retrieving memorized proofs, it's generating
+      novel reasoning chains to solve problems it has not seen. Separately, multiple research teams
+      published work in July on AI predicting protein dynamics — how proteins change shape over time —
+      opening new doors in drug design and enzyme engineering.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>GPT-5.6, Grok 4.5, and Muse Spark 1.1 Ignite a Fierce Price War</h3>
+    <p>
+      OpenAI's GPT-5.6 family — three variants named Luna, Terra, and Sol — landed July 9, followed
+      within 24 hours by xAI's Grok 4.5 and Meta's Muse Spark 1.1. The nearly simultaneous release
+      of three flagship models from three major labs triggered an aggressive price war: inference
+      costs for capable frontier models have dropped to historically low levels in the weeks since.
+      July 2026 is shaping up as the month AI shifted from a capability race to an economics race —
+      with the competitive advantage shifting toward companies that can serve frontier intelligence
+      cheaply at scale.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Boston Dynamics Integrates Gemini Robotics Into Spot and Orbit</h3>
+    <p>
+      Boston Dynamics announced a partnership with Google Cloud and DeepMind to embed
+      <strong>Gemini Robotics-ER 1.6</strong> directly into its Spot robot dog and its Orbit AI
+      visual inspection platform. The integration means Spot can now handle open-vocabulary
+      inspection tasks — identifying anomalies it was never explicitly trained to find — and relay
+      structured reports via Orbit. The partnership accelerates what robotics researchers have called
+      "foundation model grounding": taking large multimodal AI and attaching it to hardware that
+      can act on what it perceives, without manual task programming for each new scenario.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>DeepSeek Announces Custom Inference Silicon — Breaking From Nvidia and Huawei</h3>
+    <p>
+      Chinese AI lab DeepSeek announced it is designing proprietary inference chips, aiming to break
+      free from dependence on both Nvidia's export-controlled GPUs and Huawei's Ascend processors.
+      The move reflects a broader trend: as inference becomes the dominant cost in AI deployment,
+      every major lab is evaluating custom silicon as a path to both cost efficiency and supply
+      security. Separately, low-energy photonic computing systems published in July suggest that
+      edge AI — running capable models locally without cloud infrastructure — may be closer than
+      industry consensus assumed, with potential implications for latency-sensitive applications and
+      markets where data sovereignty is a constraint.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "We are asking for mechanisms that would allow coordinated slowdowns if risks materialize — with international buy-in to prevent defection."
+    </blockquote>
+    <cite>— From the AI industry pacing statement, signed by 1,000+ employees at OpenAI, Anthropic, and Google DeepMind, July 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>The industry is starting to regulate itself — because it's afraid no one else will.</strong>
+        A thousand researchers signing a public letter asking for slowdowns is extraordinary. It signals
+        that safety concerns inside frontier labs are more acute than public communications suggest.
+      </li>
+      <li>
+        <strong>Scientific AI is the next major battleground.</strong>
+        Anthropic hiring the AlphaFold architect, OpenAI's GPT-Rosalind, Google's Isomorphic Labs —
+        the race to own AI-accelerated science is heating up fast. Drug discovery and protein dynamics
+        are the early focus; materials science and climate modeling are likely next.
+      </li>
+      <li>
+        <strong>Inference economics are compressing faster than anyone forecast.</strong>
+        The simultaneous release of GPT-5.6, Grok 4.5, and Muse Spark 1.1 in a single day
+        triggered a price war. The business model advantage now goes to whoever can serve frontier
+        AI cheapest — not just who can build the smartest model.
+      </li>
+      <li>
+        <strong>Custom silicon is no longer optional for frontier labs.</strong>
+        DeepSeek's chip announcement joins a long list: Meta's MTIA series, Google's TPUs, Amazon's
+        Trainium, Apple's AI cores. The era of "rent from Nvidia" is ending for any lab at scale.
+      </li>
+      <li>
+        <strong>Robots are finally getting real AI brains.</strong>
+        The Boston Dynamics / Gemini Robotics integration is an early sign of what happens when
+        foundation models meet general-purpose hardware. Open-vocabulary task understanding —
+        without per-task programming — is the unlock that makes robots broadly deployable.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      July 29, 2026<br />
+      Issue No. 129
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: NBC News &middot; LLM Stats &middot; ThursdAI &middot; AIToolsRecap &middot;
+    Future of Life Institute &middot; AI Release Tracker &middot; Skycrumbs Blog &middot; AIapps.com &middot;
+    dentro.de/ai &middot; Build Fast With AI &middot; KERSAI &middot; LLM Gateway
+  </div>
+
+</div>
+</body>
+</html>
