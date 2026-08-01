@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · August 1, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 132</span>
+    <span>August 1, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Claude Opus 5 Lands at the Top — and Costs Half as Much as the Model It Beat</h2>
+    <p class="deck">
+      Anthropic's latest flagship closed July by seizing the top spot on the Artificial Analysis
+      Intelligence Index, arriving within 0.5% of Fable 5's peak performance at exactly half the cost per task.
+    </p>
+    <p>
+      Anthropic shipped Claude Opus 5 on July 24, and the reception was immediate. On Artificial
+      Analysis's Intelligence Index — the benchmark tracking aggregated reasoning, coding, and
+      multimodal performance — Opus 5 climbed to first place, sitting within 0.5% of the record set
+      by Claude Fable 5 earlier this year. The pricing: $5 per million input tokens, $25 per million
+      output tokens, roughly half what Fable 5 commands on an equivalent workload.
+    </p>
+    <p>
+      The launch completes what Anthropic calls its "Claude 5 stack": Fable 5 for maximum capability
+      (limited availability), Opus 5 as the new frontier default, and Sonnet 5 as the mass-market
+      engine — deployed June 30 at introductory rates of $2/$10 per million tokens through August 31.
+      Sonnet 5 became the default model for every free and paid Claude user worldwide immediately
+      on launch.
+    </p>
+    <p>
+      The move reshapes the competitive calculus heading into August. OpenAI's GPT-5.6 Sol, Terra,
+      and Luna variants were already public, but Anthropic's three-tier stack now offers a credible
+      answer at every price point. For enterprise buyers, Opus 5 at $5/$25 is the most capable
+      model available at that cost — and the efficiency gap with OpenAI's flagship appears to be widening.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$5B</span>
+      <div class="num-label">AMD equity stake in Anthropic compute deal</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">2 GW</span>
+      <div class="num-label">Compute capacity from Anthropic–AMD agreement</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">750</span>
+      <div class="num-label">Tokens/sec — GPT-5.6 Sol on Cerebras hardware</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Anthropic Signs a 2-Gigawatt Compute Deal With AMD — and Gets $5B in Equity</h3>
+    <p>
+      In the largest compute procurement agreement of 2026, Anthropic and AMD struck a capacity
+      deal giving Anthropic access to up to 2 gigawatts of MI450 and Helios-generation compute.
+      The deal includes up to $5 billion in AMD equity, a structure that makes Anthropic a partial
+      stakeholder in the chipmaker building its infrastructure. The agreement reduces Anthropic's
+      exposure to NVIDIA supply constraints and signals that the frontier labs are actively
+      diversifying away from a single hardware vendor.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>US Government Rolls Out Voluntary AI Standards — Built Around Anthropic's Framework</h3>
+    <p>
+      August 1 marks the rollout of new voluntary AI standards for frontier labs under a White
+      House initiative, with Anthropic's existing framework agreement serving as the template that
+      other labs will be asked to adopt. The standards cover training data practices, safety
+      evaluations before model releases, and incident reporting. While voluntary, compliance is
+      expected to become a de facto requirement for federal contracts — giving Anthropic, which
+      helped draft the framework, a significant structural advantage in government procurement.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Clears Government Vetting for GPT-5.6 — and Retires o3 This Month</h3>
+    <p>
+      OpenAI's GPT-5.6 family (Sol, Terra, and Luna) became the first frontier models to complete
+      a customer-by-customer US government security review before going public. Sol, the fastest
+      variant, clocked 750 tokens per second on Cerebras hardware — a new record for frontier-class
+      inference throughput. Separately, OpenAI confirmed that the o3 reasoning model will be retired
+      from ChatGPT on August 26 following a 90-day sunset period, consolidating its reasoning
+      lineup around the newer o4 and o5 series.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Nobel Laureate John Jumper Leaves Google DeepMind for Anthropic</h3>
+    <p>
+      John Jumper — the researcher who led the development of AlphaFold 2 and won the 2024 Nobel
+      Prize in Chemistry — announced he is leaving Google DeepMind to join Anthropic. The departure
+      is the most high-profile in a series of defections that have raised questions about DeepMind's
+      ability to retain senior talent. Fortune reported this week that the exodus has "raised doubts
+      about Google's ability to win the AI race." Meanwhile, Gemini 3.5 Pro — the lab's next flagship
+      model — is now months behind its originally promised June launch date, with Google citing
+      enterprise feedback requiring further refinement.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>California Deploys Claude Across Every State Agency at a 50% Discount</h3>
+    <p>
+      Governor Gavin Newsom signed off on what the White House called the largest US state
+      government AI deployment to date: every California state agency and city and county government
+      will have access to Anthropic's Claude at a negotiated 50% discount. The rollout covers
+      hundreds of agencies and millions of public-sector employees. California becomes the first
+      state to standardize on a single frontier AI provider at this scale — a model other states
+      are already studying.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Claude Science Grants Are Open — $30K in API Credits Per Research Project</h3>
+    <p>
+      Anthropic's Claude Science program, which launched June 30, is now accepting applications
+      for its first cohort of up to 50 AI for Science projects. Each selected team receives up to
+      $30,000 in Claude API credits to apply frontier AI to scientific research — covering fields
+      from drug discovery to materials science and climate modeling. The program is Anthropic's
+      most concrete move into research infrastructure, positioning Claude as a tool for academic
+      and national-lab science alongside commercial enterprise use.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Alibaba Ships Qwen3.7 Flash — Open-Source, and Leading Efficiency Benchmarks</h3>
+    <p>
+      Alibaba released Qwen3.7 Flash on July 27, the latest in its fast-growing Qwen open-weights
+      series. The model leads open-source efficiency benchmarks — outperforming comparable
+      parameter-count models from Meta and Mistral on reasoning tasks — and ships under a permissive
+      license that allows commercial use. China's open-source AI output has accelerated sharply in
+      2026, with Qwen releases now arriving on a near-monthly cadence that is narrowing the gap
+      with Western frontier labs.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "The US and its allies must lead on AI — or cede that ground permanently."
+    </blockquote>
+    <cite>— Dario Amodei (Anthropic) &amp; Demis Hassabis (Google DeepMind), G7 joint statement, June 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Anthropic is winning the capability-per-dollar race.</strong>
+        Opus 5 at $5/$25 beating models twice its cost is a structural shift. If it holds, enterprise
+        buyers have little reason to pay the premium for competing flagships — and OpenAI's pricing
+        power narrows.
+      </li>
+      <li>
+        <strong>Compute is becoming a strategic asset, not a commodity.</strong>
+        The Anthropic-AMD 2 GW deal — including equity — is a sign that frontier labs are treating
+        compute access the way oil companies once treated reserves. Hardware diversification away from
+        NVIDIA is accelerating at every layer.
+      </li>
+      <li>
+        <strong>Google DeepMind's talent problem is structural, not cosmetic.</strong>
+        Losing a Nobel laureate and a string of senior researchers to rivals is not normal attrition.
+        Combined with Gemini 3.5's repeated delays, the question is no longer whether DeepMind is
+        slipping — it's how far.
+      </li>
+      <li>
+        <strong>Voluntary standards are the new regulatory front door.</strong>
+        Today's White House AI standards are voluntary — but they're modeled on Anthropic's framework
+        and will likely determine federal contract eligibility. Voluntary today means mandatory by 2027.
+      </li>
+      <li>
+        <strong>China's open-source cadence is compressing the frontier gap.</strong>
+        Qwen3.7 Flash marks another month of aggressive Alibaba releases. When open-weights Chinese
+        models rival Western closed models on efficiency, the "frontier advantage" of US labs shrinks
+        to the narrowest slice of the benchmark distribution.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      August 1, 2026<br />
+      Issue No. 132
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: LLM Stats &middot; Artificial Analysis &middot; CNBC &middot; Fortune &middot;
+    Axios &middot; ThursdAI &middot; QverLabs &middot; Build Fast With AI &middot; LLM Gateway &middot;
+    FelloAI &middot; PromptZone &middot; InfoWorld &middot; OpenAI Help Center
+  </div>
+
+</div>
+</body>
+</html>
