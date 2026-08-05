@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · August 5, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 136</span>
+    <span>August 5, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>OpenAI's Astra Solves 10 Open Math Problems — for $2,000</h2>
+    <p class="deck">
+      An internal version of OpenAI's next frontier model just did real, original mathematics that
+      had stumped human experts for decades. The cost: about two thousand dollars.
+    </p>
+    <p>
+      On August 1, OpenAI announced that an internal build of Astra — its next major model after
+      the GPT-5 family — solved ten open problems across mathematics and theoretical computer science.
+      The model published formal Lean proofs on GitHub, meaning the results are machine-verifiable,
+      not just plausible-sounding. This is not benchmark-gaming; these were genuine unsolved problems
+      chosen by domain experts.
+    </p>
+    <p>
+      The implications are hard to overstate. AI has beaten humans at chess, Go, and protein folding.
+      Those victories came in structured, known domains. Original mathematical problem-solving is
+      different: it requires recognizing which tools might apply, forming novel proof strategies, and
+      catching dead ends — the kind of creative reasoning that defines frontier research. If Astra can
+      do this at $2,000 a run, the economics of scientific discovery are about to shift fundamentally.
+    </p>
+    <p>
+      Separately, OpenAI cut the price of GPT-5.6 Luna by 80% this week — to $0.20 per million
+      input tokens — underscoring that the cost of intelligence is in freefall even as its ceiling
+      continues to rise.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$0.20</span>
+      <div class="num-label">GPT-5.6 Luna input price per million tokens after 80% cut</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">80.3%</span>
+      <div class="num-label">Claude Fable 5 score on SWE-Bench Pro — top coding result reported this month</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">1,200+</span>
+      <div class="num-label">AI lab employees who signed the "Pacing the Frontier" letter to slow AI development</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Anthropic Makes Claude Sonnet 5 the Default for Every Free and Pro User</h3>
+    <p>
+      Anthropic shipped Claude Sonnet 5 as its biggest mass-market model release of the year,
+      replacing the previous default for all Free and Pro users worldwide. The new model reportedly
+      performs close to the flagship Opus 4.8 on most tasks — including a 1-million-token context
+      window — while being offered at introductory pricing through the end of August. Claude Fable 5
+      also posted an 80.3% score on SWE-Bench Pro this month, among the highest coding benchmark
+      results reported by any lab.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>1,200 Lab Employees Ask the U.S. Government to Help Slow AI Development</h3>
+    <p>
+      More than 1,200 employees from OpenAI, Anthropic, Google DeepMind, and Meta signed an open
+      letter — titled "Pacing the Frontier" — urging the U.S. government to build tools capable of
+      deliberately slowing automated AI development if needed. The signatories include researchers
+      and engineers who work on the most powerful models in existence. The letter is striking not for
+      its policy asks but for its source: the people building the technology are publicly warning that
+      the pace may be outrunning humanity's ability to control it.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>White House Calls OpenAI, Anthropic, and Google to an AI Safety Meeting</h3>
+    <p>
+      The three dominant AI labs convened at the White House on August 3 for a formal AI safety
+      summit. The meeting came amid the broader "Pacing the Frontier" movement and growing
+      congressional interest in AI oversight legislation. No binding commitments were announced,
+      but the meeting signals that the administration is treating AI governance as a near-term
+      priority, not a long-horizon research problem.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>Anaconda Acquires Enkrypt AI — 143,000 MCP Server Vulnerabilities Found</h3>
+    <p>
+      Anaconda announced the acquisition of AI-security startup Enkrypt AI, folding its
+      pre-deployment red-teaming platform — covering 300+ attack categories — into the Anaconda
+      Platform. The deal's headline data point: Enkrypt's scanning found 143,000 vulnerabilities
+      across 73% of MCP servers it tested. As agentic AI infrastructure proliferates, enterprise
+      security tooling is rushing to catch up. Runtime guardrails and NIST/EU AI Act compliance
+      automation now come bundled with the platform.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>Rust Maintainers Ban LLM-Written Code — Sets New Open Source Precedent</h3>
+    <p>
+      The rust-lang/rust project published an official LLM policy on August 5 drawing a sharp
+      line: AI may "answer questions, analyze, distill, refine, check, suggest, review" but not
+      "create." PR authors must disclose any LLM use; LLM-generated code faces stricter testing
+      and scope requirements; non-compliant PRs can be closed without explanation. It is one of
+      the most explicit governance frameworks adopted by a major open-source project and is likely
+      to be cited as a template by other communities navigating the same question.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google DeepMind Loses John Jumper to Anthropic as Gemini 3.5 Slips</h3>
+    <p>
+      John Jumper — the Nobel Prize-winning researcher behind AlphaFold — has joined Anthropic,
+      the latest in a string of high-profile departures from Google DeepMind. Meanwhile, Google's
+      most powerful model in development, Gemini 3.5 Pro, is reported to be months behind schedule.
+      Axios described the delay as widening the gap with OpenAI and Anthropic. The talent exodus and
+      product delays are fueling questions inside the industry about whether DeepMind can maintain
+      its position as a genuine frontier lab.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>The August Model Stack: Qwen, DeepSeek, GPT-5.6, and More</h3>
+    <p>
+      The release calendar continues to compress. Qwen3.8-Max (Alibaba) shipped August 3 and
+      immediately topped several open-source reasoning benchmarks. DeepSeek-V4-Flash-0731 arrived
+      at the end of July optimized for speed. OpenAI's GPT-5.6 family now spans Sol, Terra, and
+      Luna variants — each tuned for different cost/performance tradeoffs. GPT-5.6 Luna is the
+      first frontier model to complete a customer-by-customer U.S. government security review before
+      public release. The trend: model families, not single releases, are now the competitive unit.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "LLMs may 'answer questions, analyze, distill, refine, check, suggest, review' — but not 'create.'"
+    </blockquote>
+    <cite>— rust-lang/rust maintainers, official LLM policy, August 5, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>AI is beginning to do original science.</strong>
+        Solving open math problems with verifiable proofs is categorically different from
+        benchmark performance. If Astra's results hold, the question of "when does AI contribute
+        to frontier research?" just moved from 2030 to now.
+      </li>
+      <li>
+        <strong>The cost of intelligence is in freefall.</strong>
+        GPT-5.6 Luna at $0.20/M tokens — down 80% — means high-volume AI applications that were
+        previously marginal are now economically viable. Price deflation is the accelerant the
+        adoption curve has been waiting for.
+      </li>
+      <li>
+        <strong>The people building AI are asking for the brakes.</strong>
+        When 1,200 engineers from the four most powerful AI labs in the world sign a letter asking
+        the government to build a kill switch, that is a signal worth taking seriously — regardless
+        of whether governments act on it.
+      </li>
+      <li>
+        <strong>MCP server security is an unresolved emergency.</strong>
+        143,000 vulnerabilities across 73% of tested servers is not a niche problem. As agents
+        proliferate and MCP becomes foundational infrastructure, unsecured servers become the
+        attack surface for every automated workflow built on top of them.
+      </li>
+      <li>
+        <strong>Google DeepMind's window may be closing.</strong>
+        Losing Jumper, slipping on Gemini 3.5, and watching rivals pull ahead on both speed and
+        talent: the lab that co-invented the Transformer is at risk of being lapped by the
+        companies it inspired. The next six months will be defining.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      August 5, 2026<br />
+      Issue No. 136
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Build Fast With AI &middot; LLM Stats &middot; AI Weekly &middot;
+    Radical Data Science &middot; LLM Gateway &middot; AI Release Tracker &middot; QverLabs &middot;
+    ThursdAI &middot; Fortune &middot; Axios &middot; Indianapolis Business Journal &middot; InfoWorld &middot; AIapps
+  </div>
+
+</div>
+</body>
+</html>
