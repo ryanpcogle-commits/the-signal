@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · August 8, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 139</span>
+    <span>August 8, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>Google's AI Power Shifts West — and Its Best Researchers Follow Rivals East</h2>
+    <p class="deck">
+      Google moved its AI command to Mountain View this week, demoting Demis Hassabis from day-to-day
+      control. Meanwhile, two of his most celebrated researchers quietly defected to OpenAI and Anthropic.
+    </p>
+    <p>
+      In a sweeping restructuring announced August 6, Google concentrated its artificial intelligence
+      leadership at its Mountain View, California campus, appointing <strong>Koray Kavukcuoglu</strong>
+      to run AI research and operations globally. <strong>Demis Hassabis</strong>, the Nobel laureate
+      who built DeepMind from a London startup into one of the world's premier research institutions,
+      stepped back from day-to-day management to become Chairman of Google DeepMind and Alphabet's
+      Chief Scientist — an elder-statesman role with reduced operational authority.
+    </p>
+    <p>
+      The internal shakeup arrived alongside a damaging talent signal: <strong>Noam Shazeer</strong>,
+      co-author of the original "Attention Is All You Need" paper that invented the Transformer
+      architecture, moved to OpenAI. And <strong>John Jumper</strong>, who led the AlphaFold project
+      that revolutionized protein-structure prediction and won a share of the 2024 Nobel Prize in
+      Chemistry, joined Anthropic. Losing two Nobel-tier contributors in the same week is a
+      reputational blow that no org chart reshuffling fully absorbs.
+    </p>
+    <p>
+      Bloomberg's reporting framed the California consolidation as Google's attempt to gain momentum
+      in its race against OpenAI and Anthropic — but critics note the move risks undermining the
+      scientific independence that made DeepMind exceptional. The Google shakeup "complicates" the
+      race, Bloomberg noted, precisely because it happened at the same moment its best people were
+      walking out the door.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">80.3%</span>
+      <div class="num-label">Claude Fable 5 on SWE-Bench Pro — top coding score of August</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">$0.20</span>
+      <div class="num-label">Per million input tokens for GPT-5.6 Luna — an 80% price cut</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">70B</span>
+      <div class="num-label">Parameter models now running entirely on mobile chips</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">This Week in AI</div>
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>OpenAI Cuts GPT-5.6 Luna Pricing by 80% — Frontier AI Gets Cheap</h3>
+    <p>
+      OpenAI slashed the price of GPT-5.6 Luna to $0.20 per million input tokens this week — an
+      80 percent reduction that makes frontier-quality AI accessible for large-scale workloads that
+      would have been economically unviable months ago. The move formalizes OpenAI's three-tier
+      strategy: Luna for high-volume, cost-sensitive tasks; Terra for balanced reasoning; and Sol
+      for the most demanding complex queries. Analysts see the price cut as a direct answer to
+      Anthropic's competitive pressure and as a bid to lock in enterprise API customers before
+      year-end contract cycles close.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Claude Fable 5 Scores 80.3% on SWE-Bench Pro, Sets August Coding High</h3>
+    <p>
+      Anthropic's Claude Fable 5 reached 80.3 percent on SWE-Bench Pro, the hardest publicly
+      available software-engineering benchmark, making it the top-reported coding score for the
+      month. The result signals that AI systems are now resolving real-world GitHub issues — not
+      toy examples — at a rate that challenges junior-to-mid-level engineering output. Anthropic
+      also noted that Fable 5's reasoning architecture allows it to decompose multi-step coding,
+      research, and operations tasks autonomously, positioning it directly against OpenAI's Sol tier.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>OpenAI, Anthropic, and Google Sit Down at the White House on AI Safety</h3>
+    <p>
+      On August 3, representatives from OpenAI, Anthropic, and Google attended a White House AI
+      safety summit — the first such convening since the Biden-era executive orders were partially
+      rolled back. Details of the agreements reached remain sparse, but sources familiar with the
+      discussions said the labs outlined voluntary reporting commitments for models above a
+      capability threshold. The meeting followed a joint letter cosigned by OpenAI, Anthropic,
+      Google DeepMind, Meta, and Thinking Machines urging governments and the industry itself to
+      "pace" AI development in response to concerns about rapid self-improvement capabilities.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-hardware">Hardware</span>
+    <h3>Your Phone Can Now Run a 70-Billion-Parameter Model — No Cloud Required</h3>
+    <p>
+      Apple's A20 Bionic and Qualcomm's Snapdragon 8 Gen 5 — shipping in devices this fall —
+      feature Neural Processing Units capable of running 70-billion-parameter models entirely
+      on-device. The milestone effectively means the compute wall between cloud and edge has
+      collapsed at the 70B class. Privacy-first applications, offline assistants, and
+      enterprise tools that cannot send data to external servers are all now unlocked. Analysts
+      predict on-device inference will account for 40 percent of all AI compute by late 2027,
+      fundamentally pressuring cloud API revenue models.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-infra">Infrastructure</span>
+    <h3>NAVER and NVIDIA Break Ground on 55-Megawatt Sovereign AI Center in South Korea</h3>
+    <p>
+      NAVER Cloud and NVIDIA announced a 55-megawatt sovereign AI data center outside Seoul,
+      the largest dedicated AI infrastructure project in South Korea's history. The facility
+      is designed to process Korean-language data without routing it through U.S. or European
+      cloud providers — a direct response to enterprise and government buyers who list data
+      residency and regional compute control as procurement requirements. The deal is part of
+      a broader NVIDIA "Sovereign AI" push in which it has now committed infrastructure
+      partnerships in 14 countries in 2026 alone.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Nine Model Releases in One Week: Alibaba, DeepSeek, Meta, and Others Flood August</h3>
+    <p>
+      The first seven days of August produced nine dated model releases across five calendar
+      dates, from at least four major vendors. The most notable: Alibaba's Qwen3.8 Max (August 2),
+      DeepSeek-V4-Flash-0731 (optimized for speed-sensitive agent pipelines), Meta Muse Spark 1.1
+      (a multimodal creative model), and Thinking Machines' Inkling (a lightweight reasoning
+      model aimed at embedded deployments). The pace signals that model differentiation is now
+      happening at the sub-month level — release windows that were once quarterly are now
+      compressed to days.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>AI Spend Tracking Is Now a Product: Rippling Launches AI Spend Console</h3>
+    <p>
+      HR and finance platform Rippling unveiled AI Spend Console this week — a tool that gives
+      companies visibility into per-employee and per-team AI subscription costs across OpenAI,
+      Anthropic, Google, and other providers. The product category didn't meaningfully exist
+      eighteen months ago; its arrival reflects how normalized and varied AI expenditures have
+      become inside large organizations. Rippling reported that enterprise AI spend tracking
+      requests have been its fastest-growing implementation category in 2026, with average per-seat
+      AI costs at monitored companies rising 340 percent year-over-year.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "Data residency, compute access, and regional control are now buying signals."
+    </blockquote>
+    <cite>— NVIDIA Sovereign AI Initiative, August 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Google's talent drain is the real story behind the reorg.</strong>
+        Moving leadership to California is a management decision. Losing Shazeer and Jumper —
+        two Nobel-linked researchers — in the same week is an institutional signal. The best
+        people follow interesting problems and winning cultures, not org charts.
+      </li>
+      <li>
+        <strong>Frontier AI is going commodity — fast.</strong>
+        GPT-5.6 Luna at $0.20 per million tokens is a 99%-plus reduction from where frontier
+        model pricing stood two years ago. When intelligence gets this cheap, the moat shifts
+        entirely to distribution, data, and trust.
+      </li>
+      <li>
+        <strong>On-device AI will break the cloud API model by 2027.</strong>
+        70B parameter models running on consumer chips is not a demo — it's the hardware
+        reality shipping this fall. Every cloud AI product that depends on data leaving the device
+        now has a structural competitor in the user's pocket.
+      </li>
+      <li>
+        <strong>Sovereign AI is the new data center sales motion.</strong>
+        NVIDIA's 14-country sovereign AI buildout in 2026 alone shows that "where does the data
+        live?" has become the enterprise and government procurement question. Whoever controls
+        regional compute wins regional trust.
+      </li>
+      <li>
+        <strong>The labs are quietly coordinating on pace — watch for formal agreements.</strong>
+        The White House meeting and the multi-lab "pace" letter suggest the frontier labs are
+        moving toward informal coordination on release cadence for the most capable systems.
+        That's a new dynamic that didn't exist a year ago.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      August 8, 2026<br />
+      Issue No. 139
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: Bloomberg &middot; Yahoo Finance &middot; Axios &middot; LLM Stats &middot;
+    Digital Applied &middot; BenchLM &middot; Build Fast With AI &middot; TechDG &middot;
+    LLM Gateway &middot; Latent Space &middot; FelloAI &middot; Cryptobriefing &middot; NVIDIA Newsroom
+  </div>
+
+</div>
+</body>
+</html>
