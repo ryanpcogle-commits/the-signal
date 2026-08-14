@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Signal — AI Newsletter · August 14, 2026</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #f0ede8;
+      font-family: 'Georgia', 'Times New Roman', serif;
+      color: #1a1a1a;
+      padding: 40px 16px 80px;
+    }
+
+    .wrapper {
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* ── HEADER ── */
+    .header {
+      border-top: 4px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 24px 0 20px;
+      margin-bottom: 36px;
+    }
+
+    .header-meta {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #666;
+      margin-bottom: 10px;
+    }
+
+    .header h1 {
+      font-size: 52px;
+      font-weight: 900;
+      letter-spacing: -2px;
+      line-height: 1;
+      color: #1a1a1a;
+    }
+
+    .header h1 span {
+      color: #d4380d;
+    }
+
+    .header-tagline {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 13px;
+      color: #555;
+      margin-top: 8px;
+      font-style: italic;
+    }
+
+    /* ── ISSUE STAMP ── */
+    .issue-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 10px 18px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 36px;
+    }
+
+    /* ── LEAD STORY ── */
+    .lead-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #d4380d;
+      margin-bottom: 8px;
+    }
+
+    .lead h2 {
+      font-size: 32px;
+      line-height: 1.15;
+      letter-spacing: -0.5px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .lead .deck {
+      font-size: 17px;
+      line-height: 1.6;
+      color: #333;
+      border-left: 3px solid #d4380d;
+      padding-left: 16px;
+      margin-bottom: 18px;
+      font-style: italic;
+    }
+
+    .lead p {
+      font-size: 15.5px;
+      line-height: 1.75;
+      color: #222;
+      margin-bottom: 14px;
+    }
+
+    /* ── DIVIDER ── */
+    .divider {
+      border: none;
+      border-top: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .divider-bold {
+      border: none;
+      border-top: 2px solid #1a1a1a;
+      margin: 40px 0 32px;
+    }
+
+    /* ── SECTION HEADING ── */
+    .section-heading {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-weight: 700;
+      color: #888;
+      margin-bottom: 20px;
+    }
+
+    /* ── STORY CARDS ── */
+    .story {
+      margin-bottom: 28px;
+    }
+
+    .story h3 {
+      font-size: 20px;
+      line-height: 1.25;
+      font-weight: 700;
+      margin-bottom: 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .story p {
+      font-size: 14.5px;
+      line-height: 1.7;
+      color: #333;
+    }
+
+    .story .tag {
+      display: inline-block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 2px;
+      margin-bottom: 8px;
+    }
+
+    .tag-model    { background: #e8f4fd; color: #1a6b9a; }
+    .tag-infra    { background: #f6ffed; color: #2d7738; }
+    .tag-policy   { background: #fff7e6; color: #b35a00; }
+    .tag-hardware { background: #f9f0ff; color: #6b21a8; }
+    .tag-business { background: #fff1f0; color: #cf1322; }
+    .tag-robotics { background: #e6fffb; color: #006d75; }
+
+    /* ── PATTERNS BOX ── */
+    .patterns-box {
+      background: #1a1a1a;
+      color: #f0ede8;
+      padding: 28px 32px;
+      margin: 36px 0;
+    }
+
+    .patterns-box h3 {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: #d4380d;
+      margin-bottom: 18px;
+    }
+
+    .patterns-box ol {
+      padding-left: 20px;
+    }
+
+    .patterns-box li {
+      font-size: 14px;
+      line-height: 1.65;
+      margin-bottom: 12px;
+      color: #e8e4df;
+    }
+
+    .patterns-box li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 2px;
+    }
+
+    /* ── NUMBERS BAR ── */
+    .numbers-bar {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: #ccc;
+      border: 1px solid #ccc;
+      margin: 36px 0;
+    }
+
+    .number-cell {
+      background: #fff;
+      padding: 20px 16px;
+      text-align: center;
+    }
+
+    .number-cell .num {
+      font-size: 32px;
+      font-weight: 900;
+      letter-spacing: -1px;
+      color: #d4380d;
+      display: block;
+      line-height: 1;
+    }
+
+    .number-cell .num-label {
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #666;
+      margin-top: 6px;
+      line-height: 1.3;
+    }
+
+    /* ── QUOTE BLOCK ── */
+    .pull-quote {
+      border-top: 3px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+      padding: 20px 0;
+      margin: 32px 0;
+    }
+
+    .pull-quote blockquote {
+      font-size: 22px;
+      line-height: 1.35;
+      font-style: italic;
+      font-weight: 700;
+      letter-spacing: -0.3px;
+    }
+
+    .pull-quote cite {
+      display: block;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #888;
+      margin-top: 10px;
+      font-style: normal;
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 2px solid #1a1a1a;
+      padding-top: 20px;
+      margin-top: 50px;
+      font-family: 'Helvetica Neue', Arial, sans-serif;
+      font-size: 11px;
+      color: #888;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .footer-sources {
+      font-size: 10px;
+      color: #aaa;
+      margin-top: 16px;
+      line-height: 1.6;
+    }
+
+    @media (max-width: 520px) {
+      .header h1 { font-size: 36px; }
+      .lead h2 { font-size: 24px; }
+      .numbers-bar { grid-template-columns: 1fr; }
+      .footer { flex-direction: column; }
+      .issue-bar { flex-direction: column; gap: 4px; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+<div class="wrapper">
+
+  <!-- HEADER -->
+  <header class="header">
+    <div class="header-meta">Your daily briefing on artificial intelligence</div>
+    <h1>The <span>Signal</span></h1>
+    <div class="header-tagline">What actually matters in AI — curated, not clickbait.</div>
+  </header>
+
+  <div class="issue-bar">
+    <span>Issue No. 145</span>
+    <span>August 14, 2026</span>
+    <span>AI News &amp; Announcements</span>
+  </div>
+
+  <!-- LEAD STORY -->
+  <article class="lead">
+    <div class="lead-label">Lead Story</div>
+    <h2>OpenAI Goes Ultrafast — and Triggers a Full-Scale AI Price War</h2>
+    <p class="deck">
+      With a new API tier that runs GPT-5.6 at 750 tokens per second and an 80% price cut on its
+      cheapest model, OpenAI has forced every rival to answer the same uncomfortable question: how fast is fast enough?
+    </p>
+    <p>
+      OpenAI launched <strong>Ultrafast</strong> today — a new API service tier built on Cerebras hardware
+      that runs GPT-5.6 Sol up to 14 times faster than standard processing, generating up to 750 output
+      tokens per second. The announcement positions raw inference speed, not just capability, as the next
+      competitive frontier. At that velocity, conversational AI begins to feel less like a tool and more
+      like a colleague who thinks at human pace.
+    </p>
+    <p>
+      Simultaneously, OpenAI slashed the price of GPT-5.6 Luna — its most accessible model tier — by 80%,
+      to just $0.20 per million input tokens. The move is a direct shot at startups and automation-heavy
+      workflows that have been priced out of frontier-quality AI. OpenAI's lineup now cleanly spans three
+      tiers: Luna (cheap, high-volume), Terra (mid-tier), and Sol (complex reasoning), each optimized for
+      a distinct use case.
+    </p>
+    <p>
+      The industry is watching DeepSeek's response with particular interest: unlike the incumbents, DeepSeek
+      has been <em>raising</em> prices this month, betting that quality commands premium. With Big Tech's
+      aggregate AI purchase commitments approaching $1.5 trillion, the pricing war's ultimate winners will
+      be companies that own the infrastructure — not just the models running on it.
+    </p>
+  </article>
+
+  <hr class="divider-bold" />
+
+  <!-- NUMBERS -->
+  <div class="numbers-bar">
+    <div class="number-cell">
+      <span class="num">$71B</span>
+      <div class="num-label">Anthropic compute commitments locked in</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">1B</span>
+      <div class="num-label">ChatGPT weekly active users, crossed this month</div>
+    </div>
+    <div class="number-cell">
+      <span class="num">80.3%</span>
+      <div class="num-label">Claude Fable 5 on SWE-Bench Pro — top coding score</div>
+    </div>
+  </div>
+
+  <hr class="divider" />
+
+  <!-- MORE STORIES -->
+  <div class="section-heading">Today in AI</div>
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Google's AI Empire Gets a New Boss — Hassabis Steps Back</h3>
+    <p>
+      Google restructured the leadership of its AI operations this week, concentrating power at its
+      Mountain View, California headquarters. <strong>Koray Kavukcuoglu</strong>, who relocated to
+      Mountain View last year, has been appointed to run Google DeepMind's sprawling AI research and
+      operations. Meanwhile, co-founder <strong>Demis Hassabis</strong> transitions to chairman of
+      Google DeepMind and Alphabet's Chief Scientist — a strategic role rather than an operational one.
+      The reshuffle caps a turbulent stretch: legendary chief scientist <strong>Jeff Dean</strong> departed
+      after 27 years at Google to launch a new company called Discovery Loop alongside several senior researchers.
+      Google has not unveiled a frontier model since early 2026, and the new leadership inherits the task
+      of catching up to OpenAI and Anthropic.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-business">Business</span>
+    <h3>Anthropic Locks In $71 Billion in Compute — Claude Fable 5 Tops Coding Charts</h3>
+    <p>
+      Anthropic revealed it has secured roughly $71 billion in compute commitments, an extraordinary
+      infrastructure bet that signals the company intends to remain at the frontier regardless of
+      near-term revenue. On the model side, <strong>Claude Fable 5</strong> posted an 80.3% score on
+      SWE-Bench Pro — one of the highest coding-benchmark results reported this month — reinforcing
+      Anthropic's position as the preferred AI for software engineering workflows. Separately, Anthropic
+      updated Claude Code to operate autonomously on multi-step tasks unless a step is assessed as
+      irreversible, destructive, or outside the user's own environment, and removed the safety-check
+      surcharge for Pro, Max, and Team subscribers.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>August's Model Avalanche: 10+ Releases in Two Weeks</h3>
+    <p>
+      August 2026 is shaping up as one of the busiest model-release months on record. Google shipped
+      <strong>Gemini 3.7 Flash</strong> yesterday (August 13). DeepSeek dropped <strong>DeepSeek-V4-Pro-0813</strong>
+      the same day. Earlier in the month: <strong>Grok 4.6</strong> from xAI (August 6),
+      <strong>Muse Spark 1.2</strong> from Meta (August 6), and <strong>Qwen3.8 Max</strong> from
+      Alibaba (August 2). With Apple quietly training a China-specific model in partnership with Alibaba,
+      and smaller labs shipping Seed 2.1 Turbo and other variants, the total stands at more than ten new
+      models in fourteen days — a pace that is straining evaluation and deployment pipelines across the industry.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>ChatGPT Crosses One Billion Weekly Active Users</h3>
+    <p>
+      OpenAI confirmed that ChatGPT surpassed roughly one billion weekly active users in early August —
+      a milestone that took social media giants years longer to reach. The figure reflects both the
+      explosive growth of consumer AI adoption and the platform's expansion into enterprise and education
+      channels globally. For context: it took Facebook nearly a decade to reach one billion monthly active users;
+      ChatGPT cleared a billion on a weekly basis in under three years from public launch.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-policy">Policy</span>
+    <h3>The Regulatory Clock Ran Out: EU AI Act and California SB 942 Now Have Teeth</h3>
+    <p>
+      August 2 marked the enforcement date for two major AI disclosure frameworks: <strong>EU AI Act
+      Article 50</strong> duties — requiring watermarking and labeling of AI-generated content across
+      member states — and California's <strong>SB 942</strong>, which mandates that AI systems capable
+      of generating synthetic content must disclose that capability to users. Companies that shipped products
+      without compliance frameworks spent the preceding weeks in scramble mode. Legal teams across the
+      industry are now treating AI disclosure as a first-class engineering requirement, not an afterthought.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-model">Models</span>
+    <h3>Diagnostic AI Gets Its Autonomy License — Doctors No Longer Required on Every Call</h3>
+    <p>
+      A new class of autonomous diagnostic AI tools received regulatory approval for specific clinical uses
+      this month, including independently flagging cases of <strong>diabetic retinopathy</strong> and
+      early-stage skin conditions — without a physician making the final call. This marks a meaningful shift
+      from the previous approval paradigm, where AI could only assist a human reviewer. The approvals are
+      narrow and condition-specific, but they establish the legal and regulatory precedent for AI systems
+      that act, not just advise, in healthcare settings.
+    </p>
+  </article>
+
+  <hr class="divider" />
+
+  <article class="story">
+    <span class="tag tag-robotics">Robotics</span>
+    <h3>Uber and Pony.ai to Deploy 2,000+ Robotaxis Across Europe</h3>
+    <p>
+      Uber and autonomous vehicle company <strong>Pony.ai</strong> are preparing to put more than 2,000
+      robotaxis on European roads, in what would be the largest robotaxi deployment outside China. The
+      announcement comes as SMIC raises chip prices amid near-capacity factory utilization — a reminder
+      that the physical infrastructure supporting AI's real-world expansion is under significant strain.
+      European cities have been slower than their American and Chinese counterparts to authorize autonomous
+      vehicle operations at scale, making the Uber-Pony.ai rollout a closely watched regulatory test case.
+    </p>
+  </article>
+
+  <!-- PULL QUOTE -->
+  <div class="pull-quote">
+    <blockquote>
+      "OpenAI and Anthropic are cutting prices while DeepSeek is raising them — faster inference is becoming a competitive weapon."
+    </blockquote>
+    <cite>— AI industry analysis, August 14, 2026</cite>
+  </div>
+
+  <!-- PATTERNS -->
+  <div class="patterns-box">
+    <h3>5 Patterns Worth Watching</h3>
+    <ol>
+      <li>
+        <strong>Inference speed is the new benchmark.</strong>
+        OpenAI's 750-token-per-second Ultrafast tier signals that deployment velocity is now a product
+        differentiator. Raw capability matters less if a slower model frustrates users at runtime.
+      </li>
+      <li>
+        <strong>Google is fighting from behind.</strong>
+        No frontier model since early 2026, a leadership reshuffle, and Jeff Dean's departure after 27 years
+        are not the profile of a company in command. The new boss at Google DeepMind has an enormous gap to close.
+      </li>
+      <li>
+        <strong>$1.5 trillion in commitments makes AI infrastructure geopolitical.</strong>
+        When aggregate Big Tech AI spending approaches the GDP of a mid-sized nation, the supply chains,
+        chip fabs, and data centers behind those commitments become strategic assets — not just business decisions.
+      </li>
+      <li>
+        <strong>Regulation finally has enforcement dates.</strong>
+        EU AI Act Article 50 and California SB 942 are live. The companies that treated compliance as
+        theoretical are now learning what real deadlines cost. Expect a wave of product retrofits in Q3.
+      </li>
+      <li>
+        <strong>Healthcare AI is crossing from advisory to autonomous.</strong>
+        Approvals for AI that independently flags conditions — not just assists a doctor — set a precedent
+        that will accelerate similar applications in radiology, pathology, and triage within 18 months.
+      </li>
+    </ol>
+  </div>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div>
+      <strong>The Signal</strong><br />
+      A personal AI newsletter
+    </div>
+    <div style="text-align: right;">
+      August 14, 2026<br />
+      Issue No. 145
+    </div>
+  </footer>
+
+  <div class="footer-sources">
+    Research synthesized from: TechStartups &middot; NeuralBuddies &middot; Build Fast With AI &middot;
+    Bloomberg &middot; CNBC &middot; LLM Stats &middot; Digital Applied &middot; AI Release Tracker &middot;
+    AIapps &middot; AI Trends Setter &middot; Artificial Intelligence News
+  </div>
+
+</div>
+</body>
+</html>
